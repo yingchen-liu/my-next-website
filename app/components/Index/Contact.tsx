@@ -8,7 +8,7 @@ function Contact() {
         <Paragraph className="md:w-2/3 text-center">
           I am passionate about crafting impactful products and streamlining
           workflows, positioning myself as a premier tech talent eager to take
-          on your next significant project. Let's connect and discover how I can
+          on your next significant project. Let&apos;s connect and discover how I can
           add value to your success.
         </Paragraph>
       </div>

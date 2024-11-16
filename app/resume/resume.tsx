@@ -15,7 +15,7 @@ function Experience({
   type: string;
   time: string;
   company: string;
-  children: any;
+  children: React.ReactNode;
 }) {
   return (
     <div className="mb-5">
@@ -46,7 +46,7 @@ function Link({
   href?: string;
   onClick?: () => void;
   className?: string;
-  children: any;
+  children: React.ReactNode;
   invert?: boolean;
 }) {
   return (
@@ -217,7 +217,7 @@ export default function Resume() {
                 <ul className="list-disc ml-5 mt-1">
                   <li>
                     Trained a ticket classification model with Python and Pandas
-                    on GCP Vertex AI, integrated with Lendlease's ServiceNow
+                    on GCP Vertex AI, integrated with Lendlease&apos;s ServiceNow
                     using a Python backend and GCP Pub/Sub, reducing the need
                     for 30 staff members for manual classification tasks.
                   </li>
@@ -266,7 +266,7 @@ export default function Resume() {
                 Developed an iOS app using Swift.
               </li>
               <li className="order-3">
-                Optimized SensiLab's WordPress website and created custom themes
+                Optimized SensiLab&apos;s WordPress website and created custom themes
                 and plugins.
               </li>
             </Experience>

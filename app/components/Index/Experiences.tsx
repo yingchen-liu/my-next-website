@@ -59,7 +59,7 @@ const AimiExperience = () => (
         TypeScript
       </li>
       <li>
-        Initiated the rewrite for Aimi's Android interactive player app using
+        Initiated the rewrite for Aimi&apos;s Android interactive player app using
         Kotlin and Jetpack, laying the groundwork for modernisation and improved
         functionality
       </li>
@@ -116,11 +116,11 @@ const AirtaskerExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Led development for Airtasker's backend-for-frontend service, focusing
+        Led development for Airtasker&apos;s backend-for-frontend service, focusing
         on enhancing flexibility and efficiency of the app
       </li>
       <li>
-        Implemented a new workflow for Airtasker's Android app, resulting in
+        Implemented a new workflow for Airtasker&apos;s Android app, resulting in
         improved customer retention rates
       </li>
     </ul>
@@ -137,7 +137,7 @@ const LendleaseExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Trained a ticket (both text and audio) classification model on GCP's
+        Trained a ticket (both text and audio) classification model on GCP&apos;s
         Vertex AI for Lendlease, reducing the manual classification workforce by
         20 and enhancing accuracy
       </li>
@@ -146,7 +146,7 @@ const LendleaseExperience = () => (
         of models
       </li>
       <li>
-        Created a chatbot using Dialogflow for Lendlease's internal IT desk
+        Created a chatbot using Dialogflow for Lendlease&apos;s internal IT desk
         service, supported by Python lambda functions
       </li>
     </ul>

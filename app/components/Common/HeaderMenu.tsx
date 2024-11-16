@@ -36,11 +36,10 @@ const scrollToSection = (sectionId: string) => {
   }
 };
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ activeItem, title }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = () => {
   const segments = useSelectedLayoutSegments();
   const isHome = segments.length === 0;
   const isResume = segments.length >= 1 && segments[0] === 'resume';
-  const isApps = segments.length >= 1 && segments[0] === 'apps';
 
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);

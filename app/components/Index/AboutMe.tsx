@@ -9,14 +9,14 @@ function AboutMe() {
         </div>
         <div className="md:w-3/5">
           <Paragraph>
-            Hi! I'm Yingchen, a passionate developer specializing in web and
+            Hi! I&apos;m Yingchen, a passionate developer specializing in web and
             mobile applications. My coding journey began in 2005 during a middle
             school website competition, where I created a friend-making platform
             using ASP and Access. This experience sparked my interest in
             technology.
           </Paragraph>
           <Paragraph>
-            Since then, I've had the privilege of working with startups, large
+            Since then, I&apos;ve had the privilege of working with startups, large
             corporations, and on various freelance projects, excelling at
             turning complex challenges into innovative solutions.
           </Paragraph>

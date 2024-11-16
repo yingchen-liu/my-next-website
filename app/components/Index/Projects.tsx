@@ -119,7 +119,7 @@ function AimiProject() {
         <>
           <Paragraph>
             I initially developed the Android app for the team using Kotlin and
-            Jetpack Compose, integrating our AMOS music service with Android's
+            Jetpack Compose, integrating our AMOS music service with Android&apos;s
             Media3 framework to ensure seamless playback and interaction.
           </Paragraph>
           <Paragraph>
@@ -183,11 +183,11 @@ function AirtaskerProject() {
       techs={["Kotlin", "Spring Boot", "Android"]}
       description={
         <Paragraph className="mb-0">
-          The project aimed to revamp Airtasker's app to improve its performance
+          The project aimed to revamp Airtasker&apos;s app to improve its performance
           and adaptability. This was achieved by developing a Backend for
           Frontend (BFF) service that consolidated backend interactions,
           allowing the app to make a single request per usage. Additionally, it
-          enabled dynamic updates to the app's UI without needing app updates,
+          enabled dynamic updates to the app&apos;s UI without needing app updates,
           enhancing flexibility.
         </Paragraph>
       }
@@ -196,7 +196,7 @@ function AirtaskerProject() {
           <Paragraph>
             I spearheaded the development of a BFF service using Kotlin and
             Spring, streamlining backend calls. I also contributed to the
-            Android development of the "Book Again" workflow, leveraging my
+            Android development of the &#34;Book Again&#34; workflow, leveraging my
             skills in Android engineering to enhance user experience and
             retention.
           </Paragraph>
