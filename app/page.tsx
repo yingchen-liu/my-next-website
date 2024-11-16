@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Yingchen Liu | Senior Full-Stack Engineer',
 }
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Banner />

@@ -74,7 +74,7 @@ interface ImageProps {
 const Image: React.FC<ImageProps> = ({ src, className }) => {
   return (
     <div className={`${className} rounded-md image-container`}>
-      <Image className="filter-image" src={src} />
+      <img className="filter-image" src={src} />
       <div className="blue-tint" />
     </div>
   );
