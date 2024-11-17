@@ -69,12 +69,13 @@ const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => {
 interface ImageProps {
   src: string;
   className?: string;
+  alt?: string;
 }
 
-const Image: React.FC<ImageProps> = ({ src, className }) => {
+const Image: React.FC<ImageProps> = ({ src, className, alt }) => {
   return (
     <div className={`${className} rounded-md image-container`}>
-      <img className="filter-image" src={src} />
+      <img className="filter-image" src={src} alt={alt} />
       <div className="blue-tint" />
     </div>
   );

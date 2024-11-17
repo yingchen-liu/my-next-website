@@ -3,8 +3,9 @@ import "./globals.css";
 import HeaderMenu from "./components/Common/HeaderMenu";
 
 export const metadata: Metadata = {
-  title: 'Yingchen Liu | Senior Full-Stack Engineer',
-}
+  title: "Yingchen Liu | Senior Full-Stack Engineer",
+  description: "Versatile Senior Software Engineer with over 8 years of hands-on experience, specialising in full-stack web, mobile, and cloud technologies.",
+};
 
 export default function RootLayout({
   children,
@@ -13,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`bg-gray-800 text-blue-100 antialiased`}
-      >
+      <body className={`bg-gray-800 text-blue-100 antialiased`}>
         <div className="container mx-auto max-w-5xl px-5 md:px-10">
           <HeaderMenu activeItem="home" />
 
