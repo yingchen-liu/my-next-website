@@ -128,7 +128,7 @@ export default function Resume() {
             </div>
             <Experience
               title="Senior Software Engineer"
-              type="Remote, AU"
+              type="Remote, Australia"
               time="2022 - 2024"
               company="Aimi.fm"
               href="https://aimi.fm"
@@ -179,7 +179,7 @@ export default function Resume() {
 
             <Experience
               title="Software Consultant"
-              type="Hybrid, AU"
+              type="Hybrid, Australia"
               time="2021 - 2022"
               company="Cognizant Servian"
               href="https://www.cognizant.com/au/en/servian"
@@ -231,7 +231,7 @@ export default function Resume() {
 
             <Experience
               title="Full Stack Developer"
-              type="Hybrid, AU"
+              type="Hybrid, Australia"
               time="2018 - 2021"
               company="Strength By Numbers"
               href="https://www.strengthbynumbers.com/"
@@ -253,14 +253,14 @@ export default function Resume() {
 
             <Experience
               title="Full Stack Developer"
-              type="Part Time, Hybrid, AU"
+              type="Part Time, Hybrid, Australia"
               time="2016 - 2018"
               company="SensiLab"
               href="https://sensilab.monash.edu/"
             >
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
                 Developed multiple web applications for both frontend and
-                backend using React, Redux, Express.js, and MongoDB.
+                backend using React, Redux, Express.js, MongoDB and Firebase.
               </li>
               <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
                 Developed an iOS app using Swift.
@@ -277,17 +277,17 @@ export default function Resume() {
           </div>
           <Experience
             title="Master of Information Technology"
-            type="Melbourne, AU"
+            type="Melbourne, Australia"
             time=""
             company="Monash University (QS: 37)"
             href="https://www.monash.edu/"
           >
             <li>Dux of Postgraduate Information Technology (Top Student)</li>
             <li>
-              Recipient of the International Merit Scholarship & Winter Research
-              Scholarship
+              Recipient of the International Merit Scholarship, and Winter Research
+              Scholarship.
             </li>
-            <li>Achieved the highest grade in four subjects</li>
+            <li>Achieved the highest grade in programming, distributed systems, and mobile subjects.</li>
           </Experience>
 
           <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
@@ -303,7 +303,7 @@ export default function Resume() {
               Express.js
             </li>
             <li>
-              <b>Databases:</b> MySQL, MongoDB, Neo4j, Redis
+              <b>Databases:</b> MySQL, MongoDB, Neo4j, Redis, Firebase
             </li>
             <li>
               <b>Mobile:</b> Android, JetPack, iOS

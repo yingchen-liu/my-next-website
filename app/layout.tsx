@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-gray-800 text-blue-100 antialiased`}>
+      <body className={`bg-gray-800 text-blue-100 font-light antialiased`}>
         <div className="container mx-auto max-w-5xl px-5 md:px-10">
           <HeaderMenu activeItem="home" />
 

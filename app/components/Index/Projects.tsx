@@ -1,3 +1,4 @@
+import { FaAppStoreIos } from "react-icons/fa6";
 import { Image, Paragraph, Section } from "./Section";
 import { FaGooglePlay } from "react-icons/fa";
 
@@ -76,10 +77,10 @@ const Project: React.FC<ProjectProps> = ({
             ))}
           </ul>
 
-          <ul className="mt-5">
+          <ul className="mt-5 flex gap-4">
             {links.map((link, i) => (
               <li key={`project-${title}-link-${i}`}>
-                <Link href={link.href}>{link.children}</Link>
+                <Link href={link.href}><span className="text-2xl">{link.children}</span></Link>
               </li>
             ))}
           </ul>
@@ -119,12 +120,12 @@ function AimiProject() {
         <>
           <Paragraph>
             I initially developed the Android app for the team using Kotlin and
-            Jetpack Compose, integrating our AMOS music service with Android&apos;s
+            Jetpack Compose, integrating our AMOS music SDK with Android&apos;s
             Media3 framework to ensure seamless playback and interaction.
           </Paragraph>
           <Paragraph>
             Later, I transitioned to the team working on AMOS, our
-            cross-platform generative music service. My role focused on
+            cross-platform generative music SDK. My role focused on
             modernizing the service by migrating it to TypeScript and
             implementing a new architecture that improved scalability,
             performance, and maintainability.
@@ -132,6 +133,10 @@ function AimiProject() {
         </>
       }
       links={[
+        {
+          href: "https://apps.apple.com/us/app/aimi-player/id1470043312",
+          children: <FaAppStoreIos />
+        },
         {
           href: "https://play.google.com/store/apps/details?id=fm.aimi.android&hl=en",
           children: <FaGooglePlay />,
