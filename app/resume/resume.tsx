@@ -72,7 +72,7 @@ function Testimony({
 }) {
   return (
     <div className="text-sm mb-4 p-2 border-l-4 border-l-blue-500 pl-5 bg-slate-200">
-      <div>"{children}"</div>
+      <div>&quot;{children}&quot;</div>
       <div className="text-right">- {from}</div>
     </div>
   );
@@ -255,9 +255,9 @@ export default function Resume() {
             </Experience>
 
             <Testimony from="J. Curtis (Senior Software Engineer, Aimi.fm)">
-              I just want to say that I've really appreciated working with you.
-              You've been incredibly helpful, hardworking, and very easy to get
-              along with.
+              I just want to say that I&apos;ve really appreciated working with
+              you. You&apos;ve been incredibly helpful, hardworking, and very
+              easy to get along with.
             </Testimony>
 
             <Experience
@@ -310,12 +310,12 @@ export default function Resume() {
 
               <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
                 You put in an incredible effort to handle ALL the backend work
-                and push Android across the line with Alex. You've worked
+                and push Android across the line with Alex. You&apos;ve worked
                 tirelessly, right up until the last day, to ensure everything
-                was completed before your departure, and for that, we're
+                was completed before your departure, and for that, we&apos;re
                 incredibly grateful! Thanks for being a phenomenal engineer and
-                making this project a success. We couldn't have done it without
-                you.
+                making this project a success. We couldn&apos;t have done it
+                without you.
               </Testimony>
               <li className="mb-2">
                 <b>Lendlease Ticket Classification System</b>:
@@ -434,7 +434,8 @@ export default function Resume() {
               )}
             </li>
             <li>
-              <b>Databases:</b> MySQL, PostgreSQL, MongoDB, Neo4j, Redis, Firebase
+              <b>Databases:</b> MySQL, PostgreSQL, MongoDB, Neo4j, Redis,
+              Firebase
             </li>
             <li>
               <b>Mobile:</b> Android, JetPack, iOS
