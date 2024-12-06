@@ -165,6 +165,24 @@ export default function Resume() {
               EXPERIENCE
             </div>
             <Experience
+              title="Freelance Software Engineer"
+              type="Remote, Australia"
+              time="2024"
+              company="Self-Employed"
+              href="#"
+            >
+              <li>
+                Designed and developed a scalable backend system using Nest.js
+                with GraphQL and PostgreSQL, deploying to AWS with Docker and
+                Terraform.
+              </li>
+              <li>
+                Migrated an Android codebase from Java to Kotlin and upgraded to
+                Bluetooth 5, enhancing data transfer range, and connection
+                stability for medical hardwares.
+              </li>
+            </Experience>
+            <Experience
               title={
                 title === "full-stack"
                   ? "Senior Full-Stack Engineer"
@@ -333,12 +351,12 @@ export default function Resume() {
                 ReactiveX.
               </li>
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
-                Built a data synchronisation backend service using Spring Boot
-                and MongoDB, deployed on AWS, supporting over 200 physio/fitness
-                centers.
+                Built backend microservices using JavaScript, Node.js,
+                Express.js and MongoDB, deployed on AWS, supporting over 200
+                physio/fitness centers.
               </li>
               <li className="order-1">
-                Developed web applications with React and Redux.
+                Developed Single Page Applications with React and Redux.
               </li>
             </Experience>
 
@@ -416,7 +434,7 @@ export default function Resume() {
               )}
             </li>
             <li>
-              <b>Databases:</b> MySQL, MongoDB, Neo4j, Redis, Firebase
+              <b>Databases:</b> MySQL, PostgreSQL, MongoDB, Neo4j, Redis, Firebase
             </li>
             <li>
               <b>Mobile:</b> Android, JetPack, iOS
