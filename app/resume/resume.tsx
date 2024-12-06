@@ -18,7 +18,7 @@ function Experience({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-5">
+    <div className="mb-2">
       <div className="flex">
         <div className="flex-grow flex">
           <div className="font-semibold mr-2 text-[1.05rem]">{title}</div>
@@ -63,25 +63,41 @@ function Link({
   );
 }
 
+function Testimony({
+  children,
+  from,
+}: {
+  children: React.ReactNode;
+  from: string;
+}) {
+  return (
+    <div className="text-sm mb-4 p-2 border-l-4 border-l-blue-500 pl-5 bg-slate-200">
+      <div>"{children}"</div>
+      <div className="text-right">- {from}</div>
+    </div>
+  );
+}
+
 export default function Resume() {
   const [title, setTitle] = useState("full-stack");
+  const [stack, setStack] = useState("java");
 
   return (
     <>
-      <div className="container md:px-20 md:pt-20 pb-6 mt-10 mx-auto flex gap-6">
+      <div className="container md:px-20 md:pt-20 mt-10 pb-2 mx-auto flex gap-x-6">
         <Link
           onClick={() => setTitle("full-stack")}
           className={`${title === "full-stack" && "font-bold"}`}
           invert={true}
         >
-          Full Stack
+          Fullstack
         </Link>
         <Link
           onClick={() => setTitle("back-end")}
           className={`${title === "back-end" && "font-bold"}`}
           invert={true}
         >
-          Back End
+          Backend
         </Link>
         <Link
           onClick={() => setTitle("mobile")}
@@ -89,6 +105,22 @@ export default function Resume() {
           invert={true}
         >
           Mobile
+        </Link>
+      </div>
+      <div className="container md:px-20 pb-6 mx-auto flex gap-x-6">
+        <Link
+          onClick={() => setStack("java")}
+          className={`${stack === "java" && "font-bold"}`}
+          invert={true}
+        >
+          Java
+        </Link>
+        <Link
+          onClick={() => setStack("javascript")}
+          className={`${stack === "javascript" && "font-bold"}`}
+          invert={true}
+        >
+          JavaScript
         </Link>
       </div>
       <div className="container md:px-20 md:pb-20 mx-auto">
@@ -100,16 +132,22 @@ export default function Resume() {
             <div className="font-[300]">
               Senior{" "}
               {title === "full-stack"
-                ? "Full Stack"
+                ? "Full-Stack"
                 : title === "back-end"
-                ? "Software"
+                ? "Backend"
                 : title === "mobile"
-                ? "Full Stack Mobile"
+                ? "Mobile Fullstack"
                 : "Software"}{" "}
               Engineer
               <div className="inline-block px-2">•</div>8 years
-              <div className="inline-block px-2">•</div>Web Front End, Back End,
-              Mobile, Cloud
+              <div className="inline-block px-2">•</div>
+              {title === "full-stack"
+                ? "Web Frontend, Backend, Cloud, Mobile"
+                : title === "back-end"
+                ? "Web Frontend, Backend, Cloud, Mobile"
+                : title === "mobile"
+                ? "Mobile, Web Frontend, Backend, Cloud"
+                : "Software"}
             </div>
             <div>
               <Link href="mailto:info@yingchenliu.com">
@@ -127,55 +165,82 @@ export default function Resume() {
               EXPERIENCE
             </div>
             <Experience
-              title="Senior Software Engineer"
+              title={
+                title === "full-stack"
+                  ? "Senior Full-Stack Engineer"
+                  : title === "back-end"
+                  ? "Senior Backend Engineer"
+                  : title === "mobile"
+                  ? "Senior Mobile Engineer"
+                  : "Senior Software Engineer"
+              }
               type="Remote, Australia"
               time="2022 - 2024"
               company="Aimi.fm"
               href="https://aimi.fm"
             >
               {title === "full-stack" && (
-                <li className="order-1">
-                  Led the development of a cross-platform music SDK/backend, a
-                  core component of Aimi Player and Aimi Studio, in TypeScript
-                  and Node.js, enhancing the interactive music experience and
-                  reducing startup time by 52%.
-                </li>
+                <>
+                  <li>
+                    Led the development of a cross-platform music SDK, a core
+                    component of Aimi Player and Aimi Studio, in TypeScript and
+                    C++, enhancing the dynamic and personalised music experience
+                    and reducing startup time by 52%.
+                  </li>
+                  <li>
+                    Deployed a scalable music streaming backend and maintained
+                    AWS infrastructure using Docker, Terraform, and GitHub
+                    Actions. Improved the build flow, reducing service build
+                    time by 30 seconds.
+                  </li>
+                </>
               )}
               {title === "back-end" && (
-                <li className="order-1">
-                  Led the development of a cross-platform music backend, a core
-                  component of Aimi Player and Aimi Studio, in TypeScript and
-                  Node.js, enhancing the interactive music experience and
-                  reducing startup time by 52%.
-                </li>
+                <>
+                  <li>
+                    Led the development of a cross-platform genertive music SDK,
+                    in TypeScript and C++, enhancing the dynamic and
+                    personalised music experience and reducing startup time by
+                    52%.
+                  </li>
+                  <li>
+                    Deployed a scalable music streaming backend and maintained
+                    AWS infrastructure using Docker, Terraform, and GitHub
+                    Actions. Improved the build flow, reducing service build
+                    time by 30s.
+                  </li>
+                </>
               )}
               {title === "mobile" && (
-                <li className="order-2">
-                  Led the development of a cross-platform music SDK for both
-                  Android and iOS, a core component of Aimi Player and Aimi
-                  Studio, built with TypeScript, Node.js and C++. Enhanced the
-                  interactive music experience and reduced startup time by 52%.
-                </li>
+                <>
+                  <li>
+                    Founded the Android team and built the Android app using
+                    Kotlin and JetPack Compose.
+                  </li>
+                  <li>
+                    Led the development of a cross-platform music SDK for both
+                    Android and iOS, a core component of Aimi Player and Aimi
+                    Studio, built with TypeScript and C++, enhancing the dynamic
+                    and personalised music experience and reducing startup time
+                    by 52%.
+                  </li>
+                </>
               )}
-
-              <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                Founded the Android team and built the Android app using Kotlin
-                and JetPack Compose.
-              </li>
-              <li className="order-3">
+              <li>
                 Engineered responsive web applications with TypeScript, React,
-                and Next.js.
+                Next.js and GraphQL.
               </li>
-              <li className="order-4">
-                Deployed a scalable music streaming backend and maintained AWS
-                infrastructure using Docker, Terraform, and GitHub Actions.
-                Improved the build flow, reducing service build time by 30s.
-              </li>
-              <li className="order-5">
+              <li>
                 Achieved 96% code coverage by implementing test-driven
                 development within the team.
               </li>
             </Experience>
+
+            <Testimony from="J. Curtis (Senior Software Engineer, Aimi.fm)">
+              I just want to say that I've really appreciated working with you.
+              You've been incredibly helpful, hardworking, and very easy to get
+              along with.
+            </Testimony>
 
             <Experience
               title="Software Consultant"
@@ -186,23 +251,35 @@ export default function Resume() {
             >
               <li>
                 <b>Optus ID Verification System</b> (11 million users):
-                <ul className="list-disc ml-5 mt-1">
+                <ul className="list-disc ml-5 mt-1 mb-2">
                   <li>
-                    Led a team through a critical phase to design and develop a
-                    highly available and secure cloud solution for both backend
-                    and frontend using Kotlin, Spring Boot, React and Redux;
-                    deployed on GCP Kubernetes with Docker and Terraform.
+                    Led discovery sessions and collaboratively defined project
+                    scope with Optus. Negotiated interface contract with other
+                    systems, produced detailed solution design documentation.
+                    Managed stakeholders, budget, risks and timeline.
+                  </li>
+                  <li>
+                    Led an Agile team of 3: organised, facilitated team
+                    ceremonies, conducted code reviews, and trained junior
+                    engineers.
+                  </li>
+                  <li>
+                    Designed and developed a highly available and secure cloud
+                    solution for both backend and frontend using Java, Spring
+                    Boot, React and Redux; deployed on GCP Kubernetes with
+                    Docker and Terraform.
                   </li>
                 </ul>
               </li>
               <li>
                 <b>Airtasker App</b> (5 million users):
-                <ul className="list-disc ml-5 mt-1 flex flex-col">
+                <ul className="list-disc ml-5 mt-1 flex flex-col mb-2">
                   <li
                     className={`${title === "mobile" ? "order-2" : "order-1"}`}
                   >
-                    Engineered a new asynchronous backend in Kotlin and Spring
-                    Boot, dramatically enhancing app responsiveness.
+                    Engineered a new backend microservices in Kotlin and Spring
+                    Boot, dramatically enhancing app performance, responsiveness
+                    and flexibility.
                   </li>
                   <li
                     className={`${title === "mobile" ? "order-1" : "order-2"}`}
@@ -212,14 +289,25 @@ export default function Resume() {
                   </li>
                 </ul>
               </li>
-              <li>
+
+              <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
+                You put in an incredible effort to handle ALL the backend work
+                and push Android across the line with Alex. You've worked
+                tirelessly, right up until the last day, to ensure everything
+                was completed before your departure, and for that, we're
+                incredibly grateful! Thanks for being a phenomenal engineer and
+                making this project a success. We couldn't have done it without
+                you.
+              </Testimony>
+              <li className="mb-2">
                 <b>Lendlease Ticket Classification System</b>:
                 <ul className="list-disc ml-5 mt-1">
                   <li>
                     Trained a ticket classification model with Python and Pandas
-                    on GCP Vertex AI, integrated with Lendlease&apos;s ServiceNow
-                    using a Python backend and GCP Pub/Sub, reducing the need
-                    for 30 staff members for manual classification tasks.
+                    on GCP Vertex AI, integrated with Lendlease&apos;s
+                    ServiceNow using a Python backend and GCP Pub/Sub, reducing
+                    the need for 30 staff members for manual classification
+                    tasks.
                   </li>
                   <li>
                     Created a chatbot backend using Python, GCP Cloud Functions,
@@ -227,52 +315,55 @@ export default function Resume() {
                   </li>
                 </ul>
               </li>
+              <Testimony from="John Kelaita (Principal Consultant, Cognizant Servian)">
+                Yingchen is one of the best developers I have ever worked with.
+              </Testimony>
             </Experience>
 
             <Experience
-              title="Full Stack Developer"
+              title="Full-Stack Developer"
               type="Hybrid, Australia"
               time="2018 - 2021"
               company="Strength By Numbers"
               href="https://www.strengthbynumbers.com/"
             >
               <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                Designed and developed the Android app in Java, handling complex
-                multi-threading and asynchronous Bluetooth operations with
+                Designed and developed the Android app in Java, managing complex
+                multi-threaded and asynchronous Bluetooth operations using
                 ReactiveX.
               </li>
-              <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
+              <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
                 Built a data synchronisation backend service using Spring Boot
                 and MongoDB, deployed on AWS, supporting over 200 physio/fitness
                 centers.
               </li>
-              <li className="order-3">
+              <li className="order-1">
                 Developed web applications with React and Redux.
               </li>
             </Experience>
 
             <Experience
-              title="Full Stack Developer"
+              title="Full-Stack Developer"
               type="Part Time, Hybrid, Australia"
               time="2016 - 2018"
               company="SensiLab"
               href="https://sensilab.monash.edu/"
             >
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
-                Developed multiple web applications for both frontend and
-                backend using React, Redux, Express.js, MongoDB and Firebase.
+                Designed and developed full-stack web applications using React,
+                Redux, Express.js, MongoDB and Firebase.
               </li>
               <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
                 Developed an iOS app using Swift.
               </li>
               <li className="order-3">
-                Optimized SensiLab&apos;s WordPress website and created custom themes
-                and plugins.
+                Optimized SensiLab&apos;s WordPress website and created custom
+                themes and plugins.
               </li>
             </Experience>
           </div>
 
-          <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+          <div className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
             EDUCATION
           </div>
           <Experience
@@ -282,25 +373,47 @@ export default function Resume() {
             company="Monash University (QS: 37)"
             href="https://www.monash.edu/"
           >
-            <li>Dux of Postgraduate Information Technology (Top Student)</li>
             <li>
-              Recipient of the International Merit Scholarship, and Winter Research
-              Scholarship.
+              Dux of Postgraduate Information Technology Award (
+              <b>Top 1 Student</b>).
             </li>
-            <li>Achieved the highest grade in programming, distributed systems, and mobile subjects.</li>
+            <li>
+              International Merit Scholarship, and Winter Research Scholarship.
+            </li>
+            <li>
+              Achieved the <b>highest grade</b> in 4 subjects: programming,
+              distributed systems, mobile and advanced mobile.
+            </li>
           </Experience>
 
-          <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+          <div className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
             SKILLS
           </div>
           <ul className="list-disc ml-5 mt-1 text-[0.9rem]">
             <li>
-              <b>Languages:</b> JavaScript (ES6), TypeScript, Java, Kotlin,
-              Swift, Python
+              <b>Languages:</b>{" "}
+              {stack === "javascript" ? (
+                <>
+                  JavaScript (ES6), TypeScript, Java, Kotlin, Swift, Python, C,
+                  C++
+                </>
+              ) : (
+                <>
+                  Java, Kotlin, JavaScript (ES6), TypeScript, Swift, Python, C,
+                  C++
+                </>
+              )}
             </li>
             <li>
-              <b>Frameworks:</b> Spring Boot, React, Redux, Next.js, Node.js,
-              Express.js
+              <b>Frameworks:</b>{" "}
+              {stack === "javascript" ? (
+                <>
+                  React, Redux, Node.js, Next.js, Nest.js, Express.js, Vue.js,
+                  Spring Boot
+                </>
+              ) : (
+                <>Spring Boot, React, Node.js</>
+              )}
             </li>
             <li>
               <b>Databases:</b> MySQL, MongoDB, Neo4j, Redis, Firebase
