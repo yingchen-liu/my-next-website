@@ -172,14 +172,15 @@ export default function Resume() {
               href="#"
             >
               <li>
-                Designed and developed a scalable backend system using Nest.js
-                with GraphQL and PostgreSQL, deploying to AWS with Docker and
-                Terraform.
+                Designed and developed a scalable backend system using{" "}
+                <b>TypeScript</b>, <b>Node.js</b> with <b>GraphQL</b> and{" "}
+                <b>PostgreSQL</b>, deploying to <b>AWS</b> with <b>Docker</b>{" "}
+                and <b>Terraform.</b>
               </li>
               <li>
-                Migrated an Android codebase from Java to Kotlin and upgraded to
-                Bluetooth 5, enhancing data transfer range, and connection
-                stability for medical hardwares.
+                Migrated an Android codebase from Java to <b>Kotlin</b> and
+                upgraded to Bluetooth 5, enhancing data transfer range, and
+                connection stability for medical hardwares.
               </li>
             </Experience>
             <Experience
@@ -201,15 +202,17 @@ export default function Resume() {
                 <>
                   <li>
                     Led the development of a cross-platform music SDK, a core
-                    component of Aimi Player and Aimi Studio, in TypeScript and
-                    C++, enhancing the dynamic and personalised music experience
-                    and reducing startup time by 52%.
+                    component of Aimi Player and Aimi Studio, in{" "}
+                    <b>TypeScript</b> and <b>C++</b>, enhancing the dynamic and
+                    personalised music experience and{" "}
+                    <b>reducing startup time by 52%</b>.
                   </li>
                   <li>
-                    Deployed a scalable music streaming backend and maintained
-                    AWS infrastructure using Docker, Terraform, and GitHub
-                    Actions. Improved the build flow, reducing service build
-                    time by 30 seconds.
+                    Deployed a scalable music streaming backend and maintained{" "}
+                    <b>AWS</b> infrastructure using <b>Docker</b>,{" "}
+                    <b>Terraform</b>, and <b>GitHub Actions</b>. Improved the
+                    build flow, <b>reducing service build time by 30 seconds</b>
+                    .
                   </li>
                 </>
               )}
@@ -245,11 +248,12 @@ export default function Resume() {
                 </>
               )}
               <li>
-                Engineered responsive web applications with TypeScript, React,
-                Next.js and GraphQL.
+                Engineered responsive web applications with <b>TypeScript</b>,{" "}
+                <b>React</b>, <b>Next.js</b> and <b>GraphQL</b>. Deployed on
+                Vercel.
               </li>
               <li>
-                Achieved 96% code coverage by implementing test-driven
+                Achieved <b>96% test coverage</b> by implementing test-driven
                 development within the team.
               </li>
             </Experience>
@@ -268,73 +272,98 @@ export default function Resume() {
               href="https://www.cognizant.com/au/en/servian"
             >
               <li>
-                <b>Optus ID Verification System</b> (11 million users):
+                <b>
+                  Engagement Lead at{" "}
+                  <Link href="https://optus.com.au">Optus</Link>
+                </b>{" "}
+                (ID verification system):
                 <ul className="list-disc ml-5 mt-1 mb-2">
                   <li>
                     Led discovery sessions and collaboratively defined project
                     scope with Optus. Negotiated interface contract with other
-                    systems, produced detailed solution design documentation.
-                    Managed stakeholders, budget, risks and timeline.
+                    systems, produced detailed solution design documentation.{" "}
+                    <b>Managed stakeholders, budget, risks and timeline</b>.
                   </li>
                   <li>
-                    Led an Agile team of 3: organised, facilitated team
-                    ceremonies, conducted code reviews, and trained junior
+                    <b>Led an Agile team of 3</b>: organised, facilitated team
+                    ceremonies, conducted code reviews, and mentored junior
                     engineers.
                   </li>
                   <li>
-                    Designed and developed a highly available and secure cloud
-                    solution for both backend and frontend using Java, Spring
-                    Boot, React and Redux; deployed on GCP Kubernetes with
-                    Docker and Terraform.
+                    Designed and developed a <b>highly available and secure</b>{" "}
+                    cloud solution for both backend and frontend using{" "}
+                    <b>Java</b>, <b>Spring Boot</b>, <b>React</b> and{" "}
+                    <b>Redux</b>; deployed on <b>GCP</b> <b>Kubernetes</b> with{" "}
+                    <b>Docker</b> and <b>Terraform</b>.
+                  </li>
+                  <li>
+                    <b>Designed database schema on Cloud Spanner</b>, leveraging
+                    its horizontal scalability and strong consistency for
+                    seamless user experiences.
                   </li>
                 </ul>
               </li>
               <li>
-                <b>Airtasker App</b> (5 million users):
+                <b>
+                  Backend Engineer at{" "}
+                  <Link href="https://airtasker.com/au">Airtasker</Link>
+                </b>
+                :
                 <ul className="list-disc ml-5 mt-1 flex flex-col mb-2">
                   <li
                     className={`${title === "mobile" ? "order-2" : "order-1"}`}
                   >
-                    Engineered a new backend microservices in Kotlin and Spring
-                    Boot, dramatically enhancing app performance, responsiveness
-                    and flexibility.
+                    Engineered new backend microservices in <b>Kotlin</b> and{" "}
+                    <b>Spring Boot</b>,{" "}
+                    <b>cutting web and mobile app load times by over 50%</b>{" "}
+                    while boosting performance, responsiveness, and
+                    maintainability.
                   </li>
                   <li
                     className={`${title === "mobile" ? "order-1" : "order-2"}`}
                   >
-                    Developed a dynamic Android UI leveraging Kotlin and JetPack
-                    Compose; added a new flow to boost user retention by 17%.
+                    Developed a dynamic Android UI leveraging <b>Kotlin</b> and
+                    JetPack Compose; added a new flow to{" "}
+                    <b>boost user retention by 17%</b>.
                   </li>
                 </ul>
               </li>
 
               <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
-                You put in an incredible effort to handle ALL the backend work
-                and push Android across the line with Alex. You&apos;ve worked
-                tirelessly, right up until the last day, to ensure everything
-                was completed before your departure, and for that, we&apos;re
-                incredibly grateful! Thanks for being a phenomenal engineer and
-                making this project a success. We couldn&apos;t have done it
-                without you.
+                You put in an incredible effort to handle{" "}
+                <b>ALL the backend work</b> and push Android across the line
+                with Alex.{" "}
+                <b>
+                  You&apos;ve worked tirelessly, right up until the last day
+                </b>
+                , to ensure everything was completed before your departure, and
+                for that, we&apos;re incredibly grateful! Thanks for being a
+                phenomenal engineer and making this project a success.{" "}
+                <b>We couldn&apos;t have done it without you</b>.
               </Testimony>
               <li className="mb-2">
-                <b>Lendlease Ticket Classification System</b>:
+                <b>
+                  Cloud Engineer at{" "}
+                  <Link href="https://lendlease.com">Lendlease</Link>
+                </b>
+                :
                 <ul className="list-disc ml-5 mt-1">
                   <li>
                     Trained a ticket classification model with Python and Pandas
-                    on GCP Vertex AI, integrated with Lendlease&apos;s
-                    ServiceNow using a Python backend and GCP Pub/Sub, reducing
-                    the need for 30 staff members for manual classification
-                    tasks.
+                    on <b>GCP</b> Vertex AI, integrated with Lendlease&apos;s
+                    ServiceNow using a <b>Python</b> backend and <b>GCP</b>{" "}
+                    Pub/Sub, <b>reducing the need for 30 staff members</b> for
+                    manual classification tasks.
                   </li>
                   <li>
-                    Created a chatbot backend using Python, GCP Cloud Functions,
-                    and Dialogflow.
+                    Created a chatbot backend using <b>Python</b>, <b>GCP</b>{" "}
+                    Cloud Functions, and Dialogflow.
                   </li>
                 </ul>
               </li>
               <Testimony from="John Kelaita (Principal Consultant, Cognizant Servian)">
-                Yingchen is one of the best developers I have ever worked with.
+                Yingchen is one of the <b>best developers</b> I have ever worked
+                with.
               </Testimony>
             </Experience>
 
@@ -346,17 +375,18 @@ export default function Resume() {
               href="https://www.strengthbynumbers.com/"
             >
               <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                Designed and developed the Android app in Java, managing complex
-                multi-threaded and asynchronous Bluetooth operations using
-                ReactiveX.
+                Designed and developed the Android app in <b>Java</b>, managing
+                complex multi-threaded and asynchronous Bluetooth operations
+                using ReactiveX.
               </li>
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
-                Built backend microservices using JavaScript, Node.js,
-                Express.js and MongoDB, deployed on AWS, supporting over 200
-                physio/fitness centers.
+                Built backend microservices using <b>JavaScript</b>,{" "}
+                <b>Node.js</b>, <b>Express.js</b> and <b>MongoDB</b>, deployed
+                on <b>AWS</b>, supporting over 200 physio/fitness centers.
               </li>
               <li className="order-1">
-                Developed Single Page Applications with React and Redux.
+                Developed Single Page Applications with <b>React</b> and{" "}
+                <b>Redux</b>.
               </li>
             </Experience>
 
@@ -368,11 +398,12 @@ export default function Resume() {
               href="https://sensilab.monash.edu/"
             >
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
-                Designed and developed full-stack web applications using React,
-                Redux, Express.js, MongoDB and Firebase.
+                Designed and developed full-stack web applications using{" "}
+                <b>React</b>, <b>Redux</b>, <b>Express.js</b>, <b>MongoDB</b>{" "}
+                and Firebase.
               </li>
               <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                Developed an iOS app using Swift.
+                Developed an <b>iOS</b> app using <b>Swift</b>.
               </li>
               <li className="order-3">
                 Optimized SensiLab&apos;s WordPress website and created custom
@@ -441,7 +472,7 @@ export default function Resume() {
               <b>Mobile:</b> Android, JetPack, iOS
             </li>
             <li>
-              <b>Cloud:</b> AWS, GCP, Kubernetes
+              <b>Cloud:</b> AWS, GCP, Kubernetes, Vercel
             </li>
             <li>
               <b>Tools:</b> Docker, Terraform, Git, CI/CD, Jira, Bash
