@@ -211,8 +211,8 @@ export default function Resume() {
                   <li>
                     Led the development of a cross-platform music SDK, a core
                     component of Aimi Player and Aimi Studio, in{" "}
-                    <b>TypeScript</b> and <b>C++</b>, enhancing the dynamic and
-                    personalised music experience and{" "}
+                    <b>TypeScript</b>, <b>Node.js</b> and C++, enhancing the
+                    dynamic and personalised music experience and{" "}
                     <b>reducing startup time by 52%</b>.
                   </li>
                   <li>
@@ -228,8 +228,8 @@ export default function Resume() {
                 <>
                   <li>
                     Led the development of a cross-platform genertive music SDK,
-                    in <b>TypeScript</b> and <b>C++</b>, enhancing the dynamic
-                    and personalised music experience and{" "}
+                    in <b>TypeScript</b>, <b>Node.js</b> and C++, enhancing the
+                    dynamic and personalised music experience and{" "}
                     <b>reducing startup time by 52%</b>.
                   </li>
                   <li>
@@ -257,8 +257,8 @@ export default function Resume() {
               )}
               <li>
                 Engineered responsive web applications with <b>TypeScript</b>,{" "}
-                <b>React</b>, <b>Next.js</b> and <b>GraphQL</b>. Deployed on
-                Vercel.
+                <b>React</b>, <b>Next.js</b> with <b>GraphQL</b> and{" "}
+                <b>DynamoDB</b>. Deployed on Vercel.
               </li>
               <li>
                 Achieved <b>96% test coverage</b> by implementing test-driven
@@ -302,12 +302,13 @@ export default function Resume() {
                     cloud solution for both <b>backend</b> and frontend using{" "}
                     <b>Java</b>, <b>Spring Boot</b>, <b>TypeScript</b>,{" "}
                     <b>React</b> and <b>Redux</b>; deployed on <b>GCP</b>{" "}
-                    <b>Kubernetes</b> with <b>Docker</b> and <b>Terraform</b>.
+                    <b>Kubernetes</b> with <b>API Gateway</b> using{" "}
+                    <b>Docker</b> and <b>Terraform</b>.
                   </li>
                   <li>
-                    <b>Designed database schema on Cloud Spanner</b>, leveraging
-                    its horizontal scalability and strong consistency for
-                    seamless user experiences.
+                    <b>Designed database schema on Cloud Spanner (SQL)</b>,
+                    leveraging its horizontal scalability and strong consistency
+                    for seamless user experiences.
                   </li>
                 </ul>
               </li>
@@ -322,9 +323,9 @@ export default function Resume() {
                     className={`${title === "mobile" ? "order-2" : "order-1"}`}
                   >
                     Engineered new <b>backend microservices</b> in <b>Kotlin</b>{" "}
-                    and <b>Spring Boot</b>, <b>cutting</b> web and mobile app{" "}
-                    <b>load time by over 50%</b> while boosting performance,
-                    responsiveness, and maintainability.
+                    and <b>Spring Boot</b> on <b>AWS</b>, <b>cutting</b> web and
+                    mobile app <b>load time by over 50%</b> while boosting
+                    performance, responsiveness, and maintainability.
                   </li>
                   <li
                     className={`${title === "mobile" ? "order-1" : "order-2"}`}
@@ -359,13 +360,12 @@ export default function Resume() {
                     Trained a ticket classification model with <b>Python</b> and
                     Pandas on <b>GCP</b> Vertex AI, integrated with
                     Lendlease&apos;s ServiceNow using a <b>Python backend</b>{" "}
-                    and <b>GCP</b> Pub/Sub,{" "}
-                    <b>reducing the need for 30 staff members</b> for manual
-                    classification tasks.
+                    and Pub/Sub, <b>reducing the need for 30 staff members</b>{" "}
+                    for manual classification tasks.
                   </li>
                   <li>
-                    Created a chatbot <b>backend</b> using <b>Python</b>,{" "}
-                    <b>GCP</b> Cloud Functions, and Dialogflow.
+                    Created a chatbot <b>backend</b> using <b>Python</b>, Cloud
+                    Functions (<b>Lambda</b>), and Dialogflow.
                   </li>
                 </ul>
               </li>
@@ -374,6 +374,10 @@ export default function Resume() {
                 with.
               </Testimony>
             </Experience>
+
+            <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+              EXPERIENCE
+            </div>
 
             <Experience
               title="Full-Stack Developer"
@@ -390,9 +394,20 @@ export default function Resume() {
                 </li>
               )}
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
-                Built backend microservices using <b>JavaScript</b>,{" "}
-                <b>Node.js</b>, <b>Express.js</b> and <b>MongoDB</b>, deployed
-                on <b>AWS</b>, supporting over 200 physio/fitness centers.
+                {stack === "java" ? (
+                  <>
+                    Built backend microservices using <b>Java</b>, <b>Spring</b>
+                    , <b>Docker</b> and <b>MongoDB</b>, deployed on <b>AWS</b>,
+                    supporting over 200 physio/fitness centers.
+                  </>
+                ) : (
+                  <>
+                    Built backend microservices using <b>JavaScript</b>,{" "}
+                    <b>Node.js</b>, <b>Express.js</b> and <b>MongoDB</b>,
+                    deployed on <b>AWS</b>, supporting over 200 physio/fitness
+                    centers.
+                  </>
+                )}
               </li>
               <li className="order-1">
                 Developed Single Page Applications with <b>React</b> and{" "}
@@ -477,14 +492,17 @@ export default function Resume() {
               )}
             </li>
             <li>
-              <b>Databases:</b> MySQL, PostgreSQL, MongoDB, Neo4j, Redis,
-              Firebase
+              <b>Databases:</b> MySQL, PostgreSQL, DynamoDB, MongoDB, Neo4j,
+              Redis, Firebase
             </li>
+            {stack !== "javascript" && (
+              <li>
+                <b>Mobile:</b> Android, JetPack, iOS
+              </li>
+            )}
             <li>
-              <b>Mobile:</b> Android, JetPack, iOS
-            </li>
-            <li>
-              <b>Cloud:</b> AWS, GCP, Kubernetes, Vercel
+              <b>Cloud:</b> AWS, GCP, Kubernetes, API Gateway, Lambda, Message
+              Queue, Vercel
             </li>
             <li>
               <b>Tools:</b> Docker, Terraform, Git, CI/CD, Jira, Bash
