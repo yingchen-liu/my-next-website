@@ -167,21 +167,29 @@ export default function Resume() {
             <Experience
               title="Freelance Software Engineer"
               type="Remote, Australia"
-              time="2024"
+              time="July 2024 - Current"
               company="Self-Employed"
               href="#"
             >
-              <li>
-                Designed and developed a scalable backend system using{" "}
-                <b>TypeScript</b>, <b>Node.js</b> with <b>GraphQL</b> and{" "}
-                <b>PostgreSQL</b>, deploying to <b>AWS</b> with <b>Docker</b>{" "}
-                and <b>Terraform.</b>
-              </li>
-              <li>
-                Migrated an Android codebase from Java to <b>Kotlin</b> and
-                upgraded to Bluetooth 5, enhancing data transfer range, and
-                connection stability for medical hardwares.
-              </li>
+              {(title === "full-stack" ||
+                title === "back-end" ||
+                stack === "javascript") && (
+                <li>
+                  Designed and developed a scalable <b>backend</b> system using{" "}
+                  <b>TypeScript</b>, <b>Node.js</b> with <b>GraphQL</b> and{" "}
+                  <b>PostgreSQL</b>, deploying to <b>AWS</b> with <b>Docker</b>{" "}
+                  and <b>Terraform.</b>
+                </li>
+              )}
+              {(title === "full-stack" ||
+                title === "mobile" ||
+                stack === "java") && (
+                <li>
+                  Migrated an Android codebase from <b>Java to Kotlin</b> and
+                  upgraded to Bluetooth 5, enhancing data transfer range, and
+                  connection stability for medical hardwares.
+                </li>
+              )}
             </Experience>
             <Experience
               title={
@@ -194,7 +202,7 @@ export default function Resume() {
                   : "Senior Software Engineer"
               }
               type="Remote, Australia"
-              time="2022 - 2024"
+              time="Jun 2022 - May 2024"
               company="Aimi.fm"
               href="https://aimi.fm"
             >
@@ -220,15 +228,15 @@ export default function Resume() {
                 <>
                   <li>
                     Led the development of a cross-platform genertive music SDK,
-                    in TypeScript and C++, enhancing the dynamic and
-                    personalised music experience and reducing startup time by
-                    52%.
+                    in <b>TypeScript</b> and <b>C++</b>, enhancing the dynamic
+                    and personalised music experience and{" "}
+                    <b>reducing startup time by 52%</b>.
                   </li>
                   <li>
-                    Deployed a scalable music streaming backend and maintained
-                    AWS infrastructure using Docker, Terraform, and GitHub
-                    Actions. Improved the build flow, reducing service build
-                    time by 30s.
+                    Deployed a scalable music streaming <b>backend</b> and
+                    maintained <b>AWS</b> infrastructure using <b>Docker</b>,{" "}
+                    <b>Terraform</b>, and <b>GitHub Actions</b>. Improved the
+                    build flow, <b>reducing service build time by 30s</b>.
                   </li>
                 </>
               )}
@@ -260,14 +268,14 @@ export default function Resume() {
 
             <Testimony from="J. Curtis (Senior Software Engineer, Aimi.fm)">
               I just want to say that I&apos;ve really appreciated working with
-              you. You&apos;ve been incredibly helpful, hardworking, and very
-              easy to get along with.
+              you. You&apos;ve been incredibly <b>helpful</b>,{" "}
+              <b>hardworking</b>, and very <b>easy to get along with</b>.
             </Testimony>
 
             <Experience
               title="Software Consultant"
               type="Hybrid, Australia"
-              time="2021 - 2022"
+              time="May 2021 - Jun 2022"
               company="Cognizant Servian"
               href="https://www.cognizant.com/au/en/servian"
             >
@@ -291,10 +299,10 @@ export default function Resume() {
                   </li>
                   <li>
                     Designed and developed a <b>highly available and secure</b>{" "}
-                    cloud solution for both backend and frontend using{" "}
-                    <b>Java</b>, <b>Spring Boot</b>, <b>React</b> and{" "}
-                    <b>Redux</b>; deployed on <b>GCP</b> <b>Kubernetes</b> with{" "}
-                    <b>Docker</b> and <b>Terraform</b>.
+                    cloud solution for both <b>backend</b> and frontend using{" "}
+                    <b>Java</b>, <b>Spring Boot</b>, <b>TypeScript</b>,{" "}
+                    <b>React</b> and <b>Redux</b>; deployed on <b>GCP</b>{" "}
+                    <b>Kubernetes</b> with <b>Docker</b> and <b>Terraform</b>.
                   </li>
                   <li>
                     <b>Designed database schema on Cloud Spanner</b>, leveraging
@@ -313,11 +321,10 @@ export default function Resume() {
                   <li
                     className={`${title === "mobile" ? "order-2" : "order-1"}`}
                   >
-                    Engineered new backend microservices in <b>Kotlin</b> and{" "}
-                    <b>Spring Boot</b>,{" "}
-                    <b>cutting web and mobile app load times by over 50%</b>{" "}
-                    while boosting performance, responsiveness, and
-                    maintainability.
+                    Engineered new <b>backend microservices</b> in <b>Kotlin</b>{" "}
+                    and <b>Spring Boot</b>, <b>cutting</b> web and mobile app{" "}
+                    <b>load time by over 50%</b> while boosting performance,
+                    responsiveness, and maintainability.
                   </li>
                   <li
                     className={`${title === "mobile" ? "order-1" : "order-2"}`}
@@ -349,15 +356,16 @@ export default function Resume() {
                 :
                 <ul className="list-disc ml-5 mt-1">
                   <li>
-                    Trained a ticket classification model with Python and Pandas
-                    on <b>GCP</b> Vertex AI, integrated with Lendlease&apos;s
-                    ServiceNow using a <b>Python</b> backend and <b>GCP</b>{" "}
-                    Pub/Sub, <b>reducing the need for 30 staff members</b> for
-                    manual classification tasks.
+                    Trained a ticket classification model with <b>Python</b> and
+                    Pandas on <b>GCP</b> Vertex AI, integrated with
+                    Lendlease&apos;s ServiceNow using a <b>Python backend</b>{" "}
+                    and <b>GCP</b> Pub/Sub,{" "}
+                    <b>reducing the need for 30 staff members</b> for manual
+                    classification tasks.
                   </li>
                   <li>
-                    Created a chatbot backend using <b>Python</b>, <b>GCP</b>{" "}
-                    Cloud Functions, and Dialogflow.
+                    Created a chatbot <b>backend</b> using <b>Python</b>,{" "}
+                    <b>GCP</b> Cloud Functions, and Dialogflow.
                   </li>
                 </ul>
               </li>
@@ -370,15 +378,17 @@ export default function Resume() {
             <Experience
               title="Full-Stack Developer"
               type="Hybrid, Australia"
-              time="2018 - 2021"
+              time="Jun 2018 - Apr 2021"
               company="Strength By Numbers"
               href="https://www.strengthbynumbers.com/"
             >
-              <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                Designed and developed the Android app in <b>Java</b>, managing
-                complex multi-threaded and asynchronous Bluetooth operations
-                using ReactiveX.
-              </li>
+              {(title === "full-stack" || title === "mobile") && (
+                <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
+                  Designed and developed the Android app in <b>Java</b>,
+                  managing complex multi-threaded and asynchronous Bluetooth
+                  operations using ReactiveX.
+                </li>
+              )}
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
                 Built backend microservices using <b>JavaScript</b>,{" "}
                 <b>Node.js</b>, <b>Express.js</b> and <b>MongoDB</b>, deployed
@@ -393,7 +403,7 @@ export default function Resume() {
             <Experience
               title="Full-Stack Developer"
               type="Part Time, Hybrid, Australia"
-              time="2016 - 2018"
+              time="Sep 2016 - May 2018"
               company="SensiLab"
               href="https://sensilab.monash.edu/"
             >
@@ -402,9 +412,11 @@ export default function Resume() {
                 <b>React</b>, <b>Redux</b>, <b>Express.js</b>, <b>MongoDB</b>{" "}
                 and Firebase.
               </li>
-              <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                Developed an <b>iOS</b> app using <b>Swift</b>.
-              </li>
+              {(title === "full-stack" || title === "mobile") && (
+                <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
+                  Developed an <b>iOS</b> app using <b>Swift</b>.
+                </li>
+              )}
               <li className="order-3">
                 Optimized SensiLab&apos;s WordPress website and created custom
                 themes and plugins.
@@ -418,7 +430,7 @@ export default function Resume() {
           <Experience
             title="Master of Information Technology"
             type="Melbourne, Australia"
-            time=""
+            time="2016 - 2017"
             company="Monash University (QS: 37)"
             href="https://www.monash.edu/"
           >
