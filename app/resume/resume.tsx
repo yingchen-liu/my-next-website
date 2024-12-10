@@ -227,7 +227,7 @@ export default function Resume() {
               {title === "back-end" && (
                 <>
                   <li>
-                    Led the development of a cross-platform genertive music SDK,
+                    Led the development of a cross-platform generative music SDK,
                     in <b>TypeScript</b>, <b>Node.js</b> and C++, enhancing the
                     dynamic and personalised music experience and{" "}
                     <b>reducing startup time by 52%</b>.
@@ -288,7 +288,7 @@ export default function Resume() {
                 <ul className="list-disc ml-5 mt-1 mb-2">
                   <li>
                     Led discovery sessions and collaboratively defined project
-                    scope with Optus. Negotiated interface contract with other
+                    scope with Optus. Negotiated interface contracts with other
                     systems, produced detailed solution design documentation.{" "}
                     <b>Managed stakeholders, budget, risks and timeline</b>.
                   </li>
@@ -446,7 +446,7 @@ export default function Resume() {
             title="Master of Information Technology"
             type="Melbourne, Australia"
             time="2016 - 2017"
-            company="Monash University (QS: 37)"
+            company="Monash University"
             href="https://www.monash.edu/"
           >
             <li>
