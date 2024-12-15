@@ -81,6 +81,7 @@ function Testimony({
 export default function Resume() {
   const [title, setTitle] = useState("full-stack");
   const [stack, setStack] = useState("java");
+  const [country, setCountry] = useState("international");
 
   return (
     <>
@@ -107,7 +108,7 @@ export default function Resume() {
           Mobile
         </Link>
       </div>
-      <div className="container md:px-20 pb-6 mx-auto flex gap-x-6">
+      <div className="container md:px-20 pb-2 mx-auto flex gap-x-6">
         <Link
           onClick={() => setStack("java")}
           className={`${stack === "java" && "font-bold"}`}
@@ -121,6 +122,29 @@ export default function Resume() {
           invert={true}
         >
           JavaScript
+        </Link>
+      </div>
+      <div className="container md:px-20 pb-6 mx-auto flex gap-x-6">
+        <Link
+          onClick={() => setCountry("international")}
+          className={`${country === "international" && "font-bold"}`}
+          invert={true}
+        >
+          International
+        </Link>
+        <Link
+          onClick={() => setCountry("au")}
+          className={`${country === "au" && "font-bold"}`}
+          invert={true}
+        >
+          Australia
+        </Link>
+        <Link
+          onClick={() => setCountry("cn")}
+          className={`${country === "cn" && "font-bold"}`}
+          invert={true}
+        >
+          China
         </Link>
       </div>
       <div className="container md:px-20 md:pb-20 mx-auto">
@@ -157,6 +181,13 @@ export default function Resume() {
               <Link href="https://yingchenliu.com">
                 https://yingchenliu.com
               </Link>
+              {country !== "international" && (
+                <>
+                  <div className="inline-block px-2">•</div>
+                  {country === "au" && <>+61 420 630 709</>}
+                  {country === "cn" && <>+86 135 2908 0041</>}
+                </>
+              )}
             </div>
           </div>
 
@@ -166,7 +197,7 @@ export default function Resume() {
             </div>
             <Experience
               title="Freelance Software Engineer"
-              type="Remote, Australia"
+              type={`Remote, ${country === "au" ? "Melbourne" : "China"}`}
               time="July 2024 - Current"
               company="Self-Employed"
               href="#"
@@ -185,23 +216,15 @@ export default function Resume() {
                 title === "mobile" ||
                 stack === "java") && (
                 <li>
-                  Migrated an Android codebase from <b>Java to Kotlin</b> and
-                  upgraded to Bluetooth 5, enhancing data transfer range, and
-                  connection stability for medical hardwares.
+                  Migrated an <b>Android</b> codebase from <b>Java to Kotlin</b>{" "}
+                  and upgraded to Bluetooth 5, enhancing data transfer range,
+                  and connection stability for medical hardware.
                 </li>
               )}
             </Experience>
             <Experience
-              title={
-                title === "full-stack"
-                  ? "Senior Full-Stack Engineer"
-                  : title === "back-end"
-                  ? "Senior Backend Engineer"
-                  : title === "mobile"
-                  ? "Senior Mobile Engineer"
-                  : "Senior Software Engineer"
-              }
-              type="Remote, Australia"
+              title="Senior Software Engineer"
+              type={`Remote, ${country === "au" ? "Melbourne" : "China"}`}
               time="Jun 2022 - May 2024"
               company="Aimi.fm"
               href="https://aimi.fm"
@@ -222,14 +245,19 @@ export default function Resume() {
                     build flow, <b>reducing service build time by 30 seconds</b>
                     .
                   </li>
+                  <li>
+                    Engineered responsive web applications with{" "}
+                    <b>TypeScript</b>, <b>React</b>, <b>Next.js</b> with{" "}
+                    <b>GraphQL</b> and <b>DynamoDB</b>. Deployed on Vercel.
+                  </li>
                 </>
               )}
               {title === "back-end" && (
                 <>
                   <li>
-                    Led the development of a cross-platform generative music SDK,
-                    in <b>TypeScript</b>, <b>Node.js</b> and C++, enhancing the
-                    dynamic and personalised music experience and{" "}
+                    Led the development of a cross-platform generative music
+                    SDK, in <b>TypeScript</b>, <b>Node.js</b> and C++, enhancing
+                    the dynamic and personalised music experience and{" "}
                     <b>reducing startup time by 52%</b>.
                   </li>
                   <li>
@@ -238,29 +266,30 @@ export default function Resume() {
                     <b>Terraform</b>, and <b>GitHub Actions</b>. Improved the
                     build flow, <b>reducing service build time by 30s</b>.
                   </li>
+                  <li>
+                    Established the Android team and developed the Aimi Player
+                    Android app from scratch using <b>Kotlin</b>, Jetpack
+                    Compose, and Media3.
+                  </li>
                 </>
               )}
               {title === "mobile" && (
                 <>
                   <li>
-                    Founded the Android team and built the Android app using
-                    Kotlin and JetPack Compose.
+                    <b>Established the Android team</b> and developed the Aimi
+                    Player Android app from scratch using <b>Kotlin</b>, Jetpack
+                    Compose, and Media3.
                   </li>
                   <li>
-                    Led the development of a cross-platform music SDK for both
-                    Android and iOS, a core component of Aimi Player and Aimi
-                    Studio, built with TypeScript and C++, enhancing the dynamic
-                    and personalised music experience and reducing startup time
-                    by 52%.
+                    Led the development of a <b>cross-platform</b> music SDK for{" "}
+                    <b>Android and iOS</b>, a core component of Aimi Player and
+                    Aimi Studio, built with TypeScript and C++, enhancing the
+                    dynamic and personalised music experience and reducing
+                    startup time by 52%.
                   </li>
                 </>
               )}
-              <li>
-                Engineered responsive web applications with <b>TypeScript</b>,{" "}
-                <b>React</b>, <b>Next.js</b> with <b>GraphQL</b> and{" "}
-                <b>DynamoDB</b>. Deployed on Vercel.
-              </li>
-              <li>
+              <li className="order-4">
                 Achieved <b>96% test coverage</b> by implementing test-driven
                 development within the team.
               </li>
@@ -274,7 +303,7 @@ export default function Resume() {
 
             <Experience
               title="Software Consultant"
-              type="Hybrid, Australia"
+              type={`Hybrid, ${country === "au" ? "Melbourne" : "Australia"}`}
               time="May 2021 - Jun 2022"
               company="Cognizant Servian"
               href="https://www.cognizant.com/au/en/servian"
@@ -283,8 +312,8 @@ export default function Resume() {
                 <b>
                   Engagement Lead at{" "}
                   <Link href="https://optus.com.au">Optus</Link>
-                </b>{" "}
-                (ID verification system):
+                </b>
+                :
                 <ul className="list-disc ml-5 mt-1 mb-2">
                   <li>
                     Led discovery sessions and collaboratively defined project
@@ -330,25 +359,39 @@ export default function Resume() {
                   <li
                     className={`${title === "mobile" ? "order-1" : "order-2"}`}
                   >
-                    Developed a dynamic Android UI leveraging <b>Kotlin</b> and
-                    JetPack Compose; added a new flow to{" "}
+                    Developed a dynamic <b>Android</b> UI leveraging{" "}
+                    <b>Kotlin</b> and JetPack Compose; added a new flow to{" "}
                     <b>boost user retention by 17%</b>.
                   </li>
                 </ul>
               </li>
 
-              <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
-                You put in an incredible effort to handle{" "}
-                <b>ALL the backend work</b> and push Android across the line
-                with Alex.{" "}
-                <b>
-                  You&apos;ve worked tirelessly, right up until the last day
-                </b>
-                , to ensure everything was completed before your departure, and
-                for that, we&apos;re incredibly grateful! Thanks for being a
-                phenomenal engineer and making this project a success.{" "}
-                <b>We couldn&apos;t have done it without you</b>.
-              </Testimony>
+              {title === "mobile" ? (
+                <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
+                  You put in an incredible effort to handle ALL the backend work
+                  and push <b>Android</b> across the line with Alex.{" "}
+                  <b>
+                    You&apos;ve worked tirelessly, right up until the last day
+                  </b>
+                  , to ensure everything was completed before your departure,
+                  and for that, we&apos;re incredibly grateful! Thanks for being
+                  a gun engineer and making this project a success.{" "}
+                  <b>We couldn&apos;t have done it without you</b>.
+                </Testimony>
+              ) : (
+                <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
+                  You put in an incredible effort to handle{" "}
+                  <b>ALL the backend work</b> and push Android across the line
+                  with Alex.{" "}
+                  <b>
+                    You&apos;ve worked tirelessly, right up until the last day
+                  </b>
+                  , to ensure everything was completed before your departure,
+                  and for that, we&apos;re incredibly grateful! Thanks for being
+                  a gun engineer and making this project a success.{" "}
+                  <b>We couldn&apos;t have done it without you</b>.
+                </Testimony>
+              )}
               <li className="mb-2">
                 <b>
                   Cloud Engineer at{" "}
@@ -381,14 +424,14 @@ export default function Resume() {
 
             <Experience
               title="Full-Stack Developer"
-              type="Hybrid, Australia"
+              type={`Hybrid, ${country === "au" ? "Melbourne" : "Australia"}`}
               time="Jun 2018 - Apr 2021"
               company="Strength By Numbers"
               href="https://www.strengthbynumbers.com/"
             >
               {(title === "full-stack" || title === "mobile") && (
                 <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                  Designed and developed the Android app in <b>Java</b>,
+                  Designed and developed the <b>Android</b> app in <b>Java</b>,
                   managing complex multi-threaded and asynchronous Bluetooth
                   operations using ReactiveX.
                 </li>
@@ -417,7 +460,9 @@ export default function Resume() {
 
             <Experience
               title="Full-Stack Developer"
-              type="Part Time, Hybrid, Australia"
+              type={`Part-Time, Hybrid, ${
+                country === "au" ? "Melbourne" : "Australia"
+              }`}
               time="Sep 2016 - May 2018"
               company="SensiLab"
               href="https://sensilab.monash.edu/"
@@ -446,7 +491,7 @@ export default function Resume() {
             title="Master of Information Technology"
             type="Melbourne, Australia"
             time="2016 - 2017"
-            company="Monash University"
+            company={`Monash University ${country !== "au" && "(QS: 37)"}`}
             href="https://www.monash.edu/"
           >
             <li>
@@ -497,7 +542,7 @@ export default function Resume() {
             </li>
             {stack !== "javascript" && (
               <li>
-                <b>Mobile:</b> Android, JetPack, iOS
+                <b>Mobile:</b> Android, Jetpack, iOS
               </li>
             )}
             <li>
