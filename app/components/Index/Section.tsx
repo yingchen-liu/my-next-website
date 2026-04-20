@@ -1,5 +1,7 @@
 "use client";
 
+import NextImage from "next/image";
+
 interface SectionProps {
   id: string;
   title: string;
@@ -70,13 +72,26 @@ interface ImageProps {
   src: string;
   className?: string;
   alt?: string;
+  width?: number;
+  height?: number;
 }
 
-const Image: React.FC<ImageProps> = ({ src, className, alt }) => {
+const Image: React.FC<ImageProps> = ({
+  src,
+  className,
+  alt,
+  width = 1600,
+  height = 900,
+}) => {
   return (
-    <div className={`${className} rounded-md image-container`}>
-      <img className="filter-image" src={src} alt={alt} />
-      <div className="blue-tint" />
+    <div className={`${className} overflow-hidden rounded-md`}>
+      <NextImage
+        className="h-auto w-full"
+        src={src}
+        alt={alt ?? ""}
+        width={width}
+        height={height}
+      />
     </div>
   );
 };

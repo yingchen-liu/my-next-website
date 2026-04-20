@@ -5,7 +5,13 @@ function AboutMe() {
     <Section id="about" title="About Me">
       <div className="flex flex-col md:flex-row-reverse">
         <div className="md:w-2/5 mb-10 flex justify-center items-start">
-          <Image src="/images/yingchen.jpg" className="w-2/3" alt="Yingchen Liu" />
+          <Image
+            src="/images/yingchen.jpg"
+            className="w-2/3"
+            alt="Yingchen Liu"
+            width={600}
+            height={600}
+          />
         </div>
         <div className="md:w-3/5">
           <Paragraph>

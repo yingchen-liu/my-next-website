@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import HeaderMenu from "./components/Common/HeaderMenu";
 
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+        <Script
+          id="google-analytics"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-VZ85PQC5NS"
-        ></script>
-        <script>
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -28,7 +31,7 @@ export default function RootLayout({
 
             gtag('config', 'G-VZ85PQC5NS');
           `}
-        </script>
+        </Script>
       </head>
       <body className={`bg-gray-800 text-blue-100 font-light antialiased`}>
         <div className="container mx-auto max-w-5xl px-5 md:px-10">

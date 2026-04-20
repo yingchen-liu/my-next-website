@@ -1,7 +1,59 @@
 "use client";
 
-import { TypeAnimation } from "react-type-animation";
+import { useEffect, useState } from "react";
 import { Button, Paragraph } from "./Section";
+
+const bannerPhrases = [
+  "I build scalable web apps.",
+  "I build Android apps with Kotlin and Jetpack.",
+  "I build React & Next.js web apps.",
+  "I build cloud infrastructure on AWS and GCP.",
+  "I manage CI/CD pipelines.",
+  "I improve WordPress site performance.",
+  "I integrate AI with mobile and web apps.",
+];
+
+function Typewriter() {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = bannerPhrases[phraseIndex];
+
+    if (!isDeleting && displayedText === currentPhrase) {
+      const holdTimer = window.setTimeout(() => setIsDeleting(true), 1000);
+      return () => window.clearTimeout(holdTimer);
+    }
+
+    if (isDeleting && displayedText.length === 0) {
+      setIsDeleting(false);
+      setPhraseIndex((currentIndex) => (currentIndex + 1) % bannerPhrases.length);
+      return;
+    }
+
+    const nextText = isDeleting
+      ? currentPhrase.slice(0, displayedText.length - 1)
+      : currentPhrase.slice(0, displayedText.length + 1);
+
+    const typingTimer = window.setTimeout(
+      () => setDisplayedText(nextText),
+      isDeleting ? 30 : 70
+    );
+
+    return () => window.clearTimeout(typingTimer);
+  }, [displayedText, isDeleting, phraseIndex]);
+
+  return (
+    <span
+      aria-live="polite"
+      className="inline-block h-[190px] overflow-hidden md:h-[160px]"
+    >
+      {displayedText}
+      <span className="ml-1 inline-block animate-pulse">|</span>
+    </span>
+  );
+}
 
 function Banner() {
   return (
@@ -9,30 +61,7 @@ function Banner() {
       <p className="text-white font-thin font-sfmono mb-6">Hi, my name is</p>
       <h1 className="md:text-7xl text-5xl font-bold mb-2">Yingchen Liu</h1>
       <h2 className="text-blue-200 text-opacity-60 md:text-7xl text-5xl font-bold">
-        <TypeAnimation
-          className="h-[190px] md:h-[160px] overflow-hidden"
-          sequence={[
-            "I build scalable web apps.",
-            1000,
-            "I build Android apps with Kotlin and Jetpack.",
-            1000,
-            "I build React & Next.js web apps.",
-            1000,
-            "I build cloud infrastructure on AWS and GCP.",
-            1000,
-            "I manage CI/CD pipelines.",
-            1000,
-            "I improve WordPress site performance.",
-            1000,
-            "I integrate AI with mobile and web apps.",
-            1000,
-          ]}
-          wrapper="span"
-          speed={70}
-          cursor={true}
-          repeat={Infinity}
-          style={{ display: "inline-block" }}
-        />
+        <Typewriter />
       </h2>
 
       <Paragraph className="md:w-1/2 mb-6">

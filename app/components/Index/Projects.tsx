@@ -88,7 +88,13 @@ const Project: React.FC<ProjectProps> = ({
 
         {/* Image Box */}
         <div className="mt-8 md:mt-0 md:ml-6 relative z-0 md:w-1/2">
-          <Image src={imgSrc} className="w-full h-auto rounded-lg" alt={title} />
+          <Image
+            src={imgSrc}
+            className="w-full h-auto rounded-lg"
+            alt={title}
+            width={1600}
+            height={900}
+          />
         </div>
       </div>
 

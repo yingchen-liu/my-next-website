@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "../Index/Section";
 import { useSelectedLayoutSegments } from "next/navigation";
 
@@ -42,29 +42,27 @@ const HeaderMenu: React.FC<HeaderMenuProps> = () => {
   const isResume = segments.length >= 1 && segments[0] === 'resume';
 
   const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
-  const handleScroll = () => {
-    if (typeof window !== "undefined") {
+  useEffect(() => {
+    const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       // Show header when scrolling up or at the top of the page
-      if (currentScrollY < lastScrollY || currentScrollY < 30) {
+      if (currentScrollY < lastScrollY.current || currentScrollY < 30) {
         setShowHeader(true);
       } else {
         setShowHeader(false);
       }
 
-      setLastScrollY(currentScrollY);
-    }
-  };
+      lastScrollY.current = currentScrollY;
+    };
 
-  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   function handleItemClick(name: string) {
     if (name.startsWith("#")) {
