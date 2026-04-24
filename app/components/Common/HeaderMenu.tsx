@@ -39,7 +39,8 @@ const scrollToSection = (sectionId: string) => {
 const HeaderMenu: React.FC<HeaderMenuProps> = () => {
   const segments = useSelectedLayoutSegments();
   const isHome = segments.length === 0;
-  const isResume = segments.length >= 1 && segments[0] === 'resume';
+  const isResume = segments.length >= 1 && segments[0] === "resume";
+  const isLogin = segments.length >= 1 && segments[0] === "login";
 
   const [showHeader, setShowHeader] = useState(true);
   const lastScrollY = useRef(0);
@@ -68,7 +69,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = () => {
     if (name.startsWith("#")) {
       scrollToSection(name.replace("#", ""));
     } else {
-      window.location.href = `/${name}`;
+      window.location.href = name ? `/${name}` : "/";
     }
   }
 
@@ -126,14 +127,24 @@ const HeaderMenu: React.FC<HeaderMenuProps> = () => {
                 >
                   📃 Resume
                 </MenuItem>
+                <span>|</span>
+                <MenuItem
+                  active={isLogin}
+                  onClick={() => handleItemClick("login")}
+                >
+                  🔐 Login
+                </MenuItem>
               </>
             )}
           </ul>
         </nav>
         {/* Login button logic */}
-        {isHome && (<nav className="mt-4 md:mt-0 md:ml-4">
-          <Link onClick={() => handleItemClick("resume")}>Resume</Link>
-        </nav>)}
+        {isHome && (
+          <nav className="mt-4 flex items-center gap-5 md:mt-0 md:ml-4">
+            <Link href="/resume">Resume</Link>
+            <Link href="/login">Login</Link>
+          </nav>
+        )}
       </div>
     </header>
   );

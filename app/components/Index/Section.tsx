@@ -36,14 +36,24 @@ interface LinkProps {
   className?: string;
   href?: string;
   onClick?: () => void;
+  inNewTab?: boolean;
 }
 
-const Link: React.FC<LinkProps> = ({ children, href, onClick, className }) => {
+const Link: React.FC<LinkProps> = ({
+  children,
+  href,
+  onClick,
+  className,
+  inNewTab,
+}) => {
+  const opensInNewTab = inNewTab ?? Boolean(href && /^https?:\/\//.test(href));
+
   return (
     <span className={`relative inline-block group ${className}`}>
       <a
         className="text-white hover:text-blue-100 cursor-pointer"
-        target="_blank"
+        rel={opensInNewTab ? "noreferrer noopener" : undefined}
+        target={opensInNewTab ? "_blank" : undefined}
         href={href}
         onClick={onClick}
       >
