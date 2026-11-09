@@ -57,11 +57,11 @@ function getErrorMessage(error: unknown) {
     case "auth/popup-closed-by-user":
       return "The Google popup was closed before sign-in completed.";
     case "auth/unauthorized-domain":
-      return "This domain is not authorized in Firebase Authentication yet.";
+      return "This domain is not authorised in Firebase Authentication yet.";
     case "auth/operation-not-allowed":
       return "Google sign-in is not enabled in Firebase Authentication.";
     default:
-      return "Google sign-in failed. Check the Firebase Google provider and authorized domains.";
+      return "Google sign-in failed. Check the Firebase Google provider and authorised domains.";
   }
 }
 

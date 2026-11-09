@@ -1,6 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { getFirebaseAuth, hasFirebaseConfig } from "@/lib/firebase/client";
+
+const PUBLIC_FILTERS = {
+  title: "full-stack",
+  stack: "javascript",
+  country: "au",
+} as const;
+
+const FULL_RESUME_DEFAULTS = {
+  title: "full-stack",
+  stack: "java",
+  country: "international",
+} as const;
+
+type ResumeTitle = "full-stack" | "back-end" | "mobile";
+type ResumeStack = "java" | "javascript";
+type ResumeCountry = "international" | "au" | "cn";
+
+function hasFullResumeAccess(email: string | null | undefined) {
+  return email?.toLowerCase().endsWith("@yingchenliu.com") ?? false;
+}
 
 function Experience({
   title,
@@ -11,24 +33,29 @@ function Experience({
   children,
 }: {
   title: string;
-  href: string;
+  href?: string;
   type: string;
   time: string;
-  company: string;
+  company?: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="mb-2">
-      <div className="flex">
-        <div className="flex-grow flex">
+      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline">
+        <div className="flex flex-grow flex-wrap items-baseline">
           <div className="font-semibold mr-2 text-[1.05rem]">{title}</div>
           <div className="text-sm mt-[2.5px]"> - {type}</div>
         </div>
-        <div className="italic text-sm">{time}</div>
+        <div className="whitespace-nowrap italic text-sm">{time}</div>
       </div>
-      <Link href={href} className="font-light">
-        {company}
-      </Link>
+      {company &&
+        (href ? (
+          <Link href={href} className="font-light">
+            {company}
+          </Link>
+        ) : (
+          <div className="font-light">{company}</div>
+        ))}
       <ul className="list-disc ml-5 mt-1 text-[0.9rem] flex flex-col">
         {children}
       </ul>
@@ -53,6 +80,7 @@ function Link({
     <a
       href={href}
       target="_blank"
+      rel={href ? "noopener noreferrer" : undefined}
       className={`${
         invert ? "text-white" : "text-blue-700"
       } hover:underline cursor-pointer ${className}`}
@@ -79,75 +107,113 @@ function Testimony({
 }
 
 export default function Resume() {
-  const [title, setTitle] = useState("full-stack");
-  const [stack, setStack] = useState("java");
-  const [country, setCountry] = useState("international");
+  const firebaseReady = hasFirebaseConfig();
+  const [hasAccess, setHasAccess] = useState(false);
+  const [title, setTitle] = useState<ResumeTitle>(PUBLIC_FILTERS.title);
+  const [stack, setStack] = useState<ResumeStack>(PUBLIC_FILTERS.stack);
+  const [country, setCountry] = useState<ResumeCountry>(PUBLIC_FILTERS.country);
+  const yearsOfExperience = new Date().getFullYear() - 2016;
+
+  useEffect(() => {
+    if (!firebaseReady) {
+      return;
+    }
+
+    const auth = getFirebaseAuth();
+    if (!auth) {
+      return;
+    }
+
+    return onAuthStateChanged(auth, (nextUser) => {
+      const nextHasAccess = hasFullResumeAccess(nextUser?.email);
+      setHasAccess(nextHasAccess);
+
+      if (nextHasAccess) {
+        setTitle(FULL_RESUME_DEFAULTS.title);
+        setStack(FULL_RESUME_DEFAULTS.stack);
+        setCountry(FULL_RESUME_DEFAULTS.country);
+        return;
+      }
+
+      setTitle(PUBLIC_FILTERS.title);
+      setStack(PUBLIC_FILTERS.stack);
+      setCountry(PUBLIC_FILTERS.country);
+    });
+  }, [firebaseReady]);
 
   return (
     <>
-      <div className="container md:px-20 md:pt-20 mt-10 pb-2 mx-auto flex gap-x-6">
-        <Link
-          onClick={() => setTitle("full-stack")}
-          className={`${title === "full-stack" && "font-bold"}`}
-          invert={true}
-        >
-          Fullstack
-        </Link>
-        <Link
-          onClick={() => setTitle("back-end")}
-          className={`${title === "back-end" && "font-bold"}`}
-          invert={true}
-        >
-          Backend
-        </Link>
-        <Link
-          onClick={() => setTitle("mobile")}
-          className={`${title === "mobile" && "font-bold"}`}
-          invert={true}
-        >
-          Mobile
-        </Link>
-      </div>
-      <div className="container md:px-20 pb-2 mx-auto flex gap-x-6">
-        <Link
-          onClick={() => setStack("java")}
-          className={`${stack === "java" && "font-bold"}`}
-          invert={true}
-        >
-          Java
-        </Link>
-        <Link
-          onClick={() => setStack("javascript")}
-          className={`${stack === "javascript" && "font-bold"}`}
-          invert={true}
-        >
-          JavaScript
-        </Link>
-      </div>
-      <div className="container md:px-20 pb-6 mx-auto flex gap-x-6">
-        <Link
-          onClick={() => setCountry("international")}
-          className={`${country === "international" && "font-bold"}`}
-          invert={true}
-        >
-          International
-        </Link>
-        <Link
-          onClick={() => setCountry("au")}
-          className={`${country === "au" && "font-bold"}`}
-          invert={true}
-        >
-          Australia
-        </Link>
-        <Link
-          onClick={() => setCountry("cn")}
-          className={`${country === "cn" && "font-bold"}`}
-          invert={true}
-        >
-          China
-        </Link>
-      </div>
-      <div className="container md:px-20 md:pb-20 mx-auto">
+      {hasAccess && (
+        <>
+          <div className="container md:px-20 md:pt-20 mt-10 pb-2 mx-auto flex gap-x-6">
+            <Link
+              onClick={() => setTitle("full-stack")}
+              className={`${title === "full-stack" && "font-bold"}`}
+              invert={true}
+            >
+              Fullstack
+            </Link>
+            <Link
+              onClick={() => setTitle("back-end")}
+              className={`${title === "back-end" && "font-bold"}`}
+              invert={true}
+            >
+              Backend
+            </Link>
+            <Link
+              onClick={() => setTitle("mobile")}
+              className={`${title === "mobile" && "font-bold"}`}
+              invert={true}
+            >
+              Mobile
+            </Link>
+          </div>
+          <div className="container md:px-20 pb-2 mx-auto flex gap-x-6">
+            <Link
+              onClick={() => setStack("java")}
+              className={`${stack === "java" && "font-bold"}`}
+              invert={true}
+            >
+              Java
+            </Link>
+            <Link
+              onClick={() => setStack("javascript")}
+              className={`${stack === "javascript" && "font-bold"}`}
+              invert={true}
+            >
+              JavaScript
+            </Link>
+          </div>
+          <div className="container md:px-20 pb-6 mx-auto flex gap-x-6">
+            <Link
+              onClick={() => setCountry("international")}
+              className={`${country === "international" && "font-bold"}`}
+              invert={true}
+            >
+              International
+            </Link>
+            <Link
+              onClick={() => setCountry("au")}
+              className={`${country === "au" && "font-bold"}`}
+              invert={true}
+            >
+              Australia
+            </Link>
+            <Link
+              onClick={() => setCountry("cn")}
+              className={`${country === "cn" && "font-bold"}`}
+              invert={true}
+            >
+              China
+            </Link>
+          </div>
+        </>
+      )}
+      <div
+        className={`container mx-auto ${
+          hasAccess ? "md:px-20 md:pb-20" : "px-6 pb-20 pt-20 md:px-20 md:pt-24"
+        }`}
+      >
         <div className="font-extralight text-gray-900 font-sans border-l-4 border-l-[#af0f00] p-8 shadow-md border-[0.5px] border-gray-50 bg-gray-100">
           <div className="mb-8">
             <div className="text-[#af0f00] font-bold text-[22px]">
@@ -156,17 +222,18 @@ export default function Resume() {
             <div className="font-[300]">
               Senior{" "}
               {title === "full-stack"
-                ? "Full-Stack"
+                ? "Full-Stack & AI"
                 : title === "back-end"
                 ? "Backend"
                 : title === "mobile"
-                ? "Mobile Fullstack"
+                ? "Mobile Full-Stack"
                 : "Software"}{" "}
               Engineer
-              <div className="inline-block px-2">•</div>8 years
+              <div className="inline-block px-2">•</div>
+              {yearsOfExperience}+ years
               <div className="inline-block px-2">•</div>
               {title === "full-stack"
-                ? "Web Frontend, Backend, Cloud, Mobile"
+                ? "AI Products, Web, Backend, Cloud, Mobile"
                 : title === "back-end"
                 ? "Web Frontend, Backend, Cloud, Mobile"
                 : title === "mobile"
@@ -180,6 +247,10 @@ export default function Resume() {
               <div className="inline-block px-2">•</div>
               <Link href="https://yingchenliu.com">
                 https://yingchenliu.com
+              </Link>
+              <div className="inline-block px-2">•</div>
+              <Link href="https://www.linkedin.com/in/yingchen-liu/">
+                LinkedIn
               </Link>
               {country !== "international" && (
                 <>
@@ -196,32 +267,67 @@ export default function Resume() {
               EXPERIENCE
             </div>
             <Experience
-              title="Freelance Software Engineer"
-              type={`Remote, ${country === "au" ? "Melbourne" : "China"}`}
-              time="July 2024 - Current"
-              company="Self-Employed"
-              href="#"
+              title="Senior Full-Stack Engineer"
+              type={`Full-Time, Remote, ${
+                country === "au" ? "Melbourne" : "Australia"
+              }`}
+              time="Jan 2025 - Jul 2026"
+              company="Xmind"
+              href="https://xmind.com/"
             >
+              <li>
+                Built AI products across discovery, architecture, frontend,
+                backend, infrastructure, testing, and production release for{" "}
+                <Link href="https://mapify.so/">Mapify</Link> and{" "}
+                <Link href="https://hihenri.ai/">Henri</Link>.
+              </li>
               {(title === "full-stack" ||
                 title === "back-end" ||
                 stack === "javascript") && (
                 <li>
-                  Designed and developed a scalable <b>backend</b> system using{" "}
-                  <b>TypeScript</b>, <b>Node.js</b> with <b>GraphQL</b> and{" "}
-                  <b>PostgreSQL</b>, deploying to <b>AWS</b> with <b>Docker</b>{" "}
-                  and <b>Terraform.</b>
+                  Designed Mapify&apos;s mind-map search and an{" "}
+                  <b>S3-to-PostgreSQL</b> index migration with full-text data
+                  structures, safe fallback behaviour, and a user-transparent
+                  rollout.
                 </li>
               )}
-              {(title === "full-stack" ||
-                title === "mobile" ||
-                stack === "java") && (
+              {(title === "full-stack" || title === "back-end") && (
                 <li>
-                  Migrated an <b>Android</b> codebase from <b>Java to Kotlin</b>{" "}
-                  and upgraded to Bluetooth 5, enhancing data transfer range,
-                  and connection stability for medical hardware.
+                  Reworked speech-to-text around orchestration, retries, local
+                  worker and media simulation, and provider fallbacks;
+                  diagnosed production memory leaks and added{" "}
+                  <b>Prometheus</b> monitoring.
                 </li>
               )}
+              <li>
+                Architected Mapify&apos;s multilingual newsletter and
+                transactional-email platform with generated TypeScript
+                renderers, dynamic mailing lists, click tracking, unified
+                unsubscribe, one-ZIP locale imports, and dashboard sending.
+              </li>
+              <li>
+                Built affiliate operations and settlement for a product
+                trusted by <b>5M+ users</b>, covering partner contracts,
+                one-step Stripe coupons, 5–15% commission tiers, two-month
+                settlement, and refund/downgrade adjustments.
+              </li>
+              <li>
+                Cut Mapify homepage FCP from <b>11.6s to 1.1s</b> and LCP from{" "}
+                <b>22.1s to 7.6s</b>.
+              </li>
+              <li>
+                Architected Henri&apos;s personalised learning system across
+                knowledge-tree streaming, syllabus generation, conversational
+                chapters, adaptive quizzes, generated visuals, engagement
+                loops, and production delivery.
+              </li>
+              <li>
+                Improved release safety, automated tests, GitHub security and
+                CI, and coordinated <b>AWS</b>, <b>S3</b>,{" "}
+                <b>PostgreSQL</b>, TestFlight, and production setup.
+              </li>
             </Experience>
+
             <Experience
               title="Senior Software Engineer"
               type={`Remote, ${country === "au" ? "Melbourne" : "China"}`}
@@ -419,7 +525,57 @@ export default function Resume() {
             </Experience>
 
             <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
-              EXPERIENCE
+              CONTRACT WORK
+            </div>
+
+            <Experience
+              title="Independent Software Contractor"
+              type={`Weekend Contracting, Remote, ${
+                country === "au" ? "Melbourne" : "Australia"
+              }`}
+              time="Jun 2024 - Dec 2024; Aug 2026 - Present"
+            >
+              <li>
+                <b>AxIT iOS:</b> build and modernise{" "}
+                <Link href="https://www.strengthbynumbers.com/software/">
+                  AxIT
+                </Link>{" "}
+                with <b>Swift</b> and <b>SwiftUI</b>, bringing its connected
+                assessment, session, sync, reporting, and release workflows to
+                iPhone and iPad.
+              </li>
+              {(title === "full-stack" ||
+                title === "back-end" ||
+                stack === "javascript") && (
+                <li>
+                  <b>AxITLib:</b> contribute shared{" "}
+                  <b>Kotlin Multiplatform</b> models and metrics that centralise
+                  test catalogues, device capabilities, sampling rules, and
+                  calculations so iOS and Android behave consistently.
+                </li>
+              )}
+              {(title === "full-stack" ||
+                title === "mobile" ||
+                stack === "java") && (
+                <li>
+                  Deliver reliable Bluetooth device and firmware flows,
+                  responsive iPhone/iPad layouts, accessibility, diagnostics,
+                  security, and App Store/TestFlight release foundations.
+                </li>
+              )}
+              {(title === "full-stack" ||
+                title === "back-end" ||
+                stack === "javascript") && (
+                <li>
+                  <b>SBN Testing:</b> build a private exact-build QA workspace
+                  for collaborative plans, live progress, evidence, priorities,
+                  immutable result history, and Slack-linked discussions.
+                </li>
+              )}
+            </Experience>
+
+            <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+              EARLIER EXPERIENCE
             </div>
 
             <Experience
@@ -431,9 +587,9 @@ export default function Resume() {
             >
               {(title === "full-stack" || title === "mobile") && (
                 <li className={`${title === "mobile" ? "order-1" : "order-2"}`}>
-                  Designed and developed the <b>Android</b> app in <b>Java</b>,
-                  managing complex multi-threaded and asynchronous Bluetooth
-                  operations using ReactiveX.
+                  Designed and developed the original <b>AxIT Android</b> app
+                  in <b>Java</b>, managing complex multi-threaded and
+                  asynchronous Bluetooth operations using ReactiveX.
                 </li>
               )}
               <li className={`${title === "mobile" ? "order-2" : "order-1"}`}>
@@ -441,14 +597,14 @@ export default function Resume() {
                   <>
                     Built backend microservices using <b>Java</b>, <b>Spring</b>
                     , <b>Docker</b> and <b>MongoDB</b>, deployed on <b>AWS</b>,
-                    supporting over 200 physio/fitness centers.
+                    supporting over 200 physio/fitness centres.
                   </>
                 ) : (
                   <>
                     Built backend microservices using <b>JavaScript</b>,{" "}
                     <b>Node.js</b>, <b>Express.js</b> and <b>MongoDB</b>,
                     deployed on <b>AWS</b>, supporting over 200 physio/fitness
-                    centers.
+                    centres.
                   </>
                 )}
               </li>
@@ -478,7 +634,7 @@ export default function Resume() {
                 </li>
               )}
               <li className="order-3">
-                Optimized SensiLab&apos;s WordPress website and created custom
+                Optimised SensiLab&apos;s WordPress website and created custom
                 themes and plugins.
               </li>
             </Experience>
@@ -491,7 +647,7 @@ export default function Resume() {
             title="Master of Information Technology"
             type="Melbourne, Australia"
             time="2016 - 2017"
-            company={`Monash University ${country !== "au" && "(QS: 37)"}`}
+            company={`Monash University${country !== "au" ? " (QS: 37)" : ""}`}
             href="https://www.monash.edu/"
           >
             <li>
@@ -508,9 +664,27 @@ export default function Resume() {
           </Experience>
 
           <div className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+            CERTIFICATION
+          </div>
+          <div className="mb-2 text-[0.9rem]">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline">
+              <div className="flex-grow font-semibold text-[1.05rem]">
+                AWS Certified AI Practitioner
+              </div>
+              <div className="whitespace-nowrap italic text-sm">Sep 2025</div>
+            </div>
+            <div>Amazon Web Services · Credential 39dc5a7281c84b11afbe44ba72164274</div>
+          </div>
+
+          <div className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
             SKILLS
           </div>
           <ul className="list-disc ml-5 mt-1 text-[0.9rem]">
+            <li>
+              <b>Core strengths:</b> AI product architecture, search and data
+              systems, streaming pipelines, connected-device mobile platforms,
+              reliability and observability, cloud and release engineering
+            </li>
             <li>
               <b>Languages:</b>{" "}
               {stack === "javascript" ? (
@@ -547,10 +721,15 @@ export default function Resume() {
             )}
             <li>
               <b>Cloud:</b> AWS, GCP, Kubernetes, API Gateway, Lambda, Message
-              Queue, Vercel
+              Queue, S3, Vercel
             </li>
             <li>
-              <b>Tools:</b> Docker, Terraform, Git, CI/CD, Jira, Bash
+              <b>AI &amp; observability:</b> AI SDK, LLM APIs, SSE, Prometheus,
+              Vertex AI, Dialogflow
+            </li>
+            <li>
+              <b>Tools:</b> Docker, Terraform, GitHub Actions, CI/CD, TestFlight,
+              Jira, Bash
             </li>
           </ul>
         </div>

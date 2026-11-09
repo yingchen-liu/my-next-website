@@ -9,7 +9,12 @@ interface LinkProps {
 
 const Link: React.FC<LinkProps> = ({ href, children }) => {
   return (
-    <a href={href} target="_blank" className="text-blue-200 hover:text-white">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-200 hover:text-white"
+    >
       {children}
     </a>
   );
@@ -21,7 +26,7 @@ interface ProjectProps {
   description: React.ReactNode;
   myRole: React.ReactNode;
   imgSrc: string;
-  techs: string[];
+  skills: string[];
   links?: LinkProps[];
   side?: "left" | "right";
 }
@@ -32,7 +37,7 @@ const Project: React.FC<ProjectProps> = ({
   description,
   myRole,
   imgSrc,
-  techs,
+  skills,
   links = [],
   side = "left",
 }) => {
@@ -53,6 +58,7 @@ const Project: React.FC<ProjectProps> = ({
             <a
               href={titleHref}
               target="_blank"
+              rel="noopener noreferrer"
               className="text-blue-200 hover:text-white"
             >
               {title}
@@ -67,17 +73,32 @@ const Project: React.FC<ProjectProps> = ({
             {description}
           </div>
 
+          <div className={`mt-5 ${side === "right" ? "md:text-right" : ""}`}>
+            <p className="mb-3 font-sfmono text-xs uppercase tracking-[0.18em] text-blue-200 text-opacity-70">
+              Core skills
+            </p>
+            <ul
+              aria-label={`${title} core skills`}
+              className={`flex flex-wrap gap-2 ${
+                side === "right" ? "md:justify-end" : ""
+              }`}
+            >
+              {skills.map((skill) => (
+                <li
+                  key={`project-${title}-skill-${skill}`}
+                  className="whitespace-nowrap rounded-full border border-blue-200 border-opacity-20 bg-blue-900 bg-opacity-40 px-3 py-1.5 font-sfmono text-sm text-blue-100"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <ul
-            className={`mt-4 flex flex-wrap gap-x-5 gap-y-2 ${
-              side === "right" ? "ml-5 justify-end" : "mr-5"
+            className={`mt-5 flex gap-4 ${
+              side === "right" ? "md:justify-end" : ""
             }`}
           >
-            {techs.map((tech, i) => (
-              <li key={`project-${title}-tech-${i}`} className="font-sfmono text-sm whitespace-nowrap">{tech}</li>
-            ))}
-          </ul>
-
-          <ul className="mt-5 flex gap-4">
             {links.map((link, i) => (
               <li key={`project-${title}-link-${i}`}>
                 <Link href={link.href}><span className="text-2xl">{link.children}</span></Link>
@@ -105,19 +126,180 @@ const Project: React.FC<ProjectProps> = ({
   );
 };
 
+function MapifyProject() {
+  return (
+    <Project
+      title="Mapify"
+      titleHref="https://mapify.so/"
+      imgSrc="/images/mapify.png"
+      skills={[
+        "Search & Data Architecture",
+        "AI Media Pipelines",
+        "Production Observability",
+        "Platform Reliability",
+        "Revenue & Lifecycle Systems",
+      ]}
+      description={
+        <Paragraph className="mb-0">
+          <strong className="font-semibold text-white">
+            Trusted by 5M+ users worldwide,
+          </strong>{" "}
+          Mapify is Xmind&apos;s AI knowledge platform for turning documents,
+          articles, videos, audio, and web pages into clear visual maps.
+        </Paragraph>
+      }
+      myRole={
+        <>
+          <Paragraph>
+            I worked across Mapify&apos;s full-stack platform and production
+            operations. I designed mind-map search and an S3-to-PostgreSQL
+            indexing migration; strengthened speech-to-text with orchestration,
+            retries, local-worker simulation, and fallback behaviour; and
+            investigated production memory issues with new Prometheus
+            monitoring. I also cut homepage FCP from 11.6s to 1.1s and LCP from
+            22.1s to 7.6s.
+          </Paragraph>
+          <Paragraph>
+            I architected a multilingual lifecycle-email platform shared by
+            transactional and newsletter workloads. JSON-defined content
+            automatically generated TypeScript renderers, while dynamic mailing
+            lists, click tracking, unified unsubscribe, encrypted tokens,
+            locale-aware links and images, one-ZIP imports, and dashboard
+            sending removed duplicated template work and sharply reduced
+            translation and campaign-production time.
+          </Paragraph>
+          <Paragraph>
+            I also built Mapify&apos;s affiliate operations and settlement system:
+            partner contracts, one-step Stripe coupon creation, conversion and
+            commission accounting, 5–15% commission tiers, two-month settlement
+            windows, and pre-settlement refund and downgrade adjustments. The
+            dashboard replaced manual Stripe operations and made influencer
+            partnerships scalable.
+          </Paragraph>
+        </>
+      }
+    />
+  );
+}
+
+function HenriProject() {
+  return (
+    <Project
+      title="Henri"
+      titleHref="https://hihenri.ai/"
+      imgSrc="/images/henri.png"
+      skills={[
+        "AI Product Architecture",
+        "LLM Orchestration",
+        "Streaming Systems",
+        "Full-Stack TypeScript",
+        "Cloud Delivery",
+      ]}
+      side="right"
+      description={
+        <Paragraph className="mb-0">
+          Henri is a personal AI tutor that turns any topic into a tailored
+          syllabus and teaches it through short, conversational lessons, active
+          recall, quizzes, knowledge cards, and learning reminders.
+        </Paragraph>
+      }
+      myRole={
+        <>
+          <Paragraph>
+            I helped take Henri from architecture through beta and production,
+            designing the full-stack foundations for personalised learning:
+            knowledge trees, syllabus generation, conversational chapters,
+            adaptive quizzes, generated visuals, study notes, reminders, and
+            engagement loops.
+          </Paragraph>
+          <Paragraph>
+            I owned reliability across real-time AI workflows, stabilising
+            streamed knowledge-tree generation and image pipelines, upgrading
+            the AI SDK, and expanding automated tests and internationalisation.
+            I also coordinated AWS, S3, PostgreSQL, TestFlight, and production
+            configuration, connecting product architecture to release.
+          </Paragraph>
+        </>
+      }
+    />
+  );
+}
+
+function AxITProject() {
+  return (
+    <Project
+      title="AxIT"
+      titleHref="https://www.strengthbynumbers.com/software/"
+      imgSrc="/images/axit-results.jpeg"
+      skills={[
+        "iOS & Android Architecture",
+        "Bluetooth LE Systems",
+        "Cross-Platform Metrics",
+        "Traceable QA Systems",
+        "Release Engineering",
+      ]}
+      description={
+        <Paragraph className="mb-0">
+          AxIT is Strength By Numbers&apos; strength and performance assessment
+          platform. It connects Push-IT, Pull-IT, and Stomp-IT devices, guides
+          practitioners through 100+ built-in and custom tests, and turns
+          results into live feedback, trends, benchmarks, and reports.
+        </Paragraph>
+      }
+      myRole={
+        <>
+          <Paragraph>
+            I&apos;ve worked on AxIT across two chapters. At Strength By Numbers,
+            I built the Android app, Bluetooth workflows, synchronisation
+            services, and web tooling. Now, as an independent software
+            contractor on weekend side projects, I contribute across AxIT iOS,
+            AxITLib, and SBN Testing.
+          </Paragraph>
+          <Paragraph>
+            AxIT iOS brings the connected assessment platform to iPhone and
+            iPad with reliable Bluetooth, session, sync, reporting, and release
+            workflows. AxITLib turns models, capabilities, sampling rules, and
+            sports-science metrics into shared Kotlin Multiplatform contracts,
+            reducing drift between iOS and Android. SBN Testing gives the team
+            one exact-build workspace for collaborative plans, live progress,
+            evidence, priorities, immutable result history, and discussions.
+          </Paragraph>
+        </>
+      }
+      links={[
+        {
+          href: "https://apps.apple.com/us/app/axit/id6747880631",
+          children: <FaAppStoreIos />,
+        },
+        {
+          href: "https://play.google.com/store/apps/details?id=com.strengthbynumbers.axit",
+          children: <FaGooglePlay />,
+        },
+      ]}
+    />
+  );
+}
+
 function AimiProject() {
   return (
     <Project
       title="Aimi Player"
       titleHref="https://www.aimi.fm/"
       imgSrc="/images/aimi-player.png" 
-      techs={["Android", "Kotlin", "Jetpack Compose", "TypeScript", "C++"]}
+      skills={[
+        "Cross-Platform SDKs",
+        "Android Product Engineering",
+        "Real-Time Audio Systems",
+        "TypeScript & C++",
+        "Performance Optimisation",
+      ]}
+      side="right"
       description={
         <>
           <Paragraph className="mb-0">
             Aimi Player is designed to transform how users engage with music by
             offering real-time interaction with generative music. It allows
-            users to craft personalized listening experiences that evolve
+            users to craft personalised listening experiences that evolve
             dynamically based on their preferences.
           </Paragraph>
         </>
@@ -132,7 +314,7 @@ function AimiProject() {
           <Paragraph>
             Later, I transitioned to the team working on AMOS, our
             cross-platform generative music SDK. My role focused on
-            modernizing the service by migrating it to TypeScript and
+            modernising the service by migrating it to TypeScript and
             implementing a new architecture that improved scalability,
             performance, and maintainability.
           </Paragraph>
@@ -158,8 +340,13 @@ function OptuSafeProject() {
       title="OptuSafe"
       titleHref="https://optus.com.au/"
       imgSrc="/images/optusafe.png"
-      techs={["Java", "Spring Boot", "Kubernetes", "React", "GitLab Pipelines"]}
-      side="right"
+      skills={[
+        "Solution Architecture",
+        "Secure Platform Design",
+        "Distributed Backends",
+        "Kubernetes & Cloud",
+        "Technical Leadership",
+      ]}
       description={
         <>
           <Paragraph className="mb-0">
@@ -173,7 +360,7 @@ function OptuSafeProject() {
       myRole={
         <>
           <Paragraph>
-            I managed the agile team, prioritizing tasks to boost productivity.
+            I managed the agile team, prioritising tasks to boost productivity.
             I facilitated meetings to gather requirements and ensure alignment
             with Optus stakeholders. As a solution architect, I designed a
             full-stack web solution using Java, Spring, and Google Cloud,
@@ -191,7 +378,14 @@ function AirtaskerProject() {
       title="Airtasker"
       titleHref="https://www.airtasker.com/au/"
       imgSrc="/images/airtasker.png"
-      techs={["Kotlin", "Spring Boot", "Android"]}
+      skills={[
+        "Backend-for-Frontend",
+        "Mobile Architecture",
+        "Server-Driven UI",
+        "Kotlin & Spring",
+        "Performance Optimisation",
+      ]}
+      side="right"
       description={
         <Paragraph className="mb-0">
           The project aimed to revamp Airtasker&apos;s app to improve its performance
@@ -226,6 +420,9 @@ function AirtaskerProject() {
 function Projects() {
   return (
     <Section id="projects" title="Some Things I've Built">
+      <MapifyProject />
+      <HenriProject />
+      <AxITProject />
       <AimiProject />
       <OptuSafeProject />
       <AirtaskerProject />

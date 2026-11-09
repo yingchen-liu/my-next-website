@@ -6,10 +6,10 @@ function Contact() {
       <h2 className="text-center text-7xl mb-5">Get In Touch!</h2>
       <div className="flex justify-center mb-10">
         <Paragraph className="md:w-2/3 text-center">
-          I am passionate about crafting impactful products and streamlining
-          workflows, positioning myself as a premier tech talent eager to take
-          on your next significant project. Let&apos;s connect and discover how I can
-          add value to your success.
+          I enjoy working with teams building ambitious AI, web, mobile, and
+          cloud products. If you need a senior engineer who can move between
+          product discovery, architecture, hands-on delivery, reliability, and
+          release, let&apos;s talk.
         </Paragraph>
       </div>
 

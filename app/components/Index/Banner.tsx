@@ -4,13 +4,11 @@ import { useEffect, useState } from "react";
 import { Button, Paragraph } from "./Section";
 
 const bannerPhrases = [
-  "I build scalable web apps.",
-  "I build Android apps with Kotlin and Jetpack.",
-  "I build React & Next.js web apps.",
-  "I build cloud infrastructure on AWS and GCP.",
-  "I manage CI/CD pipelines.",
-  "I improve WordPress site performance.",
-  "I integrate AI with mobile and web apps.",
+  "I architect AI products from idea to production.",
+  "I design search and data systems at scale.",
+  "I build resilient streaming and media platforms.",
+  "I engineer connected mobile products.",
+  "I lead cloud delivery and production reliability.",
 ];
 
 function Typewriter() {
@@ -65,9 +63,11 @@ function Banner() {
       </h2>
 
       <Paragraph className="md:w-1/2 mb-6">
-        Versatile Senior Software Engineer with over{" "}
-        {new Date().getFullYear() - 2016} years of hands-on experience,
-        specialising in full-stack web, mobile, and cloud technologies.
+        Senior Full-Stack Engineer with {new Date().getFullYear() - 2016}+
+        years of experience across web, mobile, cloud, and AI products.
+        Most recently, I engineered Mapify—trusted by 5M+ users—and Henri at
+        Xmind. I&apos;m now focused on contractor work across AxIT iOS, its shared
+        cross-platform library, and a traceable QA platform.
       </Paragraph>
 
       <Button href="/resume">
