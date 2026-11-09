@@ -4,31 +4,59 @@ import Experiences from "./components/Index/Experiences";
 import Projects from "./components/Index/Projects";
 import Contact from "./components/Index/Contact";
 import Footer from "./components/Index/Footer";
-import { Metadata } from "next";
-import { siteDescription, siteName, siteUrl } from "@/lib/seo/site";
+import {
+  absoluteUrl,
+  contentLastModified,
+  createPageMetadata,
+  homeDescription,
+  linkedInUrl,
+  siteDescription,
+  siteLanguage,
+  siteName,
+  siteTitle,
+  siteUrl,
+} from "@/lib/seo/site";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Senior Full-Stack & AI Engineer in Melbourne",
-  description:
-    "Portfolio of Yingchen Liu, a Melbourne-based senior full-stack, AI, and mobile engineer who engineered Mapify—trusted by 5M+ users—and Henri at Xmind and now delivers independent contractor work.",
-  alternates: {
-    canonical: "/",
-  },
-};
+  description: homeDescription,
+  path: "/",
+  type: "profile",
+});
 
 export default function HomePage() {
+  const personId = `${siteUrl}/#person`;
+  const websiteId = `${siteUrl}/#website`;
+  const profilePageId = `${siteUrl}/#profile-page`;
+  const profileImageId = `${siteUrl}/#profile-image`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        "@id": `${siteUrl}#person`,
-        name: siteName,
+        "@type": "ProfilePage",
+        "@id": profilePageId,
         url: siteUrl,
-        image: `${siteUrl}/images/yingchen-linkedin.jpg`,
+        name: siteTitle,
+        description: homeDescription,
+        dateModified: contentLastModified,
+        inLanguage: siteLanguage,
+        isPartOf: { "@id": websiteId },
+        primaryImageOfPage: { "@id": profileImageId },
+        mainEntity: { "@id": personId },
+      },
+      {
+        "@type": "Person",
+        "@id": personId,
+        name: siteName,
+        givenName: "Yingchen",
+        familyName: "Liu",
+        url: siteUrl,
+        image: { "@id": profileImageId },
         email: "mailto:info@yingchenliu.com",
         jobTitle: "Senior Full-Stack and AI Engineer",
         description: siteDescription,
+        sameAs: [linkedInUrl],
         address: {
           "@type": "PostalAddress",
           addressLocality: "Melbourne",
@@ -56,11 +84,22 @@ export default function HomePage() {
       },
       {
         "@type": "WebSite",
-        "@id": `${siteUrl}#website`,
+        "@id": websiteId,
         url: siteUrl,
         name: siteName,
+        alternateName: "Yingchen Liu Portfolio",
         description: siteDescription,
-        inLanguage: "en-AU",
+        inLanguage: siteLanguage,
+        publisher: { "@id": personId },
+      },
+      {
+        "@type": "ImageObject",
+        "@id": profileImageId,
+        url: absoluteUrl("/images/yingchen-linkedin.jpg"),
+        contentUrl: absoluteUrl("/images/yingchen-linkedin.jpg"),
+        width: 800,
+        height: 800,
+        caption: "Yingchen Liu",
       },
     ],
   };
@@ -73,11 +112,13 @@ export default function HomePage() {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <Banner />
-      <AboutMe />
-      <Experiences />
-      <Projects />
-      <Contact />
+      <main>
+        <Banner />
+        <Projects />
+        <Experiences />
+        <AboutMe />
+        <Contact />
+      </main>
 
       <Footer />
     </>

@@ -14,5 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function LoginRoute() {
-  return <LoginPage />;
+  return (
+    <main>
+      <LoginPage />
+    </main>
+  );
 }

@@ -1,21 +1,25 @@
 import type { MetadataRoute } from "next";
-import { siteUrl } from "@/lib/seo/site";
+import {
+  absoluteUrl,
+  contentLastModified,
+  siteUrl,
+} from "@/lib/seo/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   return [
     {
       url: siteUrl,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 1,
+      lastModified: contentLastModified,
+      images: [
+        absoluteUrl("/images/yingchen-linkedin.jpg"),
+        absoluteUrl("/images/mapify.png"),
+        absoluteUrl("/images/henri.png"),
+        absoluteUrl("/images/axit-results.jpeg"),
+      ],
     },
     {
       url: `${siteUrl}/resume`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
+      lastModified: contentLastModified,
     },
   ];
 }

@@ -1,33 +1,82 @@
+import type { Metadata } from "next";
+
 export const siteUrl = "https://yingchenliu.com";
 export const siteName = "Yingchen Liu";
 export const siteTitle = "Yingchen Liu | Senior Full-Stack & AI Engineer";
 export const siteLocale = "en_AU";
+export const siteLanguage = "en-AU";
+export const linkedInUrl = "https://www.linkedin.com/in/yingchen-liu/";
+export const contentLastModified = "2026-11-09";
 export const socialImageAlt =
   "Yingchen Liu - Senior Full-Stack and AI Engineer";
 
 export const siteDescription =
-  "Yingchen Liu is a senior full-stack, AI, and mobile product engineer in Melbourne who engineered Mapify—trusted by 5M+ users—and Henri at Xmind and now delivers independent contractor work.";
+  "Yingchen Liu is a Melbourne-based senior full-stack, AI and mobile engineer behind Mapify, Henri and connected AxIT products.";
 
-export const siteKeywords = [
-  "Yingchen Liu",
-  "Senior Full-Stack Engineer",
-  "AI Product Engineer",
-  "Full-Stack Engineer Melbourne",
-  "Independent Software Contractor Melbourne",
-  "Xmind engineer",
-  "Mapify",
-  "Newsletter platform engineering",
-  "Affiliate settlement system",
-  "Henri AI tutor",
-  "AxIT",
-  "SwiftUI engineer",
-  "Bluetooth LE developer",
-  "Kotlin Multiplatform engineer",
-  "React developer Australia",
-  "Next.js developer",
-  "TypeScript engineer",
-  "Kotlin developer",
-  "AWS engineer",
-  "GCP engineer",
-  "PostgreSQL engineer",
-];
+export const homeDescription =
+  "Senior full-stack and AI engineer in Melbourne. Explore Yingchen Liu's work on Mapify for 5M+ users, Henri and connected AxIT products.";
+
+export const resumeDescription =
+  "Résumé of Yingchen Liu, a Melbourne-based senior full-stack, AI and mobile engineer experienced in React, TypeScript, Swift, Kotlin, AWS and GCP.";
+
+export function absoluteUrl(path = "/") {
+  return new URL(path, siteUrl).toString();
+}
+
+export function createPageMetadata({
+  title,
+  description,
+  path,
+  type = "website",
+}: {
+  title: string;
+  description: string;
+  path: string;
+  type?: "website" | "profile";
+}): Metadata {
+  const socialTitle = `${title} | ${siteName}`;
+  const openGraphBase = {
+    locale: siteLocale,
+    url: path,
+    siteName,
+    title: socialTitle,
+    description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: socialImageAlt,
+      },
+    ],
+  };
+
+  return {
+    title: {
+      absolute: socialTitle,
+    },
+    description,
+    alternates: {
+      canonical: path,
+    },
+    openGraph:
+      type === "profile"
+        ? {
+            ...openGraphBase,
+            type: "profile",
+            firstName: "Yingchen",
+            lastName: "Liu",
+            username: "yingchen-liu",
+          }
+        : {
+            ...openGraphBase,
+            type: "website",
+          },
+    twitter: {
+      card: "summary_large_image",
+      title: socialTitle,
+      description,
+      images: ["/twitter-image"],
+    },
+  };
+}

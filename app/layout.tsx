@@ -4,12 +4,9 @@ import "./globals.css";
 import HeaderMenu from "./components/Common/HeaderMenu";
 import {
   siteDescription,
-  siteKeywords,
-  siteLocale,
   siteName,
   siteTitle,
   siteUrl,
-  socialImageAlt,
 } from "@/lib/seo/site";
 
 export const metadata: Metadata = {
@@ -20,19 +17,10 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   applicationName: siteName,
-  keywords: siteKeywords,
   authors: [{ name: siteName, url: siteUrl }],
   creator: siteName,
   publisher: siteName,
   category: "technology",
-  alternates: {
-    canonical: "/",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
   manifest: "/manifest.webmanifest",
   robots: {
     index: true,
@@ -44,28 +32,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-video-preview": -1,
     },
-  },
-  openGraph: {
-    type: "website",
-    locale: siteLocale,
-    url: "/",
-    siteName,
-    title: siteTitle,
-    description: siteDescription,
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: socialImageAlt,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-    images: ["/twitter-image"],
   },
 };
 
@@ -99,8 +65,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`bg-gray-800 text-blue-100 font-light antialiased`}>
-        <div className="container mx-auto max-w-5xl px-5 md:px-10">
-          <HeaderMenu activeItem="home" />
+        <div className="container mx-auto max-w-5xl px-6 sm:px-8 md:px-10">
+          <HeaderMenu />
 
           {children}
         </div>

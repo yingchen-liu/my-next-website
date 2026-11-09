@@ -91,21 +91,6 @@ function Link({
   );
 }
 
-function Testimony({
-  children,
-  from,
-}: {
-  children: React.ReactNode;
-  from: string;
-}) {
-  return (
-    <div className="text-sm mb-4 p-2 border-l-4 border-l-blue-500 pl-5 bg-slate-200">
-      <div>&quot;{children}&quot;</div>
-      <div className="text-right">- {from}</div>
-    </div>
-  );
-}
-
 export default function Resume() {
   const firebaseReady = hasFirebaseConfig();
   const [hasAccess, setHasAccess] = useState(false);
@@ -165,7 +150,7 @@ export default function Resume() {
               className={`${title === "mobile" && "font-bold"}`}
               invert={true}
             >
-              Mobile
+              iOS &amp; Android
             </Link>
           </div>
           <div className="container md:px-20 pb-2 mx-auto flex gap-x-6">
@@ -216,9 +201,9 @@ export default function Resume() {
       >
         <div className="font-extralight text-gray-900 font-sans border-l-4 border-l-[#af0f00] p-8 shadow-md border-[0.5px] border-gray-50 bg-gray-100">
           <div className="mb-8">
-            <div className="text-[#af0f00] font-bold text-[22px]">
+            <h1 className="text-[#af0f00] font-bold text-[22px]">
               Yingchen Liu
-            </div>
+            </h1>
             <div className="font-[300]">
               Senior{" "}
               {title === "full-stack"
@@ -226,18 +211,18 @@ export default function Resume() {
                 : title === "back-end"
                 ? "Backend"
                 : title === "mobile"
-                ? "Mobile Full-Stack"
+                ? "iOS & Android"
                 : "Software"}{" "}
               Engineer
               <div className="inline-block px-2">•</div>
               {yearsOfExperience}+ years
               <div className="inline-block px-2">•</div>
               {title === "full-stack"
-                ? "AI Products, Web, Backend, Cloud, Mobile"
+                ? "AI Products, Web, Backend, Cloud, iOS & Android"
                 : title === "back-end"
-                ? "Web Frontend, Backend, Cloud, Mobile"
+                ? "Web Frontend, Backend, Cloud, iOS & Android"
                 : title === "mobile"
-                ? "Mobile, Web Frontend, Backend, Cloud"
+                ? "iOS & Android, Web Frontend, Backend, Cloud"
                 : "Software"}
             </div>
             <div>
@@ -263,68 +248,37 @@ export default function Resume() {
           </div>
 
           <div>
-            <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+            <h2 className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
               EXPERIENCE
-            </div>
+            </h2>
             <Experience
               title="Senior Full-Stack Engineer"
-              type={`Full-Time, Remote, ${
-                country === "au" ? "Melbourne" : "Australia"
-              }`}
+              type="Remote, Australia"
               time="Jan 2025 - Jul 2026"
               company="Xmind"
               href="https://xmind.com/"
             >
               <li>
-                Built AI products across discovery, architecture, frontend,
-                backend, infrastructure, testing, and production release for{" "}
-                <Link href="https://mapify.so/">Mapify</Link> and{" "}
-                <Link href="https://hihenri.ai/">Henri</Link>.
-              </li>
-              {(title === "full-stack" ||
-                title === "back-end" ||
-                stack === "javascript") && (
-                <li>
-                  Designed Mapify&apos;s mind-map search and an{" "}
-                  <b>S3-to-PostgreSQL</b> index migration with full-text data
-                  structures, safe fallback behaviour, and a user-transparent
-                  rollout.
-                </li>
-              )}
-              {(title === "full-stack" || title === "back-end") && (
-                <li>
-                  Reworked speech-to-text around orchestration, retries, local
-                  worker and media simulation, and provider fallbacks;
-                  diagnosed production memory leaks and added{" "}
-                  <b>Prometheus</b> monitoring.
-                </li>
-              )}
-              <li>
-                Architected Mapify&apos;s multilingual newsletter and
-                transactional-email platform with generated TypeScript
-                renderers, dynamic mailing lists, click tracking, unified
-                unsubscribe, one-ZIP locale imports, and dashboard sending.
+                Led development of <Link href="https://mapify.so/">Mapify</Link>,
+                including full-text mind-map search and migrating its index from{" "}
+                <b>S3 to PostgreSQL</b> with fallback behaviour and a
+                user-transparent rollout.
               </li>
               <li>
-                Built affiliate operations and settlement for a product
-                trusted by <b>5M+ users</b>, covering partner contracts,
-                one-step Stripe coupons, 5–15% commission tiers, two-month
-                settlement, and refund/downgrade adjustments.
+                Made Mapify&apos;s speech-to-text pipeline more resilient through
+                orchestration, retries, media simulation and provider fallbacks.
               </li>
               <li>
-                Cut Mapify homepage FCP from <b>11.6s to 1.1s</b> and LCP from{" "}
-                <b>22.1s to 7.6s</b>.
+                Built Mapify&apos;s multilingual email and affiliate-settlement
+                systems, and cut FCP from <b>11.6s to 1.1s</b> and LCP from{" "}
+                <b>22.1s to 7.6s</b> for a product trusted by{" "}
+                <b>5M+ users</b>.
               </li>
               <li>
-                Architected Henri&apos;s personalised learning system across
-                knowledge-tree streaming, syllabus generation, conversational
-                chapters, adaptive quizzes, generated visuals, engagement
-                loops, and production delivery.
-              </li>
-              <li>
-                Improved release safety, automated tests, GitHub security and
-                CI, and coordinated <b>AWS</b>, <b>S3</b>,{" "}
-                <b>PostgreSQL</b>, TestFlight, and production setup.
+                Led development of <Link href="https://hihenri.ai/">Henri</Link> from
+                architecture to production across personalised learning and
+                real-time AI, owning delivery from frontend and backend through
+                AWS, PostgreSQL, testing and TestFlight.
               </li>
             </Experience>
 
@@ -401,12 +355,6 @@ export default function Resume() {
               </li>
             </Experience>
 
-            <Testimony from="J. Curtis (Senior Software Engineer, Aimi.fm)">
-              I just want to say that I&apos;ve really appreciated working with
-              you. You&apos;ve been incredibly <b>helpful</b>,{" "}
-              <b>hardworking</b>, and very <b>easy to get along with</b>.
-            </Testimony>
-
             <Experience
               title="Software Consultant"
               type={`Hybrid, ${country === "au" ? "Melbourne" : "Australia"}`}
@@ -415,118 +363,25 @@ export default function Resume() {
               href="https://www.cognizant.com/au/en/servian"
             >
               <li>
-                <b>
-                  Engagement Lead at{" "}
-                  <Link href="https://optus.com.au">Optus</Link>
-                </b>
-                :
-                <ul className="list-disc ml-5 mt-1 mb-2">
-                  <li>
-                    Led discovery sessions and collaboratively defined project
-                    scope with Optus. Negotiated interface contracts with other
-                    systems, produced detailed solution design documentation.{" "}
-                    <b>Managed stakeholders, budget, risks and timeline</b>.
-                  </li>
-                  <li>
-                    <b>Led an Agile team of 3</b>: organised, facilitated team
-                    ceremonies, conducted code reviews, and mentored junior
-                    engineers.
-                  </li>
-                  <li>
-                    Designed and developed a <b>highly available and secure</b>{" "}
-                    cloud solution for both <b>backend</b> and frontend using{" "}
-                    <b>Java</b>, <b>Spring Boot</b>, <b>TypeScript</b>,{" "}
-                    <b>React</b> and <b>Redux</b>; deployed on <b>GCP</b>{" "}
-                    <b>Kubernetes</b> with <b>API Gateway</b> using{" "}
-                    <b>Docker</b> and <b>Terraform</b>.
-                  </li>
-                  <li>
-                    <b>Designed database schema on Cloud Spanner (SQL)</b>,
-                    leveraging its horizontal scalability and strong consistency
-                    for seamless user experiences.
-                  </li>
-                </ul>
+                <b><Link href="https://optus.com.au">Optus:</Link></b> led
+                discovery, architecture, stakeholders, budget and an Agile team
+                of three to deliver a secure GCP/Kubernetes platform.
               </li>
               <li>
-                <b>
-                  Backend Engineer at{" "}
-                  <Link href="https://airtasker.com/au">Airtasker</Link>
-                </b>
-                :
-                <ul className="list-disc ml-5 mt-1 flex flex-col mb-2">
-                  <li
-                    className={`${title === "mobile" ? "order-2" : "order-1"}`}
-                  >
-                    Engineered new <b>backend microservices</b> in <b>Kotlin</b>{" "}
-                    and <b>Spring Boot</b> on <b>AWS</b>, <b>cutting</b> web and
-                    mobile app <b>load time by over 50%</b> while boosting
-                    performance, responsiveness, and maintainability.
-                  </li>
-                  <li
-                    className={`${title === "mobile" ? "order-1" : "order-2"}`}
-                  >
-                    Developed a dynamic <b>Android</b> UI leveraging{" "}
-                    <b>Kotlin</b> and JetPack Compose; added a new flow to{" "}
-                    <b>boost user retention by 17%</b>.
-                  </li>
-                </ul>
+                <b><Link href="https://airtasker.com/au">Airtasker:</Link></b>{" "}
+                built Kotlin/Spring services and Android workflows that cut load
+                time by over <b>50%</b> and improved retention by <b>17%</b>.
               </li>
-
-              {title === "mobile" ? (
-                <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
-                  You put in an incredible effort to handle ALL the backend work
-                  and push <b>Android</b> across the line with Alex.{" "}
-                  <b>
-                    You&apos;ve worked tirelessly, right up until the last day
-                  </b>
-                  , to ensure everything was completed before your departure,
-                  and for that, we&apos;re incredibly grateful! Thanks for being
-                  a gun engineer and making this project a success.{" "}
-                  <b>We couldn&apos;t have done it without you</b>.
-                </Testimony>
-              ) : (
-                <Testimony from="Mitchell Weiss (Tech Lead Manager, Airtasker)">
-                  You put in an incredible effort to handle{" "}
-                  <b>ALL the backend work</b> and push Android across the line
-                  with Alex.{" "}
-                  <b>
-                    You&apos;ve worked tirelessly, right up until the last day
-                  </b>
-                  , to ensure everything was completed before your departure,
-                  and for that, we&apos;re incredibly grateful! Thanks for being
-                  a gun engineer and making this project a success.{" "}
-                  <b>We couldn&apos;t have done it without you</b>.
-                </Testimony>
-              )}
-              <li className="mb-2">
-                <b>
-                  Cloud Engineer at{" "}
-                  <Link href="https://lendlease.com">Lendlease</Link>
-                </b>
-                :
-                <ul className="list-disc ml-5 mt-1">
-                  <li>
-                    Trained a ticket classification model with <b>Python</b> and
-                    Pandas on <b>GCP</b> Vertex AI, integrated with
-                    Lendlease&apos;s ServiceNow using a <b>Python backend</b>{" "}
-                    and Pub/Sub, <b>reducing the need for 30 staff members</b>{" "}
-                    for manual classification tasks.
-                  </li>
-                  <li>
-                    Created a chatbot <b>backend</b> using <b>Python</b>, Cloud
-                    Functions (<b>Lambda</b>), and Dialogflow.
-                  </li>
-                </ul>
+              <li>
+                <b><Link href="https://lendlease.com">Lendlease:</Link></b>{" "}
+                delivered a Python/Vertex AI classification workflow that
+                replaced manual work previously handled by <b>30 staff</b>.
               </li>
-              <Testimony from="John Kelaita (Principal Consultant, Cognizant Servian)">
-                Yingchen is one of the <b>best developers</b> I have ever worked
-                with.
-              </Testimony>
             </Experience>
 
-            <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+            <h2 className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
               CONTRACT WORK
-            </div>
+            </h2>
 
             <Experience
               title="Independent Software Contractor"
@@ -541,42 +396,34 @@ export default function Resume() {
                   AxIT
                 </Link>{" "}
                 with <b>Swift</b> and <b>SwiftUI</b>, bringing its connected
-                assessment, session, sync, reporting, and release workflows to
-                iPhone and iPad.
+                assessment, Bluetooth, sync, reporting, accessibility and
+                release workflows to iPhone and iPad.
               </li>
               {(title === "full-stack" ||
                 title === "back-end" ||
                 stack === "javascript") && (
                 <li>
                   <b>AxITLib:</b> contribute shared{" "}
-                  <b>Kotlin Multiplatform</b> models and metrics that centralise
-                  test catalogues, device capabilities, sampling rules, and
-                  calculations so iOS and Android behave consistently.
-                </li>
-              )}
-              {(title === "full-stack" ||
-                title === "mobile" ||
-                stack === "java") && (
-                <li>
-                  Deliver reliable Bluetooth device and firmware flows,
-                  responsive iPhone/iPad layouts, accessibility, diagnostics,
-                  security, and App Store/TestFlight release foundations.
+                  <b>Kotlin Multiplatform</b> models, capability rules, sampling
+                  and metrics as one calculation contract across iOS, Android,
+                  Connect web and backend services.
                 </li>
               )}
               {(title === "full-stack" ||
                 title === "back-end" ||
                 stack === "javascript") && (
                 <li>
-                  <b>SBN Testing:</b> build a private exact-build QA workspace
-                  for collaborative plans, live progress, evidence, priorities,
-                  immutable result history, and Slack-linked discussions.
+                  <b>AxLib + SBN Testing:</b> introduced trace exploration and
+                  exact-build QA tools for metric-algorithm review, test-case
+                  verification and streamlined internal testing with auditable
+                  evidence.
                 </li>
               )}
             </Experience>
 
-            <div className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+            <h2 className="text-[#af0f00] font-bold pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
               EARLIER EXPERIENCE
-            </div>
+            </h2>
 
             <Experience
               title="Full-Stack Developer"
@@ -597,13 +444,13 @@ export default function Resume() {
                   <>
                     Built backend microservices using <b>Java</b>, <b>Spring</b>
                     , <b>Docker</b> and <b>MongoDB</b>, deployed on <b>AWS</b>,
-                    supporting over 200 physio/fitness centres.
+                    supporting over 700 physio/fitness centres.
                   </>
                 ) : (
                   <>
                     Built backend microservices using <b>JavaScript</b>,{" "}
                     <b>Node.js</b>, <b>Express.js</b> and <b>MongoDB</b>,
-                    deployed on <b>AWS</b>, supporting over 200 physio/fitness
+                    deployed on <b>AWS</b>, supporting over 700 physio/fitness
                     centres.
                   </>
                 )}
@@ -640,9 +487,9 @@ export default function Resume() {
             </Experience>
           </div>
 
-          <div className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+          <h2 className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
             EDUCATION
-          </div>
+          </h2>
           <Experience
             title="Master of Information Technology"
             type="Melbourne, Australia"
@@ -651,8 +498,7 @@ export default function Resume() {
             href="https://www.monash.edu/"
           >
             <li>
-              Dux of Postgraduate Information Technology Award (
-              <b>Top 1 Student</b>).
+              <b>Dux of Postgraduate Information Technology Award</b>.
             </li>
             <li>
               International Merit Scholarship, and Winter Research Scholarship.
@@ -663,9 +509,9 @@ export default function Resume() {
             </li>
           </Experience>
 
-          <div className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+          <h2 className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
             CERTIFICATION
-          </div>
+          </h2>
           <div className="mb-2 text-[0.9rem]">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline">
               <div className="flex-grow font-semibold text-[1.05rem]">
@@ -676,9 +522,9 @@ export default function Resume() {
             <div>Amazon Web Services · Credential 39dc5a7281c84b11afbe44ba72164274</div>
           </div>
 
-          <div className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
+          <h2 className="text-[#af0f00] font-bold mt-5 pb-3 border-b-[1.5px] border-b-gray-200 mb-3">
             SKILLS
-          </div>
+          </h2>
           <ul className="list-disc ml-5 mt-1 text-[0.9rem]">
             <li>
               <b>Core strengths:</b> AI product architecture, search and data
@@ -716,7 +562,7 @@ export default function Resume() {
             </li>
             {stack !== "javascript" && (
               <li>
-                <b>Mobile:</b> Android, Jetpack, iOS
+                <b>iOS &amp; Android:</b> Swift, SwiftUI, Kotlin, Jetpack Compose
               </li>
             )}
             <li>

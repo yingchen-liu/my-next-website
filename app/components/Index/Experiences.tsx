@@ -40,7 +40,7 @@ const Experience: React.FC<ExperienceProps> = ({
 }) => {
   return (
     <div>
-      <h3 className="text-xl font-bold text-blue-200">
+      <h3 className="text-2xl font-semibold text-white">
         {position}
         {company && (
           <>
@@ -49,7 +49,7 @@ const Experience: React.FC<ExperienceProps> = ({
           </>
         )}
       </h3>
-      <div className="text-sm font-sfmono">
+      <div className="mt-1 text-sm font-sfmono text-blue-100/60">
         {dates ?? `${from} - ${to}`}
       </div>
       <Paragraph className="py-5">{children}</Paragraph>
@@ -67,43 +67,24 @@ const XmindExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Built AI products across discovery, architecture, frontend, backend,
-        infrastructure, testing, and production release for{" "}
-        <Link href="https://mapify.so/">Mapify</Link> and{" "}
-        <Link href="https://hihenri.ai/">Henri</Link>
+        Led development of <Link href="https://mapify.so/">Mapify</Link>,
+        including its full-text mind-map search and S3-to-PostgreSQL index
+        migration with fallback behaviour and a user-transparent rollout
       </li>
       <li>
-        Designed Mapify&apos;s mind-map search and S3-to-PostgreSQL index
-        migration, including full-text data structures, fallback behaviour, and
-        a user-transparent rollout path
+        Made Mapify&apos;s speech-to-text pipeline more resilient through
+        orchestration, retries, media simulation and provider fallbacks
       </li>
       <li>
-        Reworked speech-to-text around orchestration, retries, local worker and
-        media simulation, and provider fallbacks; diagnosed production memory
-        leaks and added Prometheus monitoring
+        Built its multilingual email and affiliate-settlement systems, and cut
+        homepage FCP from 11.6s to 1.1s and LCP from 22.1s to 7.6s for a product
+        trusted by 5M+ users
       </li>
       <li>
-        Architected Mapify&apos;s multilingual newsletter and transactional-email
-        platform with generated TypeScript renderers, dynamic mailing lists,
-        click tracking, unified unsubscribe, one-ZIP locale imports, and
-        dashboard sending
-      </li>
-      <li>
-        Built affiliate operations and settlement for a product trusted by 5M+
-        users, covering partner contracts, one-step Stripe coupons, 5–15%
-        commission tiers, two-month settlement, and refund/downgrade adjustments
-      </li>
-      <li>
-        Cut Mapify homepage FCP from 11.6s to 1.1s and LCP from 22.1s to 7.6s
-      </li>
-      <li>
-        Architected Henri&apos;s personalised learning system across knowledge-tree
-        streaming, syllabus generation, conversational chapters, adaptive
-        quizzes, generated visuals, engagement loops, and production delivery
-      </li>
-      <li>
-        Improved release safety, automated tests, GitHub security and CI, and
-        coordinated AWS, S3, PostgreSQL, TestFlight, and production setup
+        Led development of <Link href="https://hihenri.ai/">Henri</Link> from
+        architecture to production across personalised learning, real-time AI
+        workflows and internationalisation, owning delivery across frontend,
+        backend, AWS, PostgreSQL, testing, TestFlight and production release
       </li>
     </ul>
   </Experience>
@@ -117,24 +98,21 @@ const CurrentContractExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Work independently on connected product delivery and quality systems
-        after Xmind, across three related AxIT products
-      </li>
-      <li>
-        <b>AxIT iOS:</b> build and modernise{" "}
+        <b>AxIT iOS:</b> through weekend contract work, build and modernise{" "}
         <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link>{" "}
         with Swift and SwiftUI, bringing its Bluetooth-connected assessment,
         session, sync, reporting, and release workflows to iPhone and iPad
       </li>
       <li>
-        <b>AxITLib:</b> contribute shared Kotlin Multiplatform models and metrics
-        that centralise test catalogues, device capabilities, sampling rules, and
-        calculations so iOS and Android behave consistently
+        <b>AxITLib:</b> contribute the shared calculation contract—models, test
+        catalogues, device capabilities, sampling rules and metrics—across iOS,
+        Android, Connect web and backend services
       </li>
       <li>
-        <b>SBN Testing:</b> build a private exact-build QA workspace where teams
-        coordinate plans, live progress, evidence, priorities, audited result
-        history, and Slack-linked discussions without losing earlier work
+        <b>AxLib + SBN Testing:</b> introduced trace exploration and exact-build
+        QA tools for reviewing metric algorithms, verifying de-identified test
+        cases and streamlining internal testing with shared evidence and
+        auditable results
       </li>
     </ul>
   </Experience>
@@ -148,13 +126,9 @@ const EarlierContractExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Worked independently between Aimi and Xmind, establishing the foundation
-        for <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link>{" "}
-        on iPhone and iPad
-      </li>
-      <li>
-        Built Swift and SwiftUI foundations for Bluetooth-connected assessment,
-        client, session, test, local-data, cloud-sync, and reporting workflows
+        Established the Swift and SwiftUI foundations for{" "}
+        <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link> on
+        iPhone and iPad across Bluetooth assessment, sessions, sync and reporting
       </li>
       <li>
         Preserved compatibility with the established Android product and its
@@ -182,10 +156,9 @@ const AimiExperience = () => (
         Compose, and Media3
       </li>
       <li>
-        Built responsive React and Next.js applications and maintained AWS
-        infrastructure with Docker, Terraform, and GitHub Actions
+        Built React and Next.js products and maintained AWS delivery with
+        Docker, Terraform and GitHub Actions, while achieving 96% test coverage
       </li>
-      <li>Introduced test-driven development and achieved 96% code coverage</li>
     </ul>
   </Experience>
 );
@@ -200,12 +173,8 @@ const OptusExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Led discovery, scope, interface contracts, solution design, budget,
-        risk, and timeline with Optus stakeholders
-      </li>
-      <li>
-        Led an Agile team of 3, facilitated team ceremonies, reviewed code, and
-        mentored junior engineers
+        Led discovery, architecture, delivery, budget and risk with Optus
+        stakeholders and an Agile team of three
       </li>
       <li>
         Designed and built a secure, highly available solution with Kotlin,
@@ -251,11 +220,8 @@ const LendleaseExperience = () => (
         classification work previously handled by 30 staff
       </li>
       <li>
-        Developed MLOps CI/CD pipelines for accelerated training and deployment
-        of models
-      </li>
-      <li>
-        Created a Dialogflow chatbot backend with Python and GCP Cloud Functions
+        Built MLOps delivery and a Dialogflow backend using Python and GCP Cloud
+        Functions
       </li>
     </ul>
   </Experience>
@@ -276,7 +242,7 @@ const SBNExperience = () => (
       </li>
       <li>
         Built Spring Boot and MongoDB synchronisation services on AWS supporting
-        more than 200 physio and fitness centres
+        more than 700 physio and fitness centres
       </li>
       <li>
         Developed React and Redux web applications and owned delivery from
@@ -296,9 +262,9 @@ const SensiLabExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Built React, Redux, Express.js, MongoDB, and Firebase web applications
+        Built React, Express.js, MongoDB and Firebase products, plus an iOS app
+        in Swift
       </li>
-      <li>Developed an iOS app with Swift</li>
       <li>Optimised WordPress performance and built custom themes and plugins</li>
     </ul>
   </Experience>
@@ -378,7 +344,7 @@ const items: MenuItem[] = [
   },
   {
     id: [5, 6, 7],
-    label: "Servian",
+    label: "Servian Consulting",
     logoSrc: companyLogos.servian,
     logoFit: "cover",
     lightIconBackground: true,
@@ -424,8 +390,14 @@ const items: MenuItem[] = [
   },
 ];
 
+const itemKey = (item: MenuItem) =>
+  Array.isArray(item.id) ? item.id.join(",") : String(item.id);
+
 const Experiences: React.FC = () => {
   const [activeItem, setActiveItem] = useState<MenuItem>(items[0]);
+  const [openMobileItem, setOpenMobileItem] = useState<string | null>(
+    itemKey(items[0]),
+  );
 
   useEffect(() => {
     const showLinkedExperience = () => {
@@ -437,6 +409,7 @@ const Experiences: React.FC = () => {
       }
 
       setActiveItem(linkedItem);
+      setOpenMobileItem(itemKey(linkedItem));
       requestAnimationFrame(() => {
         const target = window.matchMedia("(min-width: 768px)").matches
           ? document.getElementById("experiences")
@@ -450,50 +423,125 @@ const Experiences: React.FC = () => {
     return () => window.removeEventListener("hashchange", showLinkedExperience);
   }, []);
 
+  const selectDesktopItem = (item: MenuItem) => {
+    setActiveItem(item);
+    if (item.anchor) {
+      window.history.replaceState(null, "", `#${item.anchor}`);
+    } else if (window.location.hash.startsWith("#contract-after-")) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`,
+      );
+    }
+  };
+
+  const renderDesktopItem = (item: MenuItem, nested = false) => {
+    const isActive = activeItem.id === item.id;
+
+    return (
+      <li key={itemKey(item)}>
+        <button
+          type="button"
+          className={`flex w-full items-center gap-3 px-4 py-3 text-left font-sfmono text-sm transition-all duration-500 ease-in-out ${
+            nested
+              ? isActive
+                ? "rounded-r-md bg-white/[0.04] text-white"
+                : "text-blue-200/50 hover:bg-white/[0.025] hover:text-blue-100"
+              : isActive
+                ? "border-l-2 border-blue-100 text-white"
+                : "border-l-2 border-blue-100/10 text-blue-200/50 hover:border-blue-100/40 hover:text-blue-100"
+          } ${nested ? "pl-3" : ""}`}
+          onClick={() => selectDesktopItem(item)}
+          aria-current={isActive ? "true" : undefined}
+        >
+          <ExperienceMenuIcon item={item} />
+          <span>{item.label}</span>
+        </button>
+      </li>
+    );
+  };
+
+  const renderMobileItem = (item: MenuItem, nested = false) => (
+    <details
+      key={itemKey(item)}
+      id={item.anchor}
+      open={openMobileItem === itemKey(item)}
+      className={`group scroll-mt-20 border-b border-white/10 ${
+        nested ? "last:border-b-0" : ""
+      }`}
+      onToggle={(event) => {
+        const key = itemKey(item);
+        if (event.currentTarget.open) {
+          setOpenMobileItem(key);
+        } else {
+          setOpenMobileItem((current) => (current === key ? null : current));
+        }
+      }}
+    >
+      <summary className="flex cursor-pointer list-none items-center gap-3 py-5 font-sfmono text-sm text-blue-100 marker:content-none">
+        <ExperienceMenuIcon item={item} />
+        <span className="flex-1">{item.label}</span>
+        <span
+          aria-hidden="true"
+          className="text-lg text-blue-200/60 transition-transform group-open:rotate-45"
+        >
+          +
+        </span>
+      </summary>
+      <div className="pb-6">{item.content}</div>
+    </details>
+  );
+
   return (
     <Section id="experiences" title="Where I've Worked" side="right">
       <div className="flex w-full md:w-5/6 flex-col md:flex-row">
         {/* Side Menu - only visible on medium and larger screens */}
         <div className="w-full md:w-1/4 px-5 hidden md:block">
           <ul>
-            {items.map((item, i) => (
-              <li
-                key={Array.isArray(item.id) ? item.id.join(",") : item.id}
-                className={`flex items-center gap-3 px-4 py-3 cursor-pointer border-l-2 border-blue-100 font-sfmono text-sm ${
-                  activeItem.id === item.id ||
-                  (Array.isArray(item.id) &&
-                    item.id.includes(activeItem.id as number))
-                    ? "text-white"
-                    : "border-opacity-10 text-blue-200 text-opacity-50"
-                } transition-all duration-500 ease-in-out`}
-                onClick={() => {
-                  const selectedItem = Array.isArray(item.id)
-                    ? items[i + 1]
-                    : item;
-                  setActiveItem(selectedItem);
-                  if (selectedItem.anchor) {
-                    window.history.replaceState(
-                      null,
-                      "",
-                      `#${selectedItem.anchor}`,
-                    );
-                  } else if (
-                    window.location.hash.startsWith("#contract-after-")
-                  ) {
-                    window.history.replaceState(
-                      null,
-                      "",
-                      `${window.location.pathname}${window.location.search}`,
-                    );
-                  }
-                }}
-              >
-                <span className={item.indent ? "ml-4" : ""}>
-                  <ExperienceMenuIcon item={item} />
-                </span>
-                <span>{item.label}</span>
-              </li>
-            ))}
+            {items.map((item) => {
+              if (item.indent) {
+                return null;
+              }
+
+              if (Array.isArray(item.id)) {
+                const groupIds = item.id;
+                const clientItems = items.filter(
+                  (clientItem) =>
+                    clientItem.indent &&
+                    !Array.isArray(clientItem.id) &&
+                    groupIds.includes(clientItem.id),
+                );
+                const containsActiveItem = groupIds.includes(
+                  activeItem.id as number,
+                );
+
+                return (
+                  <li key={itemKey(item)} className="py-2">
+                    <div
+                      className={`flex items-center gap-3 px-4 py-2 font-sfmono text-sm ${
+                        containsActiveItem
+                          ? "text-blue-100"
+                          : "text-blue-200/55"
+                      }`}
+                    >
+                      <ExperienceMenuIcon item={item} />
+                      <span>{item.label}</span>
+                    </div>
+                    <ul
+                      aria-label={`${item.label} client engagements`}
+                      className="ml-6 border-l border-blue-100/15 pl-3"
+                    >
+                      {clientItems.map((clientItem) =>
+                        renderDesktopItem(clientItem, true),
+                      )}
+                    </ul>
+                  </li>
+                );
+              }
+
+              return renderDesktopItem(item);
+            })}
           </ul>
         </div>
 
@@ -501,17 +549,42 @@ const Experiences: React.FC = () => {
         <div className="w-full md:w-3/4 md:px-10">
           {/* Display all experiences on small screens */}
           <div className="block md:hidden">
-            {items
-              .filter((item) => item.content)
-              .map((item) => (
-                <div
-                  key={Array.isArray(item.id) ? item.id.join(",") : item.id}
-                  id={item.anchor}
-                  className="scroll-mt-48"
-                >
-                  {item.content}
-                </div>
-              ))}
+            {items.map((item) => {
+              if (item.indent) {
+                return null;
+              }
+
+              if (Array.isArray(item.id)) {
+                const groupIds = item.id;
+                const clientItems = items.filter(
+                  (clientItem) =>
+                    clientItem.indent &&
+                    !Array.isArray(clientItem.id) &&
+                    groupIds.includes(clientItem.id),
+                );
+
+                return (
+                  <div
+                    key={itemKey(item)}
+                    role="group"
+                    aria-label={`${item.label} client engagements`}
+                    className="border-b border-white/10 py-3"
+                  >
+                    <div className="flex items-center gap-3 py-3 font-sfmono text-sm font-medium text-blue-100">
+                      <ExperienceMenuIcon item={item} />
+                      <span>{item.label}</span>
+                    </div>
+                    <div className="ml-2 border-l border-blue-100/20 pl-5">
+                      {clientItems.map((clientItem) =>
+                        renderMobileItem(clientItem, true),
+                      )}
+                    </div>
+                  </div>
+                );
+              }
+
+              return item.content ? renderMobileItem(item) : null;
+            })}
           </div>
           {/* Display only the active item on larger screens */}
           <div className="hidden md:block">{activeItem.content}</div>

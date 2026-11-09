@@ -16,7 +16,7 @@ const Section: React.FC<SectionProps> = ({
   side = "left",
 }) => {
   return (
-    <section id={id} className="py-20">
+    <section id={id} className="reveal-section scroll-mt-20 py-16 md:py-24">
       <div className={`mb-14 ${side === "right" ? "text-right" : ""}`}>
         <>#{id}</>
         <h2 className="text-4xl text-blue-200 mb-2">{title}</h2>
@@ -71,7 +71,7 @@ interface ParagraphProps {
 const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => {
   return (
     <div
-      className={`text-blue-100 font-intervar text-opacity-70 text-[16px] mb-3 ${className}`}
+      className={`mb-3 font-intervar text-[16px] text-blue-100/80 ${className}`}
     >
       {children}
     </div>
@@ -121,7 +121,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   children,
   className,
-  inNewTab = true,
+  inNewTab = false,
   reverse = false,
   disabled = false,
 }) => {
@@ -133,14 +133,15 @@ const Button: React.FC<ButtonProps> = ({
           onClick(target.nativeEvent);
         }
       }}
-      target={inNewTab ? "_blank" : ""}
-      className={`cursor-pointer inline-block font-sfmono px-6 py-4 border ${
+      target={inNewTab ? "_blank" : undefined}
+      rel={inNewTab ? "noopener noreferrer" : undefined}
+      className={`inline-flex cursor-pointer items-center rounded-lg border px-6 py-3.5 font-sfmono text-sm font-semibold transition duration-300 hover:-translate-y-0.5 ${
         disabled
           ? "border-gray-300 text-gray-300 hover:text-gray-300 hover:cursor-not-allowed"
           : reverse
-          ? "border-gray-700 text-gray-700 hover:text-blue-700 hover:border-blue-700"
-          : "border-white hover:text-blue-200 hover:border-blue-200"
-      } rounded-md ${className}`}
+          ? "border-blue-100 bg-blue-100 text-gray-900 hover:border-white hover:bg-white"
+          : "border-white/50 text-white hover:border-blue-200 hover:text-blue-200"
+      } ${className}`}
     >
       {children}
     </a>

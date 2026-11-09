@@ -2,70 +2,39 @@ import { Image, Link, Paragraph, Section } from "./Section";
 
 function AboutMe() {
   return (
-    <Section id="about" title="About Me">
-      <div className="flex flex-col md:flex-row-reverse">
-        <div className="md:w-2/5 mb-10 flex justify-center items-start">
+    <Section id="about" title="A Little About Me">
+      <div className="grid items-start gap-10 md:grid-cols-[1fr_280px] md:gap-16">
+        <div>
+          <Paragraph className="text-lg leading-relaxed">
+            I build products across AI, web, mobile and cloud, and I enjoy owning
+            the messy path from discovery to production. At{" "}
+            <Link href="https://xmind.com/">Xmind</Link> I led development of{" "}
+            <Link href="https://mapify.so/">Mapify</Link>, trusted by 5M+
+            users, and{" "}
+            <Link href="https://hihenri.ai/">Henri</Link>; as an independent
+            contractor on weekend projects, I now work across{" "}
+            <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link>{" "}
+            iOS, shared cross-platform metrics and traceable release quality.
+          </Paragraph>
+          <Paragraph className="mt-5 text-lg leading-relaxed">
+            My coding journey started in 2005 with an ASP/Access friend-making
+            website for a middle-school competition—and football-playing and
+            racing robots. Since then I&apos;ve shipped products with Aimi, Optus,
+            Airtasker, Lendlease,{" "}
+            <Link href="https://www.strengthbynumbers.com/">
+              Strength By Numbers
+            </Link>{" "}
+            and <Link href="https://sensilab.monash.edu/">SensiLab</Link>.
+          </Paragraph>
+        </div>
+        <div className="mx-auto w-52 md:w-full">
           <Image
             src="/images/yingchen-linkedin.jpg"
-            className="w-2/3"
+            className="aspect-square w-full shadow-2xl shadow-black/20"
             alt="Yingchen Liu"
             width={800}
             height={800}
           />
-        </div>
-        <div className="md:w-3/5">
-          <Paragraph>
-            Hi! I&apos;m Yingchen, a passionate developer specialising in web and
-            mobile applications. My coding journey began in 2005 in middle
-            school, when I created a friend-making platform with ASP and Access
-            for a website competition and worked on football-playing and racing
-            robots. Those early projects sparked my interest in technology.
-          </Paragraph>
-          <Paragraph>
-            Most recently, I was a Senior Full-Stack Engineer at{" "}
-            <Link href="https://xmind.com/">Xmind</Link>, where I worked across product
-            discovery, architecture, frontend, backend, cloud infrastructure,
-            AI integrations, observability, and release delivery from January
-            2025 to July 2026.
-          </Paragraph>
-          <Paragraph>
-            On <Link href="https://mapify.so/">Mapify</Link>, a platform trusted
-            by 5M+ users, I&apos;ve designed search and data migrations, resilient
-            speech-to-text, production observability, a multilingual newsletter
-            and transactional-email engine, and an affiliate settlement system.
-            I also helped take <Link href="https://hihenri.ai/">Henri</Link> from
-            architecture to production across personalised learning, real-time
-            AI workflows, engagement, internationalisation, and release.
-          </Paragraph>
-          <Paragraph>
-            Alongside my full-time role, I work as an independent software
-            contractor on weekend side projects. My current contribution spans{" "}
-            <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link>{" "}
-            iOS, bringing connected strength testing to iPhone and iPad;
-            AxITLib, keeping shared models, device capabilities, sampling, and
-            metrics consistent across iOS and Android; and SBN Testing, giving
-            the team a collaborative, auditable workspace for exact-build QA,
-            evidence, and progress. This continues work I began on AxIT&apos;s
-            original Android platform at{" "}
-            <Link href="https://www.strengthbynumbers.com/">
-              Strength By Numbers
-            </Link>
-            .
-          </Paragraph>
-          <Paragraph>
-            Previously, I built generative music products at{" "}
-            <Link href="https://aimi.fm">Aimi</Link>, led secure solution
-            delivery for <Link href="https://optus.com.au">Optus</Link>, and
-            shipped backend, mobile, cloud, and applied-AI systems for{" "}
-            <Link href="https://www.airtasker.com/au/">Airtasker</Link>,
-            Lendlease, {" "}
-            <Link href="https://www.strengthbynumbers.com/">
-              Strength By Numbers
-            </Link>
-            , and <Link href="https://sensilab.monash.edu/">SensiLab</Link>. I
-            enjoy turning ambiguous product problems into reliable systems
-            people can use.
-          </Paragraph>
         </div>
       </div>
     </Section>

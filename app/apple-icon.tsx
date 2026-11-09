@@ -1,0 +1,12 @@
+import { generateSiteIcon } from "@/lib/seo/site-icon";
+
+export const size = {
+  width: 180,
+  height: 180,
+};
+
+export const contentType = "image/png";
+
+export default function AppleIcon() {
+  return generateSiteIcon(size.width);
+}
