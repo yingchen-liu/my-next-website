@@ -8,22 +8,22 @@ const proofPoints = [
     href: "#project-mapify",
   },
   {
+    value: "1h+ → ~20m",
+    project: "Mapify",
+    label: "CI build time",
+    href: "#ways-of-working",
+  },
+  {
     value: "52%",
     project: "Aimi",
     label: "faster startup",
     href: "#project-aimi",
   },
   {
-    value: "50%+",
-    project: "Airtasker",
-    label: "faster loading",
-    href: "#project-airtasker",
-  },
-  {
-    value: "96%",
-    project: "Aimi",
-    label: "test coverage",
-    href: "#project-aimi",
+    value: "30 staff",
+    project: "Lendlease",
+    label: "manual workflow replaced",
+    href: "#experiences",
   },
 ];
 
@@ -38,16 +38,23 @@ function Banner() {
           <span aria-hidden="true">👋</span> Hi, I&apos;m Yingchen
         </p>
         <h1 className="max-w-4xl text-4xl font-bold leading-[1.06] text-white sm:text-5xl md:text-7xl">
-          Senior full-stack engineer building{" "}
+          Senior full-stack engineer building products{" "}
           <span className="bg-gradient-to-r from-blue-200 via-indigo-200 to-cyan-200 bg-clip-text text-transparent">
-            AI and connected products.
+            end to end—and across platforms.
           </span>
         </h1>
-        <p className="mt-6 max-w-3xl text-base leading-relaxed text-blue-100/80 sm:text-lg md:mt-7 md:text-xl">
-          {new Date().getFullYear() - 2016}+ years turning complex product ideas
-          into fast, reliable systems at scale. I&apos;ve built software used by
-          5M+ people, cut critical load times by up to 90%, founded an Android
-          team and automated work previously handled by 30 staff.
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-blue-50/90 sm:text-xl md:mt-7 md:text-2xl">
+          I combine deep technical expertise with {new Date().getFullYear() - 2016}+
+          years of broad cross-platform experience. I architect full-stack
+          products across web, mobile, backend and cloud, then find the workflow
+          and team-coordination gaps around them and build practical systems that
+          make delivery clearer, faster and more reliable.
+        </p>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
+          I&apos;ve applied that approach to software used by 5M+ people,
+          AxIT&apos;s Kotlin Multiplatform calculation contract and Aimi&apos;s portable
+          C++ music engine—while cutting Mapify CI from 1h+ to ~20m, founding an
+          Android team and automating work previously handled by 30 staff.
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3 md:mt-9 md:gap-4">

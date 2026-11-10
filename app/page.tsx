@@ -1,4 +1,5 @@
 import Banner from "./components/Index/Banner";
+import WaysOfWorking from "./components/Index/WaysOfWorking";
 import AboutMe from "./components/Index/AboutMe";
 import Experiences from "./components/Index/Experiences";
 import Projects from "./components/Index/Projects";
@@ -66,6 +67,7 @@ export default function HomePage() {
           "React",
           "Next.js",
           "TypeScript",
+          "C++",
           "Kotlin",
           "Kotlin Multiplatform",
           "Swift",
@@ -77,7 +79,12 @@ export default function HomePage() {
           "AI product engineering",
           "PostgreSQL",
           "Product architecture",
+          "Cross-platform architecture",
           "Observability",
+          "Release engineering",
+          "Quality systems",
+          "Engineering workflow design",
+          "Cross-functional collaboration",
           "Full-stack web development",
           "Mobile development",
         ],
@@ -114,6 +121,7 @@ export default function HomePage() {
       />
       <main>
         <Banner />
+        <WaysOfWorking />
         <Projects />
         <Experiences />
         <AboutMe />

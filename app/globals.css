@@ -61,7 +61,9 @@ html {
   .reveal-section {
     animation: reveal-section 0.65s ease-out both;
     animation-timeline: view();
-    animation-range: entry 5% cover 28%;
+    /* Finish while the section enters the viewport. Using the cover range keeps
+       very tall sections, such as Selected Work, permanently half faded. */
+    animation-range: entry 0% entry 80%;
   }
 }
 

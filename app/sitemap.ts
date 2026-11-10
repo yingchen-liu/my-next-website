@@ -4,6 +4,7 @@ import {
   contentLastModified,
   siteUrl,
 } from "@/lib/seo/site";
+import { articles } from "@/lib/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -21,5 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/resume`,
       lastModified: contentLastModified,
     },
+    {
+      url: `${siteUrl}/articles`,
+      lastModified: contentLastModified,
+    },
+    ...articles.map((article) => ({
+      url: `${siteUrl}/articles/${article.slug}`,
+      lastModified: contentLastModified,
+      images: [absoluteUrl(article.image)],
+    })),
   ];
 }

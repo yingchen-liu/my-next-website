@@ -20,14 +20,21 @@ image, contact copy, metadata, structured data, and social previews.
 - Xmind contribution details MUST be grounded in the locally archived monthly
   work maps. Mapify and Henri product positioning MUST match their public sites.
   Public summaries MUST state that Yingchen led development of both products.
-- Current contractor content MUST distinguish four connected contributions and
-  explain their value: AxIT iOS brings connected assessment workflows to iPhone
-  and iPad; AxITLib shares models, capability rules, sampling, and metrics across
-  iOS, Android, Connect web, and backend services; AxLib enables metric-algorithm
-  review, de-identified trace exploration, and test-case verification; SBN
-  Testing streamlines exact-build internal QA through shared plans, progress,
-  evidence, priorities, immutable result history, and discussions. AxLib and
-  SBN Testing MAY share one concise quality-system bullet or project outcome.
+- Workflow and team-impact claims MUST also be grounded in those archived work
+  maps. Supported examples include reducing Mapify CI from more than one hour to
+  about 20 minutes, introducing a production-like pre-release environment,
+  deployment requests and release checks, defining model-call testing with QA,
+  documenting architecture and releases, establishing technical discussion
+  channels, onboarding engineers and sharing AI-assisted development practices.
+- Current contractor content MUST distinguish the connected contributions by
+  outcome: AxIT iOS brings connected assessment workflows to iPhone and iPad;
+  `Cross-platform metrics` uses AxLib to share models, capability rules,
+  sampling, and metrics across iOS, Android, Connect web, and backend services;
+  `Metric review & QA` combines de-identified trace exploration with SBN
+  Testing's exact-build workflows, shared evidence, immutable result history,
+  and discussions. Public summary labels MUST distinguish these outcomes as
+  `Cross-platform metrics` and `Metric review & QA` rather than repeating the
+  AxLib product name as adjacent peer bullets.
   The Strength By Numbers entry MUST retain Yingchen's earlier ownership of the
   original Android platform.
 - Earlier employment, education, certification, contact, and profile details
@@ -57,28 +64,69 @@ image, contact copy, metadata, structured data, and social previews.
   resume, login and error messages, metadata, structured data, and social
   previews. Code identifiers, library APIs, product names, and quoted external
   text MUST remain unchanged when spelling carries technical or source meaning.
-- The hero MUST lead with transferable full-stack and AI-product strength, then
-  summarise the strongest verified achievements across Yingchen's whole career
-  rather than narrating his latest roles. Its introduction MUST include products
-  used by 5M+ people, up to 90% lower critical load time, founding an Android
-  team, and automating work previously handled by 30 staff.
+- The hero MUST lead with Yingchen as a senior full-stack engineer who builds
+  products end to end and across platforms. It MUST connect product UI,
+  backend, cloud and shared-engine ownership, using AxIT's Kotlin Multiplatform
+  calculation contract and Aimi's portable C++ music engine as concrete proof.
+  It MUST also present architecture, delivery, quality and collaboration as
+  connected strengths rather than reducing his profile to a technology list.
+  The first paragraph below the headline MUST state his strengths before naming
+  individual projects: deep technical expertise, broad cross-platform
+  experience, full-stack architecture across web, mobile, backend and cloud,
+  and the ability to identify workflow and team-coordination gaps and turn them
+  into practical delivery improvements. A second, visually subordinate
+  paragraph MUST substantiate those strengths with products used by 5M+ people,
+  Mapify CI reduced from more than one hour to about 20 minutes, AxIT's shared
+  calculation contract, Aimi's portable C++ engine, founding an Android team
+  and automating work previously handled by 30 staff.
 - The hero MUST use a stable headline rather than a typewriter or deleting-text
-  animation. It MUST surface four verified proof points: Mapify's 5M+ users,
-  Aimi's 52% startup improvement, Airtasker's 50%+ loading improvement, and
-  Aimi's 96% test coverage.
+  animation. It MUST surface four verified proof points that balance product,
+  technical and workflow impact: Mapify's 5M+ users, Mapify CI reduced from more
+  than one hour to about 20 minutes, Aimi's 52% startup improvement, and the
+  Lendlease workflow that replaced manual classification previously handled by
+  30 staff.
 - The main page container and fixed header MUST share the same responsive
   horizontal inset: 24 pixels on narrow mobile screens, 32 pixels from the
   small breakpoint, and 40 pixels from the medium breakpoint. The hero headline
   MUST retain that breathing room from both edges of the coloured page
   background without introducing a separate inset panel.
 - Every hero proof card MUST visibly name the project behind its metric and act
-  as an in-page link to that project's card: Mapify to `#project-mapify`, both
-  Aimi metrics to `#project-aimi`, and Airtasker to `#project-airtasker`.
-- Home-page sections MUST appear in this order: hero and proof points; Selected
-  Work; experience; About; contact.
-- About MUST use the current LinkedIn profile photo and describe current work
-  before summarising earlier employers. It MUST retain the 2005 website and
-  robotics projects as the start of Yingchen's interest in technology.
+  as an in-page link to its supporting evidence: Mapify user scale to
+  `#project-mapify`, Mapify CI to `#ways-of-working`, Aimi startup improvement
+  to `#project-aimi`, and Lendlease workflow automation to `#experiences`.
+- Home-page sections MUST appear in this order: hero and proof points; How I
+  Improve the Work; Selected Work; experience; About; contact.
+- `How I Improve the Work` MUST present three operating principles: make
+  decisions explicit, make evidence shareable and make delivery repeatable. It
+  MUST include concise, source-backed examples for AxLib with SBN Testing,
+  Mapify delivery improvements, and Mapify/Henri team enablement.
+- The AxLib and SBN Testing example MUST explain the cross-role workflow, not
+  merely list tools: de-identified trace exploration makes algorithms
+  explainable; exact-build plans make observable behaviour testable; shared
+  evidence, preserved history and discussion let engineering, QA and release
+  owners work from the same record while keeping acceptance levels distinct.
+- The Mapify delivery example MUST include the verified CI reduction and the
+  production-like pre-release, deployment-request, release-template, check and
+  confirmation workflow. It MUST describe safer and faster feedback without
+  claiming an unverified defect-reduction percentage.
+- The team-enablement example MAY cover technical discussion, documentation,
+  QA collaboration, onboarding, AI-assisted development training and
+  coordination with product, infrastructure and security. It MUST describe the
+  working practice rather than imply sole ownership of team outcomes.
+- An example MUST link only to case studies that explain that example. Links
+  stay in the same tab, use the article title, and appear under `Read more`.
+  The AxLib and SBN Testing example MUST link to the two-phase QA article and
+  the cross-platform metric-contract article. The operating principles are not
+  links. The Mapify delivery and team-enablement examples have no case study
+  that describes those workflows, so they MUST NOT link to an unrelated
+  Mapify or Henri article.
+- About MUST use the current LinkedIn profile photo and describe both product
+  delivery and improvement of the systems around the work before summarising
+  earlier employers. It MUST make end-to-end and cross-platform architecture
+  tangible through AxIT's Kotlin Multiplatform calculation contract and Aimi's
+  portable C++ engine and SDK, while retaining Xmind delivery improvement and
+  the 2005 website and robotics projects without becoming another
+  implementation list.
 - About MUST use no more than two paragraphs and MUST NOT repeat detailed
   project implementation lists already present in Selected Work.
 - Every Strength By Numbers reference and the SensiLab reference in About MUST
@@ -147,14 +195,17 @@ image, contact copy, metadata, structured data, and social previews.
   one on each of the three featured-project category lines, and one in the
   contact callout. Emoji MUST NOT appear in the resume or replace labels/icons.
 - The closed mobile header MUST remain a single 64-pixel row with a compact menu
-  button. Public navigation MUST expose Work, Experience, About, Contact and
-  Resume; Login MUST remain accessible by direct URL but MUST NOT appear in the
-  main public navigation.
+  button. Public navigation MUST expose How I Work, Work, Experience, About,
+  Contact, Writing and Resume; Login MUST remain accessible by direct URL but
+  MUST NOT appear in the main public navigation.
 - Section anchors MUST retain at least 80 pixels of scroll offset so headings
   remain visible below the fixed header.
 - Motion MUST be limited to section reveals, the mobile menu and subtle hover
   lift/colour feedback. It MUST respect `prefers-reduced-motion` and MUST NOT
-  introduce continuous or content-obscuring animation.
+  introduce continuous or content-obscuring animation. A section reveal MUST
+  reach full opacity as its leading edge enters the viewport; its progress MUST
+  NOT depend on the section's total height or remain partially faded after its
+  heading has reached the fixed-header offset.
 - Metadata and social-preview copy MUST describe Yingchen as a senior
   full-stack, AI, and mobile product engineer.
 - Every indexable route MUST provide its own concise title, human-readable meta
@@ -204,9 +255,11 @@ image, contact copy, metadata, structured data, and social previews.
   meaningful without JavaScript; enhanced smooth scrolling MAY intercept those
   links when the target is present.
 - The contact copy action MUST write `info@yingchenliu.com` to the system
-  clipboard. It MUST replace its label with `Copied!` after success, show
-  `Copy failed` if the browser rejects the write, and return to its idle label
-  after a short delay.
+  clipboard. After success, the same control MUST show the full email address
+  on the left and a check-marked `Copied` status on the right. It MUST show
+  `Copy failed` if the browser rejects the write and return to its idle `Copy
+  email address` label after a short delay. The success layout MUST remain
+  readable without horizontal overflow on narrow screens.
 
 ## Compatibility and failure behaviour
 
@@ -234,11 +287,21 @@ image, contact copy, metadata, structured data, and social previews.
 - The hero introduction describes cross-career strengths and achievements; it
   does not use the weaker chronology of helping take Henri to production and
   currently doing weekend AxIT work.
-- Each hero proof point includes its project name, is keyboard-focusable, and
-  resolves to the matching featured or earlier-work project card without being
-  obscured by the fixed header.
-- The home page renders Selected Work before experience, followed by the
-  two-paragraph About section and the contact callout.
+- Each hero proof point includes its product or client name, is
+  keyboard-focusable, and resolves to the matching project, workflow or
+  experience evidence without being obscured by the fixed header.
+- The home page renders How I Improve the Work before Selected Work and
+  experience, followed by the two-paragraph About section and the contact
+  callout.
+- How I Improve the Work visibly presents the three operating principles and
+  the AxLib/SBN Testing, Mapify delivery and team-enablement examples. The copy
+  explains who can do what more effectively rather than listing technologies.
+- The AxLib/SBN Testing example lists and opens the two-phase QA article and
+  the metric-contract article in the same tab. The Mapify delivery and
+  team-enablement examples show no article links.
+- The AxLib/SBN Testing example distinguishes calculation explanation,
+  observable product QA and release visibility; it does not imply that one
+  result proves every acceptance level.
 - The About employment summary renders Strength By Numbers and SensiLab as
   working external links.
 - The current contractor entry is first in Where I've Worked, immediately
@@ -260,7 +323,8 @@ image, contact copy, metadata, structured data, and social previews.
   icon shows all three `SBN` letters.
 - Contractor copy on the hero, About, contracting section, resume, and AxIT project
   consistently identifies weekend contracting and the distinct value of AxIT
-  iOS, AxITLib, AxLib, and SBN Testing.
+  iOS, cross-platform metrics through AxLib, and metric review and QA through
+  de-identified trace exploration plus SBN Testing.
 - Mapify and Henri responsibilities are visible in the Xmind entry and remain
   consistent with the dedicated project cards, with development leadership
   stated explicitly for both products.
@@ -299,20 +363,49 @@ image, contact copy, metadata, structured data, and social previews.
 - Homepage JSON-LD contains a `ProfilePage` whose `mainEntity` resolves to the
   same `Person` node used by the `WebSite` publisher, and that Person links to
   the verified LinkedIn URL.
-- The sitemap contains `/` and `/resume`, omits `/login`, uses the recorded
-  significant-update date, and lists the profile, Mapify, Henri and AxIT images
-  against the homepage. `robots.txt` exposes both the host and sitemap.
+- The sitemap contains `/`, `/resume`, `/articles` and every public article,
+  omits `/login`, uses the recorded significant-update date, and lists the
+  profile, Mapify, Henri and AxIT images against the homepage. `robots.txt`
+  exposes both the host and sitemap.
 - The homepage and resume each render one visible `h1`; resume section labels
   use `h2` elements. The generated head links to both the 512-pixel site icon
   and 180-pixel Apple icon.
 - Section reveals and hover interactions are disabled or effectively immediate
   when reduced motion is requested.
+- Short and long homepage sections both reach full opacity by the time their
+  heading reaches the fixed-header offset, including Selected Work when reached
+  by scrolling or an in-page anchor.
 - Desktop and 390-pixel mobile previews show readable experience and resume
   layouts without horizontal overflow.
 - The production build and `git diff --check` complete successfully.
 
 ## Iteration history
 
+- 2026-11-09: Linked the AxLib/SBN Testing workflow example to the two-phase QA
+  and metric-contract articles. The Mapify delivery and team-enablement
+  examples stay unlinked because no case study describes those workflows.
+- 2026-11-09: Changed section reveals from a height-dependent cover timeline to
+  an entry timeline so the long Selected Work section no longer remains grey
+  after its heading is visible.
+
+- 2026-11-09: Standardised the shared Kotlin Multiplatform library name as
+  `AxLib` across public copy, technical writing and the resume; obsolete
+  spellings MUST NOT appear.
+- 2026-11-09: Elevated full-stack and cross-platform architecture in the hero,
+  About, experience, resume, SEO and project evidence, using AxIT's Kotlin
+  Multiplatform calculation contract and Aimi's portable C++ music engine as
+  the concrete proof.
+
+- 2026-11-09: Changed the successful copy-email state to show the copied email
+  address on the left and an explicit `Copied` confirmation on the right.
+- 2026-11-09: Reframed the homepage around both product delivery and improving
+  how teams work, adding source-backed AxLib/SBN Testing, Mapify delivery and
+  team-enablement examples from the archived monthly Xmind records.
+- 2026-11-09: Reordered the hero introduction so Yingchen's core strengths—deep
+  technical ability, broad cross-platform architecture and workflow/team
+  coordination improvement—appear before individual project achievements.
+- 2026-11-09: Added Writing to public navigation and linked the portfolio's
+  project evidence to the dedicated technical case-study routes.
 - 2026-11-09: Standardised résumé role metadata by removing the redundant
   `Full-Time` label and correcting Xmind's location to `Remote, Australia`.
 - 2026-11-09: Replaced generic résumé `Mobile` labels with explicit `iOS &
@@ -328,7 +421,9 @@ image, contact copy, metadata, structured data, and social previews.
 - 2026-11-09: Reframed the AxIT quality-system contribution around introducing
   AxLib for metric and trace review plus SBN Testing for streamlined exact-build
   internal verification.
-- 2026-11-09: Expanded the AxITLib story from mobile-only alignment to the
+- 2026-11-09: Replaced adjacent library-name labels with outcome-led
+  `Cross-platform metrics` and `Metric review & QA` wording.
+- 2026-11-09: Expanded the AxLib story from mobile-only alignment to the
   shared calculation contract spanning iOS, Android, Connect web and backend
   services.
 - 2026-11-09: Replaced the stale Strength By Numbers 200+ scale with the
@@ -379,7 +474,7 @@ image, contact copy, metadata, structured data, and social previews.
 - 2026-11-09: Removed the Mt.Code brand from public copy and retained the work as
   a separate Independent Software Contractor history.
 - 2026-11-09: Reframed contractor work as weekend side projects alongside full-time work
-  and grounded current contribution copy in AxIT iOS, AxITLib, and SBN Testing,
+  and grounded current contribution copy in AxIT iOS, AxLib, and SBN Testing,
   with the user value of each system stated explicitly.
 - 2026-11-09: Linked the Strength By Numbers and SensiLab names in the About
   employment summary to their official websites.

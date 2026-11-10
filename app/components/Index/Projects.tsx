@@ -1,5 +1,7 @@
 import { FaGooglePlay } from "react-icons/fa";
 import { FaAppStoreIos, FaArrowUpRightFromSquare } from "react-icons/fa6";
+import NextLink from "next/link";
+import { articlesByProject, type Article } from "@/lib/articles";
 import { Image, Paragraph, Section } from "./Section";
 
 interface ProjectLink {
@@ -23,6 +25,7 @@ interface FeaturedProjectProps {
   skills: string[];
   highlights: ProjectHighlight[];
   links?: ProjectLink[];
+  articles?: Article[];
   side?: "left" | "right";
 }
 
@@ -60,6 +63,7 @@ function FeaturedProject({
   skills,
   highlights,
   links = [],
+  articles = [],
   side = "left",
 }: FeaturedProjectProps) {
   return (
@@ -113,6 +117,7 @@ function FeaturedProject({
               ))}
             </ul>
           )}
+          {articles.length > 0 && <ArticleLinks articles={articles} />}
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-blue-950 shadow-2xl shadow-black/20 transition duration-500 group-hover:-translate-y-1 group-hover:border-blue-200/30">
@@ -152,6 +157,34 @@ function FeaturedProject({
   );
 }
 
+function ArticleLinks({ articles }: { articles: Article[] }) {
+  return (
+    <div className="mt-7 border-t border-white/10 pt-5">
+      <p className="font-sfmono text-xs uppercase tracking-[0.14em] text-blue-200/55">
+        Read more · technical case studies
+      </p>
+      <ul className="mt-3 grid gap-2">
+        {articles.map((article) => (
+          <li key={article.slug}>
+            <NextLink
+              href={`/articles/${article.slug}`}
+              className="group/article flex items-start justify-between gap-4 rounded-lg px-3 py-2.5 -mx-3 text-sm leading-snug text-blue-100/80 transition-colors hover:bg-white/[0.045] hover:text-white"
+            >
+              <span>{article.title}</span>
+              <span
+                aria-hidden="true"
+                className="shrink-0 font-sfmono text-blue-200/50 transition-transform group-hover/article:translate-x-1"
+              >
+                →
+              </span>
+            </NextLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 const earlierWork = [
   {
     id: "project-aimi",
@@ -159,8 +192,9 @@ const earlierWork = [
     href: "https://www.aimi.fm/",
     imgSrc: "/images/aimi-player.png",
     outcome:
-      "Led a cross-platform generative-music SDK, founded the Android team and reduced startup time by 52%.",
+      "Led a portable C++ generative-music engine and cross-platform SDK, founded the Android team and reduced startup time by 52%.",
     skills: "TypeScript · C++ · Kotlin · Media3",
+    articles: articlesByProject.Aimi,
   },
   {
     id: "project-optusafe",
@@ -170,6 +204,7 @@ const earlierWork = [
     outcome:
       "Led discovery and delivery of a secure, highly available identity platform on GCP and Kubernetes.",
     skills: "Architecture · Spring · React · GCP",
+    articles: [],
   },
   {
     id: "project-airtasker",
@@ -179,6 +214,7 @@ const earlierWork = [
     outcome:
       "Built backend and Android workflows that cut loading by more than 50% and improved retention by 17%.",
     skills: "Kotlin · Spring · Compose · AWS",
+    articles: [],
   },
 ];
 
@@ -189,19 +225,19 @@ function Projects() {
         id="project-mapify"
         title="Mapify"
         href="https://mapify.so/"
-        eyebrow="🧠 AI knowledge platform · 5M+ users"
+        eyebrow="🧠 15M+ mind maps generated"
         imgSrc="/images/mapify.png"
         skills={[
-          "Search & Data Architecture",
-          "Summarisation Architecture",
-          "AI Media Pipelines",
-          "Observability",
-          "Revenue Systems",
+          "AI Product Architecture",
+          "Search & Data Systems",
+          "Growth & Revenue Platforms",
+          "Delivery & Reliability",
         ]}
         description={
           <>
-            Led development of Xmind&apos;s AI knowledge platform for turning
-            documents, media and web pages into clear visual maps.
+            Led development of Xmind&apos;s AI knowledge platform, used by 5M+
+            people to turn documents, media and web pages into clear visual maps,
+            while improving how the team built, tested and released it.
           </>
         }
         highlights={[
@@ -245,6 +281,7 @@ function Projects() {
             ),
           },
         ]}
+        articles={articlesByProject.Mapify}
       />
 
       <FeaturedProject
@@ -257,14 +294,15 @@ function Projects() {
         skills={[
           "AI Product Architecture",
           "LLM Orchestration",
-          "Streaming Systems",
-          "Cloud Delivery",
+          "Learning Experience",
+          "Product Delivery",
         ]}
         description={
           <>
             Led development of a personal AI tutor that turns any topic into a
             tailored syllabus with conversational lessons, active recall and
-            adaptive quizzes.
+            adaptive quizzes, coordinating product, infrastructure, testing and
+            release from architecture to production.
           </>
         }
         highlights={[
@@ -304,6 +342,7 @@ function Projects() {
             icon: <FaAppStoreIos />,
           },
         ]}
+        articles={articlesByProject.Henri}
       />
 
       <FeaturedProject
@@ -313,10 +352,10 @@ function Projects() {
         eyebrow="📱 Connected strength assessment"
         imgSrc="/images/axit-results.jpeg"
         skills={[
-          "iOS & Android",
-          "Bluetooth LE",
-          "Cross-Platform Metrics",
-          "Release Quality",
+          "Kotlin Multiplatform",
+          "iOS · Android · Web",
+          "Connected Device Systems",
+          "Evidence & QA Workflows",
         ]}
         description={
           <>
@@ -336,23 +375,23 @@ function Projects() {
             ),
           },
           {
-            title: "One metric system across mobile, web and backend",
+            title: "One KMP calculation contract across every surface",
             description: (
               <>
-                Now deliver AxIT iOS and the shared AxITLib calculation
-                contract—models, capability rules, sampling and metrics—across
-                iOS, Android, Connect web and backend services.
+                Contribute AxLib&apos;s models, capability rules, sampling and
+                metrics once in Kotlin Multiplatform, then deliver the shared
+                meaning across iOS, Android, Connect web and backend services.
               </>
             ),
           },
           {
-            title: "Metric review and testing, systematised",
+            title: "One shared workflow for evidence and release",
             description: (
               <>
-                Introduced AxLib and SBN Testing to review metric algorithms
-                against de-identified traces, verify test cases and streamline
-                exact-build internal testing with shared evidence and auditable
-                results.
+                Connected de-identified AxLib trace exploration to SBN
+                Testing&apos;s exact-build plans, shared evidence, immutable history
+                and discussions so engineering, QA and release owners work from
+                the same record.
               </>
             ),
           },
@@ -369,6 +408,7 @@ function Projects() {
             icon: <FaGooglePlay />,
           },
         ]}
+        articles={articlesByProject.AxIT}
       />
 
       <div className="mt-28">
@@ -380,34 +420,41 @@ function Projects() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {earlierWork.map((work) => (
-            <ExternalLink
+            <article
               key={work.title}
               id={work.id}
-              href={work.href}
               className="group scroll-mt-24 overflow-hidden rounded-xl border border-white/10 bg-white/[0.025] transition duration-300 hover:-translate-y-1 hover:border-blue-200/35 hover:bg-white/[0.05]"
             >
-              <Image
-                src={work.imgSrc}
-                className="aspect-[16/9] w-full rounded-none bg-white transition duration-500 group-hover:scale-[1.02]"
-                alt={`${work.title} product preview`}
-                width={1305}
-                height={865}
-              />
+              <ExternalLink href={work.href} className="block overflow-hidden">
+                <Image
+                  src={work.imgSrc}
+                  className="aspect-[16/9] w-full rounded-none bg-white transition duration-500 group-hover:scale-[1.02]"
+                  alt={`${work.title} product preview`}
+                  width={1305}
+                  height={865}
+                />
+              </ExternalLink>
               <div className="p-5">
-                <div className="flex items-center justify-between">
+                <ExternalLink
+                  href={work.href}
+                  className="flex items-center justify-between"
+                >
                   <h4 className="text-lg font-semibold text-white">
                     {work.title}
                   </h4>
                   <FaArrowUpRightFromSquare className="h-3.5 w-3.5 text-blue-200/50 transition group-hover:text-blue-200" />
-                </div>
+                </ExternalLink>
                 <p className="mt-3 text-sm leading-relaxed text-blue-100/75">
                   {work.outcome}
                 </p>
                 <p className="mt-4 font-sfmono text-xs text-blue-200/55">
                   {work.skills}
                 </p>
+                {work.articles.length > 0 && (
+                  <ArticleLinks articles={work.articles} />
+                )}
               </div>
-            </ExternalLink>
+            </article>
           ))}
         </div>
       </div>

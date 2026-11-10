@@ -6,20 +6,23 @@ function AboutMe() {
       <div className="grid items-start gap-10 md:grid-cols-[1fr_280px] md:gap-16">
         <div>
           <Paragraph className="text-lg leading-relaxed">
-            I build products across AI, web, mobile and cloud, and I enjoy owning
-            the messy path from discovery to production. At{" "}
-            <Link href="https://xmind.com/">Xmind</Link> I led development of{" "}
-            <Link href="https://mapify.so/">Mapify</Link>, trusted by 5M+
-            users, and{" "}
-            <Link href="https://hihenri.ai/">Henri</Link>; as an independent
-            contractor on weekend projects, I now work across{" "}
-            <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link>{" "}
-            iOS, shared cross-platform metrics and traceable release quality.
+            I solve product problems end to end—from user experience and app
+            code to backend, cloud and shared engines. On{" "}
+            <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link>,
+            I use Kotlin Multiplatform to keep one calculation contract aligned
+            across iOS, Android, Connect web and backend services. At{" "}
+            <Link href="https://www.aimi.fm/">Aimi</Link>, I led a portable C++
+            generative-music engine and cross-platform SDK, then founded the
+            Android team around that shared core.
           </Paragraph>
           <Paragraph className="mt-5 text-lg leading-relaxed">
-            My coding journey started in 2005 with an ASP/Access friend-making
-            website for a middle-school competition—and football-playing and
-            racing robots. Since then I&apos;ve shipped products with Aimi, Optus,
+            I also improve how teams ship. At{" "}
+            <Link href="https://xmind.com/">Xmind</Link>, I led development of{" "}
+            <Link href="https://mapify.so/">Mapify</Link>, trusted by 5M+ users,
+            and <Link href="https://hihenri.ai/">Henri</Link> while making CI,
+            pre-release and testing workflows faster and clearer. That journey
+            began in 2005 with an ASP/Access friend-making website and
+            football-playing and racing robots, and later included Optus,
             Airtasker, Lendlease,{" "}
             <Link href="https://www.strengthbynumbers.com/">
               Strength By Numbers

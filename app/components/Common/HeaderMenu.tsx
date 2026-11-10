@@ -5,6 +5,7 @@ import { useSelectedLayoutSegments } from "next/navigation";
 import NextLink from "next/link";
 
 const homeItems = [
+  { label: "How I Work", target: "ways-of-working" },
   { label: "Work", target: "projects" },
   { label: "Experience", target: "experiences" },
   { label: "About", target: "about" },
@@ -79,6 +80,9 @@ const HeaderMenu = () => {
               Home
             </NextLink>
           )}
+          <NextLink href="/articles" className={navItemClass}>
+            Writing
+          </NextLink>
           <NextLink href="/resume" className={navItemClass}>
             Résumé
           </NextLink>
@@ -121,6 +125,13 @@ const HeaderMenu = () => {
               Home
             </NextLink>
           )}
+          <NextLink
+            href="/articles"
+            className="rounded-lg px-3 py-3 font-sfmono text-sm text-blue-100 transition-colors hover:bg-white/5 hover:text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Writing
+          </NextLink>
           <NextLink
             href="/resume"
             className="rounded-lg px-3 py-3 font-sfmono text-sm text-blue-100 transition-colors hover:bg-white/5 hover:text-white"

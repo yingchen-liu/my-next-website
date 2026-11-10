@@ -10,11 +10,11 @@ export const contentType = "image/png";
 export const alt = socialImageAlt;
 
 const chips = [
-  "AI Architecture",
-  "Data Systems",
-  "Streaming Platforms",
-  "Mobile Systems",
-  "Cloud Reliability",
+  "AI Product Architecture",
+  "Delivery Systems",
+  "Quality & Evidence",
+  "Cross-Platform Systems",
+  "Team Enablement",
 ];
 
 export function generateSocialImage() {

@@ -35,6 +35,8 @@ function Contact() {
     resetTimer.current = setTimeout(() => setCopyStatus("idle"), 2500);
   };
 
+  const isCopied = copyStatus === "copied";
+
   return (
     <Section id="contact" title="Let's Build Something Useful">
       <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-blue-950 to-gray-800 px-6 py-12 text-center shadow-2xl shadow-black/10 md:px-16">
@@ -50,21 +52,37 @@ function Contact() {
           <button
             type="button"
             onClick={copyEmailAddress}
-            className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-lg border border-white/25 bg-white/[0.035] px-6 py-3.5 font-sfmono text-sm font-semibold text-blue-100 transition duration-300 hover:-translate-y-0.5 hover:border-blue-200/60 hover:bg-white/[0.07] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-200"
+            className={`inline-flex min-h-12 w-full cursor-pointer items-center rounded-lg border border-white/25 bg-white/[0.035] py-3.5 font-sfmono text-sm font-semibold text-blue-100 transition duration-300 hover:-translate-y-0.5 hover:border-blue-200/60 hover:bg-white/[0.07] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-200 sm:w-auto ${
+              isCopied
+                ? "justify-between gap-5 px-5 sm:min-w-[25rem]"
+                : "justify-center gap-2 px-6"
+            }`}
             aria-label="Copy info@yingchenliu.com to clipboard"
           >
-            {copyStatus === "copied" ? (
-              <FaCheck aria-hidden="true" />
+            {isCopied ? (
+              <>
+                <span className="min-w-0 truncate text-left">
+                  {EMAIL_ADDRESS}
+                </span>
+                <span
+                  className="inline-flex shrink-0 items-center gap-2 text-cyan-100"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <FaCheck aria-hidden="true" />
+                  Copied
+                </span>
+              </>
             ) : (
-              <FaRegCopy aria-hidden="true" />
+              <>
+                <FaRegCopy aria-hidden="true" />
+                <span role="status" aria-live="polite">
+                  {copyStatus === "error"
+                    ? "Copy failed"
+                    : "Copy email address"}
+                </span>
+              </>
             )}
-            <span aria-live="polite">
-              {copyStatus === "copied"
-                ? "Copied!"
-                : copyStatus === "error"
-                  ? "Copy failed"
-                  : "Copy email address"}
-            </span>
           </button>
         </div>
       </div>

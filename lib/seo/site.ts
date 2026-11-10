@@ -11,10 +11,10 @@ export const socialImageAlt =
   "Yingchen Liu - Senior Full-Stack and AI Engineer";
 
 export const siteDescription =
-  "Yingchen Liu is a Melbourne-based senior full-stack, AI and mobile engineer behind Mapify, Henri and connected AxIT products.";
+  "Yingchen Liu is a Melbourne-based senior full-stack and AI engineer who architects end-to-end, cross-platform products and improves the workflows and coordination that help teams deliver them.";
 
 export const homeDescription =
-  "Senior full-stack and AI engineer in Melbourne. Explore Yingchen Liu's work on Mapify for 5M+ users, Henri and connected AxIT products.";
+  "Senior full-stack and AI engineer combining broad cross-platform architecture with practical workflow and team-coordination improvements across web, mobile, backend and cloud.";
 
 export const resumeDescription =
   "Résumé of Yingchen Liu, a Melbourne-based senior full-stack, AI and mobile engineer experienced in React, TypeScript, Swift, Kotlin, AWS and GCP.";

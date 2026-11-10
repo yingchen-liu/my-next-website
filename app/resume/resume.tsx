@@ -292,10 +292,10 @@ export default function Resume() {
               {title === "full-stack" && (
                 <>
                   <li>
-                    Led the development of a cross-platform music SDK, a core
-                    component of Aimi Player and Aimi Studio, in{" "}
-                    <b>TypeScript</b>, <b>Node.js</b> and C++, enhancing the
-                    dynamic and personalised music experience and{" "}
+                    Led a portable <b>C++ generative-music engine</b> and
+                    cross-platform SDK used by Aimi Player and Aimi Studio,
+                    spanning <b>TypeScript</b>, <b>Node.js</b>, Android and iOS
+                    while{" "}
                     <b>reducing startup time by 52%</b>.
                   </li>
                   <li>
@@ -315,9 +315,9 @@ export default function Resume() {
               {title === "back-end" && (
                 <>
                   <li>
-                    Led the development of a cross-platform generative music
-                    SDK, in <b>TypeScript</b>, <b>Node.js</b> and C++, enhancing
-                    the dynamic and personalised music experience and{" "}
+                    Led a portable <b>C++ generative-music engine</b> and
+                    cross-platform SDK spanning <b>TypeScript</b>,{" "}
+                    <b>Node.js</b>, Android and iOS, while{" "}
                     <b>reducing startup time by 52%</b>.
                   </li>
                   <li>
@@ -341,11 +341,10 @@ export default function Resume() {
                     Compose, and Media3.
                   </li>
                   <li>
-                    Led the development of a <b>cross-platform</b> music SDK for{" "}
-                    <b>Android and iOS</b>, a core component of Aimi Player and
-                    Aimi Studio, built with TypeScript and C++, enhancing the
-                    dynamic and personalised music experience and reducing
-                    startup time by 52%.
+                    Led a portable <b>C++ generative-music engine</b> and{" "}
+                    <b>cross-platform SDK</b> for Android and iOS, a core
+                    component of Aimi Player and Aimi Studio, reducing startup
+                    time by 52%.
                   </li>
                 </>
               )}
@@ -403,7 +402,7 @@ export default function Resume() {
                 title === "back-end" ||
                 stack === "javascript") && (
                 <li>
-                  <b>AxITLib:</b> contribute shared{" "}
+                  <b>Cross-platform metrics:</b> contribute AxLib&apos;s shared{" "}
                   <b>Kotlin Multiplatform</b> models, capability rules, sampling
                   and metrics as one calculation contract across iOS, Android,
                   Connect web and backend services.
@@ -413,10 +412,10 @@ export default function Resume() {
                 title === "back-end" ||
                 stack === "javascript") && (
                 <li>
-                  <b>AxLib + SBN Testing:</b> introduced trace exploration and
-                  exact-build QA tools for metric-algorithm review, test-case
-                  verification and streamlined internal testing with auditable
-                  evidence.
+                  <b>Metric review &amp; QA:</b> introduced de-identified trace
+                  exploration and SBN Testing&apos;s exact-build workflows for
+                  metric-algorithm review, test-case verification and
+                  streamlined internal testing with auditable evidence.
                 </li>
               )}
             </Experience>

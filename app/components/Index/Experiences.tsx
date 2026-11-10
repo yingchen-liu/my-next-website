@@ -104,15 +104,15 @@ const CurrentContractExperience = () => (
         session, sync, reporting, and release workflows to iPhone and iPad
       </li>
       <li>
-        <b>AxITLib:</b> contribute the shared calculation contract—models, test
-        catalogues, device capabilities, sampling rules and metrics—across iOS,
-        Android, Connect web and backend services
+        <b>Cross-platform metrics:</b> contribute AxLib&apos;s shared calculation
+        contract—models, test catalogues, device capabilities, sampling rules
+        and metrics—across iOS, Android, Connect web and backend services
       </li>
       <li>
-        <b>AxLib + SBN Testing:</b> introduced trace exploration and exact-build
-        QA tools for reviewing metric algorithms, verifying de-identified test
-        cases and streamlining internal testing with shared evidence and
-        auditable results
+        <b>Metric review &amp; QA:</b> introduced de-identified trace exploration
+        and SBN Testing&apos;s exact-build workflows for reviewing metric algorithms,
+        verifying test cases and streamlining internal testing with shared
+        evidence and auditable results
       </li>
     </ul>
   </Experience>
@@ -148,8 +148,8 @@ const AimiExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Led a cross-platform generative music SDK in TypeScript, Node.js, and
-        C++, reducing startup time by 52%
+        Led a portable C++ generative-music engine and cross-platform SDK,
+        reducing startup time by 52%
       </li>
       <li>
         Founded the Android team and built Aimi Player with Kotlin, Jetpack

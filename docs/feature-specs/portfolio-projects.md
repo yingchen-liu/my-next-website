@@ -37,8 +37,8 @@ Yingchen's concrete contribution without reading like a task log.
 - Mapify and Henri project copy MUST state that Yingchen led their development;
   this ownership language MUST remain consistent with About, experience, and
   resume summaries.
-- Mapify copy MUST lead with its verified 5M+ user scale and cover search/data
-  architecture, summarisation architecture, resilient speech-to-text,
+- Mapify copy MUST lead with its verified 5M+ user and 15M+ generated-map scale
+  and cover search/data architecture, summarisation architecture, resilient speech-to-text,
   production monitoring, measurable web performance, the multilingual
   newsletter/transactional-email engine, and the affiliate operations and
   settlement system.
@@ -77,19 +77,24 @@ Yingchen's concrete contribution without reading like a task log.
   software page. It MUST be stored locally as
   `/images/axit-results.jpeg`, not hotlinked or replaced by the previous report
   screenshot.
-- Current AxIT contribution copy MUST separate the four connected systems:
-  AxIT iOS brings the product to iPhone and iPad; AxITLib reduces platform drift
-  through shared Kotlin Multiplatform models, capabilities, sampling rules, and
-  metrics across iOS, Android, Connect web, and backend services; AxLib makes
-  metric algorithms, de-identified traces, and test cases explorable and
-  reviewable; SBN Testing streamlines exact-build internal QA through shared
-  plans, progress, evidence, priorities, immutable history, and discussions.
-  AxLib and SBN Testing SHOULD share one outcome card because together they form
-  the metric-review and internal-testing workflow.
-- Cross-runtime AxITLib copy MUST describe one shared calculation contract
-  across mobile, web, and backend. It MAY name Connect as the browser surface
-  and backend services separately, but MUST NOT imply that the Connect frontend
-  is itself a Node.js server runtime.
+- Current AxIT contribution copy MUST separate the connected systems by outcome:
+  AxIT iOS brings the product to iPhone and iPad; cross-platform metrics uses
+  AxLib to reduce platform drift through shared Kotlin Multiplatform models,
+  capabilities, sampling rules, and metrics across iOS, Android, Connect web,
+  and backend services; metric review and QA combines de-identified trace
+  exploration with SBN Testing's exact-build workflows, shared evidence,
+  immutable history, and discussions so engineering, QA and release owners can
+  work from the same record. Public summary labels MUST distinguish the
+  `Cross-platform metrics` and `Metric review & QA` outcomes rather than repeat
+  the AxLib product name as adjacent peer bullets.
+- Cross-runtime AxLib copy MUST describe one shared calculation contract
+  implemented with Kotlin Multiplatform across iOS, Android, Connect web and
+  backend services. It MAY name Connect as the browser surface and backend
+  services separately, but MUST NOT imply that the Connect frontend is itself
+  a Node.js server runtime.
+- The compact Aimi card MUST name the portable C++ generative-music engine and
+  cross-platform SDK, Android-team leadership and the verified 52% startup
+  improvement.
 - The work MUST be described as independent software contracting, not as a
   second full-time employer or a named company/brand.
 
@@ -99,6 +104,13 @@ Yingchen's concrete contribution without reading like a task log.
   Henri public sites and the official AxIT product/App Store pages.
 - Mapify's 5M+ scale comes from its current official homepage; the affiliate
   commission and settlement rules come from its official affiliate page.
+- Mapify's generated-map scale MUST use the conservative `15M+ maps` wording.
+  This is rounded down from the live production analytics response of
+  `15,019,290` on 9 November 2026. The endpoint and its public home-page
+  component define this as total mind maps generated. It is a cumulative
+  generation counter, not a count of currently retained PostgreSQL user-file
+  rows, active maps or unique users, and public copy MUST NOT conflate those
+  meanings. Refresh or remove this claim if the endpoint semantics change.
 - Contribution details come from the locally archived monthly Xmind work maps.
 - AxIT contribution details come from the local iOS, Android, metrics, trace,
   testing, and release records; source or replay evidence MUST NOT be presented
@@ -122,20 +134,25 @@ Yingchen's concrete contribution without reading like a task log.
 - AxIT links to the official App Store and Google Play listings.
 - The AxIT project image renders from `/images/axit-results.jpeg`, has intrinsic
   dimensions of 1500 by 844 pixels, and shows the tablet results photograph.
-- The AxIT role copy names AxIT iOS, AxITLib, AxLib, and SBN Testing and states the
-  outcome each contribution brings.
-- The AxLib and SBN Testing outcome covers metric-algorithm review, de-identified
-  trace exploration, test-case verification, and streamlined exact-build
-  internal testing with auditable evidence.
-- The AxITLib outcome names iOS, Android, Connect web, and backend services;
-  its headline does not describe the shared metric system as mobile-only.
+- The AxIT role copy names AxIT iOS, AxLib, and SBN Testing and states the
+  outcome each contribution brings; the two non-iOS bullets are labelled by
+  outcome rather than repeating the AxLib product name.
+- The metric-review and SBN Testing outcome covers algorithm review,
+  de-identified trace exploration, test-case verification, streamlined
+  exact-build internal testing and the cross-role value of shared, auditable
+  evidence.
+- The AxLib outcome names iOS, Android, Connect web, and backend services;
+  its headline names the KMP calculation contract rather than describing the
+  shared metric system as mobile-only.
+- The Aimi card names the portable C++ engine, cross-platform SDK, Android-team
+  leadership and 52% startup improvement.
 - The AxIT case study, Strength By Numbers experience, and resume consistently
   state that the platform supports more than 700 centres.
 - Every featured project shows capability-led skill chips; no chip uses a
   routine feature such as Apple/Google sign-in as the headline value.
 - All ten contribution cards render a distinct outcome-led headline before
   their supporting evidence; none opens with an unlabelled implementation list.
-- Mapify visibly states `5M+ users`, the newsletter/email template engine,
+- Mapify visibly states `5M+ users` and `15M+ mind maps generated`, the newsletter/email template engine,
   affiliate settlement responsibilities, and both verified web-performance
   before/after pairs.
 - Skill chips wrap without horizontal overflow at the 390-pixel breakpoint.
@@ -144,12 +161,27 @@ Yingchen's concrete contribution without reading like a task log.
 
 ## Iteration history
 
+- 2026-11-09: Standardised the shared Kotlin Multiplatform library name as
+  `AxLib`; obsolete spellings are prohibited across public and technical
+  content.
+- 2026-11-09: Made the cross-platform architecture explicit with AxIT's Kotlin
+  Multiplatform calculation contract and Aimi's portable C++ engine and SDK.
+
+- 2026-11-09: Reframed the AxLib/SBN Testing outcome around the shared
+  engineering, QA and release workflow rather than presenting it as tooling
+  alone.
+- 2026-11-09: Reframed the adjacent library contribution labels as
+  `Cross-platform metrics` and `Metric review & QA`, preserving their distinct
+  responsibilities without presenting near-duplicate names to readers.
+- 2026-11-09: Added the production-backed, conservatively rounded `15M+ maps`
+  scale to Mapify while documenting that the source is a cumulative generation
+  counter rather than retained inventory.
 - 2026-11-09: Added product imagery to all three earlier-work cards and made
   development leadership explicit for both Mapify and Henri across the site.
 - 2026-11-09: Replaced the generic release-confidence card with the connected
   AxLib and SBN Testing story: algorithm review, trace exploration, test-case
   verification and streamlined internal QA.
-- 2026-11-09: Expanded the AxITLib contribution to cover its shared calculation
+- 2026-11-09: Expanded the AxLib contribution to cover its shared calculation
   contract across mobile, Connect web, and backend services without conflating
   browser and Node runtimes.
 - 2026-11-09: Updated the AxIT scale from the stale 200+ figure to a
@@ -168,7 +200,7 @@ Yingchen's concrete contribution without reading like a task log.
 - 2026-11-09: Replaced the AxIT card artwork with the official bottom-right
   tablet results photograph from the AxIT software page.
 - 2026-11-09: Reframed current AxIT work as independent weekend side projects
-  and separated the value delivered by AxIT iOS, AxITLib, and SBN Testing.
+  and separated the value delivered by AxIT iOS, AxLib, and SBN Testing.
 - 2026-11-09: Added Mapify's verified 5M+ user scale, multilingual newsletter
   and transactional-email platform, affiliate settlement system, and FCP/LCP
   performance outcomes across the project and professional story.
