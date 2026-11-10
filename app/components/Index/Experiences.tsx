@@ -81,10 +81,9 @@ const XmindExperience = () => (
         trusted by 5M+ users
       </li>
       <li>
-        Led development of <Link href="https://hihenri.ai/">Henri</Link> from
-        architecture to production across personalised learning, real-time AI
-        workflows and internationalisation, owning delivery across frontend,
-        backend, AWS, PostgreSQL, testing, TestFlight and production release
+        Led development of <Link href="https://hihenri.ai/">Henri</Link>, an AI
+        product built using AI, from architecture through testing, TestFlight
+        and production release
       </li>
     </ul>
   </Experience>

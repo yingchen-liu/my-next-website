@@ -57,8 +57,9 @@ Yingchen's concrete contribution without reading like a task log.
   unverified affiliate or payout count.
 - Mapify performance copy MUST retain the verified before/after values: FCP
   11.6s to 1.1s and LCP 22.1s to 7.6s.
-- Henri copy covers its personalised tutoring experience, onboarding and auth,
-  learning and engagement flows, AI generation, platform stability, tests,
+- Henri copy MUST identify Henri as an AI product built using AI. It also covers
+  its personalised tutoring experience, onboarding and auth, learning and
+  engagement flows, AI generation, platform stability, tests,
   internationalisation, infrastructure, and release work.
 - The Henri case study MUST expose an `App Store` action linking to the verified
   Xmind Ltd. iOS listing for `Henri: Personal AI Tutor`.
@@ -130,6 +131,7 @@ Yingchen's concrete contribution without reading like a task log.
 - All three new title links open the correct public sites.
 - Henri links to the official App Store listing at
   `https://apps.apple.com/us/app/henri-personal-ai-tutor/id6756479042`.
+- The Henri introduction calls it an AI product built using AI.
 - All three new images load locally and preserve a 16:9 aspect ratio.
 - AxIT links to the official App Store and Google Play listings.
 - The AxIT project image renders from `/images/axit-results.jpeg`, has intrinsic
@@ -161,6 +163,8 @@ Yingchen's concrete contribution without reading like a task log.
 
 ## Iteration history
 
+- 2026-11-10: The Henri introduction identifies it as an AI product built using
+  AI, matching the Xmind experience and résumé.
 - 2026-11-09: Standardised the shared Kotlin Multiplatform library name as
   `AxLib`; obsolete spellings are prohibited across public and technical
   content.

@@ -40,10 +40,12 @@ image, contact copy, metadata, structured data, and social previews.
 - Earlier employment, education, certification, contact, and profile details
   MUST use the saved LinkedIn snapshot, supplemented only by existing verified
   resume content.
-- The About origin story MUST state that Yingchen's coding journey began in
-  middle school in 2005 with both a friend-making platform built using ASP and
-  Access for a website competition and work on football-playing and racing
-  robots.
+- The About section MUST say that Yingchen loves coding and loves improving
+  the processes and how teams ship. The 2005 ASP/Access friend-making website
+  and the football-playing and racing robots MUST be a childhood hobby, in
+  their own paragraph, and MUST NOT be written as the start of the team-shipping
+  story. The About section MUST say he is currently travelling around Australia
+  and living in a caravan.
 - The role title MUST be corrected to `Senior Full-Stack Engineer`; the typo in
   the captured LinkedIn title is backup evidence, not desired public copy.
 - Experience duration MUST derive from 2016 and display as a current `N+ years`
@@ -120,15 +122,21 @@ image, contact copy, metadata, structured data, and social previews.
   links. The Mapify delivery and team-enablement examples have no case study
   that describes those workflows, so they MUST NOT link to an unrelated
   Mapify or Henri article.
-- About MUST use the current LinkedIn profile photo and describe both product
-  delivery and improvement of the systems around the work before summarising
-  earlier employers. It MUST make end-to-end and cross-platform architecture
-  tangible through AxIT's Kotlin Multiplatform calculation contract and Aimi's
-  portable C++ engine and SDK, while retaining Xmind delivery improvement and
-  the 2005 website and robotics projects without becoming another
-  implementation list.
-- About MUST use no more than two paragraphs and MUST NOT repeat detailed
-  project implementation lists already present in Selected Work.
+- About MUST complement rather than repeat Selected Work. It MUST lead with
+  Yingchen's working style: building across product and platform boundaries,
+  improving architecture and team workflows, and reducing unclear decisions,
+  hand-offs and repeated work. It MUST NOT use a company-by-company project
+  recap.
+- About MUST retain the personal story: coding since the 2005 school website
+  and football-playing and racing robots, plus the current chapter travelling
+  Australia in a caravan. These details MUST be presented through a concise
+  narrative, three scannable qualities and a distinct photo/travel card rather
+  than a large plain text block. The section MUST use no more than two prose
+  paragraphs.
+- The About photo card MUST use `/images/yingchen-about.jpg`, a 4:3 crop of the
+  stone-window photograph framed so the person fills the window. It MUST NOT
+  use the wide uncropped landscape, which leaves the person small. The LinkedIn
+  profile photo remains the structured-data and article portrait.
 - Every Strength By Numbers reference and the SensiLab reference in About MUST
   link to their verified official websites.
 - Where I've Worked MUST interleave employment and career-gap contractor entries
@@ -170,6 +178,11 @@ image, contact copy, metadata, structured data, and social previews.
   share one claim; the speech-to-text pipeline and production monitoring MUST
   remain distinct claims. Lower-priority detail SHOULD be omitted rather than
   attached to an unrelated achievement.
+- The Xmind Henri bullet on the homepage and the résumé MUST call Henri an AI
+  product built using AI, and MUST keep leadership from architecture through
+  testing, TestFlight and production release. It MUST NOT replace that identity
+  with a delivery-stack list such as frontend, backend, AWS, PostgreSQL or
+  internationalisation.
 - The resume MUST separate contractor work under a Contract Work heading
   from the main employment history, retain the existing public and authenticated
   layouts, and remain readable when titles and dates wrap on narrow screens.
@@ -277,8 +290,9 @@ image, contact copy, metadata, structured data, and social previews.
   `authorised`, `catalogues`, `centres`, and `optimised` where applicable.
 - The hero, About, experience timeline, resume, metadata, and social preview all
   show Xmind ending in July 2026 and contractor work as current.
-- The About introduction mentions the 2005 friend-making website competition
-  project and the football-playing and racing robots.
+- The About section says he loves coding and improving how teams ship, names
+  the 2005 friend-making website and the robots as a childhood hobby, and says
+  he is travelling around Australia and living in a caravan.
 - The hero headline is immediately complete, contains no typewriter cursor, and
   displays all four verified proof points before the first content section.
 - At mobile, small, and medium breakpoints, the hero and header content align to
@@ -291,7 +305,7 @@ image, contact copy, metadata, structured data, and social previews.
   keyboard-focusable, and resolves to the matching project, workflow or
   experience evidence without being obscured by the fixed header.
 - The home page renders How I Improve the Work before Selected Work and
-  experience, followed by the two-paragraph About section and the contact
+  experience, followed by the three-paragraph About section and the contact
   callout.
 - How I Improve the Work visibly presents the three operating principles and
   the AxLib/SBN Testing, Mapify delivery and team-enablement examples. The copy
@@ -328,12 +342,19 @@ image, contact copy, metadata, structured data, and social previews.
 - Mapify and Henri responsibilities are visible in the Xmind entry and remain
   consistent with the dedicated project cards, with development leadership
   stated explicitly for both products.
+- The Xmind experience and résumé call Henri an AI product built using AI, and
+  still name testing, TestFlight and production release.
 - The Xmind experience and resume describe Mapify search/index migration and
   speech-to-text reliability as separate achievements; neither presents
   Prometheus monitoring as part of the search migration.
 - AxIT is visible in the hero, About, contractor experience, resume, project
   section, metadata, structured data, and social-preview story.
 - The current LinkedIn profile image loads locally with square dimensions.
+- The About photo card shows the cropped stone-window photograph, with the
+  person filling the window, and the caravan chapter remains.
+- About presents a clear working-style statement, three compact qualities and a
+  visually distinct current-chapter card at desktop and mobile widths; it does
+  not repeat the Mapify, Henri, AxIT or Aimi project summaries.
 - The public resume shows the current roles without exposing authenticated-only
   filters, contains at most four Xmind bullets, and contains no testimonials.
 - The résumé header lists `iOS & Android` rather than `Mobile`, and the matching
@@ -381,6 +402,21 @@ image, contact copy, metadata, structured data, and social previews.
 
 ## Iteration history
 
+- 2026-11-10: The About photo card uses a 4:3 crop of the stone-window
+  photograph so the person fills the window. The caravan chapter stays. The
+  LinkedIn portrait remains the profile image for structured data and articles.
+- 2026-11-10: The Xmind Henri bullet on the homepage and résumé calls Henri an
+  AI product built using AI, from architecture through testing, TestFlight and
+  production release. The delivery-stack list no longer stands in for that
+  identity. The Henri project introduction uses the same claim.
+- 2026-11-10: Replaced the plain company-by-company About copy with a modern
+  working-style panel, three concise personal qualities and a photo-led travel
+  card so the section adds personality instead of repeating Selected Work.
+
+- 2026-11-10: Rewrote About so the love of coding and of how teams ship stands
+  apart from the childhood hobby. The 2005 website and the robots are their own
+  paragraph. The section also says he is travelling around Australia and living
+  in a caravan.
 - 2026-11-09: Linked the AxLib/SBN Testing workflow example to the two-phase QA
   and metric-contract articles. The Mapify delivery and team-enablement
   examples stay unlinked because no case study describes those workflows.

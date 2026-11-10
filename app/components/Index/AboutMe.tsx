@@ -1,44 +1,100 @@
-import { Image, Link, Paragraph, Section } from "./Section";
+import NextImage from "next/image";
+
+import { Section } from "./Section";
+
+const qualities = [
+  {
+    number: "01",
+    label: "Across boundaries",
+    detail: "Web, mobile, backend & cloud",
+  },
+  {
+    number: "02",
+    label: "Beyond the ticket",
+    detail: "Architecture, workflows & team coordination",
+  },
+  {
+    number: "03",
+    label: "Curious since 2005",
+    detail: "A school website, then football-playing & racing robots",
+  },
+];
 
 function AboutMe() {
   return (
-    <Section id="about" title="A Little About Me">
-      <div className="grid items-start gap-10 md:grid-cols-[1fr_280px] md:gap-16">
-        <div>
-          <Paragraph className="text-lg leading-relaxed">
-            I solve product problems end to end—from user experience and app
-            code to backend, cloud and shared engines. On{" "}
-            <Link href="https://www.strengthbynumbers.com/software/">AxIT</Link>,
-            I use Kotlin Multiplatform to keep one calculation contract aligned
-            across iOS, Android, Connect web and backend services. At{" "}
-            <Link href="https://www.aimi.fm/">Aimi</Link>, I led a portable C++
-            generative-music engine and cross-platform SDK, then founded the
-            Android team around that shared core.
-          </Paragraph>
-          <Paragraph className="mt-5 text-lg leading-relaxed">
-            I also improve how teams ship. At{" "}
-            <Link href="https://xmind.com/">Xmind</Link>, I led development of{" "}
-            <Link href="https://mapify.so/">Mapify</Link>, trusted by 5M+ users,
-            and <Link href="https://hihenri.ai/">Henri</Link> while making CI,
-            pre-release and testing workflows faster and clearer. That journey
-            began in 2005 with an ASP/Access friend-making website and
-            football-playing and racing robots, and later included Optus,
-            Airtasker, Lendlease,{" "}
-            <Link href="https://www.strengthbynumbers.com/">
-              Strength By Numbers
-            </Link>{" "}
-            and <Link href="https://sensilab.monash.edu/">SensiLab</Link>.
-          </Paragraph>
-        </div>
-        <div className="mx-auto w-52 md:w-full">
-          <Image
-            src="/images/yingchen-linkedin.jpg"
-            className="aspect-square w-full shadow-2xl shadow-black/20"
-            alt="Yingchen Liu"
-            width={800}
-            height={800}
+    <Section id="about" title="Behind the Work">
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] lg:gap-6">
+        <article className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/[0.075] via-white/[0.035] to-transparent p-6 sm:p-8 lg:p-10">
+          <div
+            aria-hidden="true"
+            className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-300/10 blur-3xl"
           />
-        </div>
+
+          <div className="relative">
+            <p className="font-sfmono text-xs uppercase tracking-[0.18em] text-blue-200/70">
+              Engineer · systems thinker · team enabler
+            </p>
+            <h3 className="mt-5 max-w-3xl text-balance text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+              I build the product—and improve how the team builds it.
+            </h3>
+            <p className="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-blue-100/75 sm:text-xl">
+              I&apos;m happiest at the messy intersection of product,
+              architecture and people: turning an ambitious idea into a
+              reliable system, then fixing the unclear decisions, hand-offs and
+              repeated work that slow everyone down.
+            </p>
+
+            <ul className="mt-9 grid gap-3 sm:grid-cols-3">
+              {qualities.map((quality) => (
+                <li
+                  key={quality.number}
+                  className="rounded-2xl border border-white/10 bg-gray-900/35 p-4"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="font-sfmono text-xs text-blue-200/50"
+                  >
+                    {quality.number}
+                  </span>
+                  <span className="mt-3 block text-sm font-semibold text-white">
+                    {quality.label}
+                  </span>
+                  <span className="mt-1.5 block text-sm leading-relaxed text-blue-100/60">
+                    {quality.detail}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+
+        <aside className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-b from-blue-200/10 to-white/[0.025]">
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <NextImage
+              src="/images/yingchen-about.jpg"
+              alt="Yingchen Liu in a stone window"
+              fill
+              sizes="(min-width: 1024px) 32vw, 100vw"
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-gray-900/55 via-transparent to-transparent"
+            />
+          </div>
+          <div className="p-6 sm:p-7">
+            <p className="font-sfmono text-xs uppercase tracking-[0.18em] text-blue-200/60">
+              Current chapter
+            </p>
+            <h3 className="mt-3 text-balance text-2xl font-semibold text-white">
+              Building from the road.
+            </h3>
+            <p className="mt-3 text-pretty text-base leading-relaxed text-blue-100/70">
+              Travelling around Australia in a caravan—still coding, learning
+              and collecting new perspectives along the way.
+            </p>
+          </div>
+        </aside>
       </div>
     </Section>
   );

@@ -1040,92 +1040,92 @@ export const articles: Article[] = [
   },
   {
     slug: "mapify-affiliate-settlement",
-    title: "Settling Mapify affiliate payments from the contract",
+    title: "Designing Mapify’s automatic affiliate settlement",
     summary:
-      "Partner commission comes from a stored contract and the real invoice, including a discount, a refund, or a downgrade.",
+      "Affiliate settlement used to be a shared Excel sheet. I replaced it with four records and a job that settles a paid invoice after seven days, unless a staff member has already changed it.",
     project: "Mapify",
     workPeriod: "October–December 2025",
     sortDate: "2025-12-01",
     publishedOn: "2025-12-01",
-    readingTime: "8 min read",
+    readingTime: "11 min read",
     image: "/images/mapify.png",
     imageAlt: "Mapify product preview",
     tags: ["Payments", "Affiliates", "Operations"],
     projectHref: "/#project-mapify",
     primer: {
-      title: "A partner payment starts as a contract",
+      title: "Settlement used to be a spreadsheet",
       paragraphs: [
         "Mapify is an AI app that turns documents, videos, recordings and web pages into visual mind maps.",
-        "People can share Mapify and earn commission when someone they refer subscribes. That payment depends on a contract, a coupon, and the invoice the referred person actually paid.",
-        "A discount, a refund, or a downgrade changes the amount owed. Settlement has to keep that adjustment with the payment, so the amount can be explained later.",
+        "A partner shares Mapify and earns commission when someone they refer pays with that partner’s coupon. The amount depends on the agreement, the discount, and the invoice.",
+        "The team calculated that in Excel. I replaced the sheet with records and an automatic settlement, so the same invoice produces the same amount without someone retyping it.",
       ],
     },
     decisions: [
       {
-        title: "Store the contract before any payment",
+        title: "Keep the partner, the agreement and the invoice apart",
         detail:
-          "A partner has a contract, a coupon, and a commission tier before a referred subscription is turned into an amount.",
+          "A partner can have more than one agreement. Each paid invoice belongs to one agreement, and the commission is calculated from that pair.",
       },
       {
-        title: "Use the invoice total",
+        title: "Use the amount excluding tax",
         detail:
-          "Commission uses the amount on the invoice, including a discount, so the rate is applied to what was paid.",
+          "Commission is the invoice total excluding tax, times the agreement’s rate, and only while the invoice falls inside the agreement dates.",
       },
       {
-        title: "Keep refunds inside the settlement",
+        title: "Settle after seven days",
         detail:
-          "A refund or a downgrade changes the amount owed, and the settlement record keeps that change.",
+          "A new invoice waits as pending. An automatic job then marks it completed, unless a staff member has already changed the status.",
       },
     ],
     visual: {
       type: "flow",
-      title: "From a referred subscription to an amount owed",
+      title: "From a spreadsheet to a settlement record",
       caption:
-        "The signup is the public door. The amount comes from the contract and the invoice.",
+        "The sheet had to name the partner, the agreement and the invoice. The system stores those as records and settles the invoice on its own.",
       phases: [
         {
-          label: "The agreement",
-          title: "What was agreed with the partner?",
+          label: "The requirement",
+          title: "What did the spreadsheet have to answer?",
           detail:
-            "The public page starts the relationship. The record is what settlement reads.",
+            "Every payment the team typed into Excel was an answer to one of these.",
           nodes: [
             {
-              title: "Open with the signup",
+              title: "Who is the partner?",
               detail:
-                "A partner joins from the public affiliate page. That page does not store the commission rules.",
+                "Name, email, country, channel, who manages the account, and how they are paid.",
             },
             {
-              title: "Store the contract",
+              title: "What did we agree?",
               detail:
-                "The contract, the coupon, and the commission tier are saved before any invoice is read.",
+                "The coupon, the customer’s discount, the commission rate, who pays the fees, and the start and end dates.",
             },
             {
-              title: "Restrict who can change it",
+              title: "Which invoice counts?",
               detail:
-                "The dashboard that edits partners and contracts is limited to the people who operate the programme.",
+                "The invoice that used the coupon, the discount on it, and whether that payment had already been settled.",
             },
           ],
         },
         {
-          label: "The amount",
-          title: "What is the partner owed?",
+          label: "The system",
+          title: "What does automatic settlement do?",
           detail:
-            "The invoice is the source. Later changes stay attached to the settlement.",
+            "The records answer the same questions, and a job moves the status.",
           nodes: [
             {
-              title: "Read the invoice",
+              title: "Attach the invoice to the agreement",
               detail:
-                "Commission uses the invoice total, including a discount.",
+                "A paid invoice that uses the coupon is stored against that agreement, starting as pending.",
             },
             {
-              title: "Apply a refund or a downgrade",
+              title: "Wait seven days, then settle",
               detail:
-                "Either change reduces what is owed, and the adjustment is stored with the settlement.",
+                "The job marks pending invoices completed. It runs one batch at a time, and only one server runs it.",
             },
             {
-              title: "Settle in order",
+              title: "Leave a staff change alone",
               detail:
-                "Settlement runs from those records, with country and channel available for the report.",
+                "If a person has changed the status, the job skips that invoice. The change is kept in the history.",
             },
           ],
         },
@@ -1135,236 +1135,99 @@ export const articles: Article[] = [
       {
         title: "The problem",
         paragraphs: [
-          "A partner needs a contract and a coupon. A referred subscription creates commission. A refund, a downgrade, or a discounted invoice changes what is actually owed. Calculating the percentage from the list price, and correcting the refund in a spreadsheet afterwards, leaves an amount that the contract cannot explain.",
-        ],
-        evidence: [
-          {
-            src: "/images/articles/mapify/affiliate-entry.png",
-            alt: "Mapify affiliate programme entry graphic with a start for free action",
-            label: "The public door into the partner workflow",
-            caption:
-              "This is the screen a partner sees. The contract, the coupon, and the settlement rules sit behind this signup.",
-            fit: "contain",
-            width: 640,
-            height: 480,
-          },
+          "Affiliate settlement was a shared Excel sheet. It held the partner, the coupon, the discount, the commission rate, and a list of invoices someone had marked as paid. More than one person edited it. A second agreement for the same partner, a discounted invoice, or an invoice that arrived just after a coupon ended was easy to put on the wrong row, and the sheet did not record why a number had changed.",
+          "The requirement was a system that could answer the same questions without a spreadsheet. Who is the partner? What was agreed: the coupon, the customer’s discount, the commission rate, who pays the fees, and the dates? Which paid invoice belongs to that agreement? Is that invoice still waiting, settled, or paid?",
+          "The amount should not be treated as settled on the day the customer pays. It should wait, then settle on its own. A staff member still needs to correct a status, and that correction has to survive the next automatic run.",
         ],
       },
       {
         title: "The decision",
         paragraphs: [
-          "I treated settlement as a record of the contract and the invoice. The dashboard is where an operator reviews that record. The amount is derived from the stored contract, the invoice total, and any refund or downgrade.",
+          "I split the sheet into four records. A partner has many agreements. An agreement has many paid invoices. Each invoice has a history of status changes. Commission is not typed in. It is the invoice total excluding tax, times the agreement’s rate, while the invoice falls inside the start and end dates. Outside those dates the rate is zero. A stored rate of 100 means 1 percent.",
+          "A new invoice starts as pending. Seven days later an automatic job marks it completed. If a staff member has already changed that invoice, the job leaves it. Staff can then mark a completed invoice paid. Every change records whether it came from the job or from a person.",
         ],
       },
       {
-        title: "How I implemented it",
+        title: "How the settlement runs",
         paragraphs: [
-          "I added the database records, the backend endpoints, and a restricted dashboard for partners and contracts. A partner coupon is created in Stripe. Commission tiers read the discounted invoice total. A refund or a downgrade is stored as an adjustment, and settlement runs in order from those records. Country and channel stay on the report.",
+          "When Stripe reports a paid invoice that used a coupon, the backend finds the agreement for that coupon and writes the invoice as pending. An invoice up to seven days after the coupon ends is still attached to that agreement, so a trial that bills just late is not dropped between two agreements. The discount Stripe applied is stored on the invoice. Commission uses the total excluding tax.",
+          "The settlement job wakes on a schedule. It takes a short lock, so a second server does not settle the same invoices. It selects pending invoices older than seven days that a staff member has not changed, and marks them completed in batches of 100. A staff change from the dashboard is stored with the person’s identity. The partner’s own view hides invoices whose commission is zero, and shows only the last digits of the invoice id.",
+        ],
+      },
+      {
+        title: "The data model",
+        paragraphs: [
+          "The four records are the model the job and the dashboard both read. The partner is the account. The agreement is the coupon and the rates. The paid invoice is one Stripe charge attached to one agreement. The status history is the audit of pending, completed and paid, and of who moved it.",
         ],
         evidence: [
           {
-            src: "/images/articles/mapify/affiliate-contract.png",
-            alt: "Mapify affiliate contract illustration with a signed agreement and coins",
-            label: "The contract is a record, not a picture",
+            src: "/images/articles/mapify/affiliate-data-model.png",
+            alt: "Data model with Partner, Agreement, Paid invoice and Status history, each linked one to many",
+            label: "The four records that replaced the spreadsheet",
             caption:
-              "Commission is calculated from the stored contract and the invoice, including a refund or a downgrade.",
+              "A partner has many agreements. An agreement has many paid invoices. Each invoice keeps a history of its status. Commission is calculated from the invoice and the agreement, not typed into a cell.",
             fit: "contain",
-            width: 640,
-            height: 480,
+            width: 2466,
+            height: 744,
           },
         ],
       },
       {
         title: "What improved",
         paragraphs: [
-          "Operations can see the contract and the settlement in one place. A refund is part of the amount, so the payment can be traced back to the invoice and the adjustment.",
+          "Operations no longer settle the programme from a spreadsheet. A paid invoice is attached to the agreement that owns the coupon, the commission follows the rate and the dates, and seven days later the invoice is settled unless someone has already changed it. The history shows whether the job or a person made that change.",
         ],
       },
       {
         title: "What I learned",
         paragraphs: [
-          "The signup page is the invitation. The payment is only as clear as the contract and the invoice that produced it.",
+          "The spreadsheet was the requirements list. Each column that people had to retype became a field, and each argument about a row became a relationship or a status. Automatic settlement is safe only when a person’s correction is stored separately and the job is told to leave it alone.",
         ],
       },
     ],
     takeaways: [
-      "Store the contract before calculating a payment.",
-      "Apply commission to the invoice total, including a discount.",
-      "Keep a refund or a downgrade inside the settlement record.",
-    ],
-  },
-  {
-    slug: "mindmap-generation-without-the-browser",
-    title: "Running Mapify mind-map generation without the browser",
-    summary:
-      "The mind-map generator lived in the browser. I moved that function into a shared package and gave the backend substitutes for the page, the canvas and the local storage, so a caller with no interface can still produce a map.",
-    project: "Mapify",
-    workPeriod: "January 2025",
-    sortDate: "2025-01-17",
-    publishedOn: "2025-01-17",
-    readingTime: "12 min read",
-    image: "/images/mapify.png",
-    imageAlt: "Mapify AI mind map product preview",
-    tags: ["Mind maps", "Node.js", "Shared packages"],
-    projectHref: "/#project-mapify",
-    primer: {
-      title: "A mind map used to exist only while a browser tab was open",
-      paragraphs: [
-        "Mapify is an AI app that turns documents, videos, recordings and web pages into visual mind maps.",
-        "In the product, that work happens on the page. The page holds the document, measures the text, fits the map to the screen, and saves a local copy while the model is still streaming.",
-        "Zapier, an automation, or another service needs the same map when nobody has the page open. The first task was to make that browser generator run on the backend.",
-      ],
-    },
-    decisions: [
-      {
-        title: "Keep one generator",
-        detail:
-          "The browser and the backend call the same generation function. The page-only pieces are arguments, so the two callers cannot grow two copies of the map.",
-      },
-      {
-        title: "Replace the page, not the document",
-        detail:
-          "The backend holds the map in memory with the same document model the page uses. The on-screen viewer, the fit-to-window step and the browser save are empty stand-ins.",
-      },
-      {
-        title: "Draw the picture with node-canvas",
-        detail:
-          "Text measurement and the PNG use node-canvas and a bundled font, because a server has no browser canvas.",
-      },
-    ],
-    visual: {
-      type: "flow",
-      title: "The same generator, with the page taken out",
-      caption:
-        "The model call and the document stay. The screen, the browser storage and the live canvas are supplied by the caller.",
-      phases: [
-        {
-          label: "The browser",
-          title: "What did the browser own?",
-          detail: "Generation was written against the open page.",
-          nodes: [
-            {
-              title: "Hold the document on the page",
-              detail:
-                "The Vue page owned the map document, the active sheet and the viewer that drew it.",
-            },
-            {
-              title: "Measure text in the browser",
-              detail:
-                "Layout asked the browser canvas how wide each line was, then fitted the map to the window.",
-            },
-            {
-              title: "Save while it streamed",
-              detail:
-                "The local database and session storage kept the markdown and a local copy as topics arrived.",
-            },
-          ],
-        },
-        {
-          label: "The backend",
-          title: "What does the backend supply instead?",
-          detail:
-            "The same function runs in Node. The missing browser pieces are filled in.",
-          nodes: [
-            {
-              title: "Hold the document in memory",
-              detail:
-                "A document is built with the same model. The viewer objects are empty, because nothing is on a screen.",
-            },
-            {
-              title: "Measure text with node-canvas",
-              detail:
-                "A font store and node-canvas produce the line sizes, then paint the PNG.",
-            },
-            {
-              title: "Ask the web model APIs",
-              detail:
-                "The language model, the website fetch and the saved file still go through Mapify’s web APIs. The page does not have to be open.",
-            },
-          ],
-        },
-      ],
-    },
-    sections: [
-      {
-        title: "The problem",
-        paragraphs: [
-          "Mind-map generation had been written for the browser. It reached into the page for the document, the viewer, the settings, the chat session, the local database and session storage. It also fitted the finished map to the window. None of that exists when Zapier, a chat app, or another automation asks the backend for a map.",
-          "Copying the generator into the backend would have made two maps. A change to layout, markers or the markdown parser would have had to land twice, and the picture from an automation could drift away from the picture on the website. The generator had to move, and the browser pieces had to become arguments.",
-        ],
-      },
-      {
-        title: "The decision",
-        paragraphs: [
-          "I extracted the generator into the shared mapify-common package. The function takes the content and a set of injectables: where the document lives, how to measure and fit it, where to write the markdown cache, and how to call the model. The website passes its Vue page. The backend passes memory and node-canvas.",
-          "The model call stays on the web service. The backend asks Mapify’s private web APIs for the language, the summary and the saved file, then turns the returned markdown into a document and a PNG on the server.",
-        ],
-      },
-      {
-        title: "How I implemented it",
-        paragraphs: [
-          "On the website, the page still calls the shared function and passes the real page: the snowfish document and viewer, the mobile and settings stores, the chat session, the local database, session storage, and a fit-to-window step. Those are the same objects the generator used when it lived inside the page.",
-          "On the backend, MindmapGenerator builds those objects without a window. The document is an in-memory snowmonster document. The sheet viewer and the sheet figure are empty values, because only the page draws into them. Writing to the local database does nothing. Session storage keeps the markdown when the generator writes its cache key. Fitting the map to a screen does nothing. Analytics calls are ignored. Two skeleton themes whose root background was transparent are left out, because that background did not paint correctly in the server renderer.",
-          "The picture still has to be measured. viewer-kit’s layout engine needs the width and height of every line. The backend loads a font store and measures each line with a font layout routine, then node-canvas paints the shapes and the text into a PNG. A preview wider than 3,500 pixels is scaled down. A 440-pixel thumbnail is made with sharp for the saved file.",
-          "A request can be a prompt, an AI search, a website, a YouTube link, or a GPT app. YouTube is accepted when the video already has subtitles. The caller is recorded as Zapier, MCP, Dify, an X bot, a GPT app, or n8n. The whole generation has a ten-minute limit. The website, the video transcript and the model stream come back through the web APIs. The backend then saves the document, the PNG and the thumbnail as the user’s file.",
-        ],
-      },
-      {
-        title: "What improved",
-        paragraphs: [
-          "An automation can ask for a mind map and receive the document, the markdown and a PNG without opening Mapify. The website still generates through the same function, so a layout or parsing change reaches both callers. The page-only steps stay on the page.",
-        ],
-      },
-      {
-        title: "What I learned",
-        paragraphs: [
-          "A browser feature moves to the server when the document and the algorithm are separated from the screen. The picture needs a real text measurement, so the backend measures fonts and paints with node-canvas. A caller with no window never sees the viewer, the fit-to-window step, or the browser’s local database, so those stand-ins do nothing.",
-        ],
-      },
-    ],
-    takeaways: [
-      "Pass the page’s document, storage and canvas in as arguments.",
-      "Run the same generator in the browser and on the backend.",
-      "Measure and paint the map with node-canvas when there is no browser canvas.",
+      "Record the partner, the agreement and the invoice as separate records.",
+      "Calculate commission from the tax-exclusive total and the rate, inside the agreement dates.",
+      "Settle automatically after seven days, and keep a history when a person changes the status.",
     ],
   },
   {
     slug: "one-summarisation-engine-across-mapify",
     title: "One summarisation engine across web, backend and automation",
     summary:
-      "How I reworked Mapify’s summarisation and mind-map generation into a shared architecture so every entry point produced consistent results.",
+      "Mind-map generation lived in the browser page. I moved that work into one shared generator so the website, the backend and automation produce the same map, including when no page is open. The move took more than a month.",
     project: "Mapify",
     workPeriod: "January–March 2025",
     sortDate: "2025-03-24",
-    publishedOn: "2025-01-27",
-    readingTime: "8 min read",
+    publishedOn: "2025-02-13",
+    readingTime: "14 min read",
     image: "/images/mapify.png",
     imageAlt: "Mapify AI summariser preview",
-    tags: ["AI architecture", "Shared packages", "Workflow design"],
+    tags: ["Mind maps", "Shared packages", "Workflow design"],
     projectHref: "/#project-mapify",
     primer: {
       title: "Summarisation is only one stage of producing a mind map",
       paragraphs: [
         "Mapify is an AI app that turns documents, videos, recordings and web pages into visual mind maps.",
-        "Those sources arrive in very different shapes: documents, webpages, videos, audio transcripts, images and automation requests. Before a model can reason about them, each source must be fetched or decoded, normalised into a stable content form and associated with language, user and media context.",
-        "The system then has to summarise the material, choose a useful root topic, build a hierarchy of nodes, attach any generated media and persist the same result shape for the web product, backend jobs and automation such as Zapier. If each entry point owns those stages independently, identical content can produce incompatible maps and failures become difficult to locate.",
+        "Those sources arrive in very different shapes: documents, web pages, videos, audio transcripts, images and automation requests. Each one has to be fetched or decoded, turned into text, and tied to a language, a user and any attached media before a model can build a map.",
+        "That work used to live on the open page. The website, the backend and Zapier all need the same map, including when nobody has the page open. Making one generator do that took more than a month. The generator was the page. Moving it meant taking the page apart, keeping the website’s maps unchanged, and rebuilding the parts a server does not have.",
       ],
     },
     decisions: [
       {
-        title: "Normalise before generation",
+        title: "Turn every source into one shape",
         detail:
-          "Files, web pages, transcripts and automation requests become one typed source with language, user and media context.",
+          "A file, a web page, a transcript and an automation request become one source: the text, the language, who asked, and any media.",
       },
       {
-        title: "Return one mind-map contract",
+        title: "Return one mind map",
         detail:
-          "Hierarchy, root topic and generated media references leave the shared package in the same shape for product and automation consumers.",
+          "The website and the backend call the same function. The tree, the root topic and the picture leave in the same shape for the product and for automation.",
       },
       {
-        title: "Bound expensive concurrency",
+        title: "Draw one map at a time",
         detail:
-          "Generation parallelism is constrained where memory use makes unbounded work unsafe, converting an outage mode into an explicit capacity decision.",
+          "A server has no browser canvas. Fonts measure each line, and a server canvas paints the PNG. Two maps at once ran the process out of memory.",
       },
     ],
     visual: {
@@ -1415,7 +1278,7 @@ export const articles: Article[] = [
             {
               title: "Limit how many run at once",
               detail:
-                "Generation is capped where unlimited parallel work ran out of memory. That cap is a product decision.",
+                "Two pictures at once exhausted the server’s memory. One map is drawn at a time, and a busy account waits behind a new one.",
             },
           ],
         },
@@ -1425,8 +1288,10 @@ export const articles: Article[] = [
       {
         title: "The problem",
         paragraphs: [
-          "Mapify could create visual maps from multiple sources, including product uploads, web content and automation. As those entry points grew, summarisation and mind-map generation logic risked diverging: different prompts, persistence steps and media handling could produce different structures for the same source.",
-          "Out-of-memory failures in concurrent generation also showed that orchestration was not just a prompt problem. Resource limits and persistence order were part of the product contract.",
+          "Mapify could already make a map from an upload, a web page, or an automation such as Zapier. Those entry points were growing, and each one was close to owning its own prompts, its own save step and its own picture. The same document could then become a different tree on the website and in an automation.",
+          "The generator that should have been shared was not a function waiting to be called. Markdown conversion, saving, themes, prompts, the model client and the chat log were mixed through the open page. It reached into that page for the document, the on-screen viewer, the settings, the chat session, the local database and session storage, then fitted the map to the window. An automation has none of those. Pulling one piece out changed the layout of maps the website already showed. Each cut had to be put back together before the next one, or the product’s own generation broke. That extraction, and the repairs after it, ran from January into March.",
+          "Copying the generator into the backend would have made the drift permanent. A change to layout, markers or the markdown parser would have landed twice. The function had to move once, and the page-only pieces had to become arguments the caller fills in.",
+          "Moving the function was still not enough. A server has no browser canvas, so the picture has to be measured and painted another way. Two maps drawn at once ran the process out of memory. The backend also could not reach the website’s model and file routes until those became private, authenticated calls. Publishing the shared package, so the website and the backend imported one build, failed on package access, the container build and broken imports. The same stretch of work was the cleanup: page helpers renamed into plain arguments, files reorganised, and the paths that only made sense in a browser removed.",
         ],
         evidence: [
           {
@@ -1444,20 +1309,24 @@ export const articles: Article[] = [
       {
         title: "The decision",
         paragraphs: [
-          "I pulled generation into a shared package with a stable input and output contract. Entry points would normalise their source and user context, then call the same summarisation, hierarchy and persistence path. Provider-specific details stayed behind that boundary.",
+          "I extracted the generator into the shared package. A document, a web page, a transcript or an automation request is turned into one source first: the text, the language, who asked, and any attached media. The function then summarises that source, chooses the root topic, builds the tree and returns one result. The website passes the live page. The backend passes memory and a server canvas.",
+          "The model call stays on the web service. The backend asks Mapify’s private APIs for the language, the summary and the saved file, then turns the returned markdown into a document and a PNG. One generation runs at a time. An account that already has a map waiting is placed behind a new account, so one caller cannot fill the queue.",
         ],
       },
       {
         title: "How I implemented it",
         paragraphs: [
-          "I reworked the mind-map generator, added web-search support and aligned Zapier generation with the product path, including root-topic images. The shared pipeline normalised content before generation and returned a consistent tree for persistence. Concurrency was bounded where generation memory made parallel work unsafe, turning a production out-of-memory failure into an explicit capacity choice.",
-          "This structure also made later improvements—new media sources, image models and retry behaviour—changes to one generation contract rather than patches to every surface.",
+          "On the website, the page still calls the shared function and passes the real page: the document and the on-screen viewer, the settings, the chat session, the local database, session storage, and the step that fits the map to the window. Those are the same pieces the generator used when it lived inside the page. The cleanup was making them arguments. They had been page hooks, named and shaped for the browser, and the shared package could not depend on the page.",
+          "On the backend, those arguments are filled in without a window. The document is held in memory with the same document model the page uses. The on-screen viewer is an empty value, because only the page draws into it. Writing to the local database does nothing. Session storage keeps the markdown when the generator writes its cache. Fitting the map to a screen does nothing. Analytics calls are ignored. Two visual themes are left out, because the centre topic’s background was transparent and that background did not paint on the server.",
+          "The picture is the part that has to be real. Layout still needs the width and height of every line, or topics overlap and the PNG is the wrong size. The backend loads the fonts and measures each line, then paints the shapes and the text into a PNG on a server canvas. A preview wider than 3,500 pixels is scaled down. A 440-pixel thumbnail is resized for the saved file. Drawing two of those pictures at once exhausted memory, so a queue runs one generation. The wait is logged, and a busy account’s next request gets a lower priority than a new account’s first request.",
+          "A request can be a prompt, an AI search, a website, a YouTube link, or a GPT app. YouTube is accepted when the video already has subtitles. The caller is recorded as Zapier, MCP, Dify, an X bot, a GPT app, or n8n. The whole generation has a ten-minute limit. A long source does not hold the caller’s connection open: the backend accepts the request, generates, and calls back when the map is ready. That callback address has to be a public URL. A missing account and an account with no credits are rejected before a picture is drawn, and the generator’s own errors become different HTTP results. Web search and the image on the root topic follow the same path as a map made in the product.",
+          "The website, the video transcript and the model stream come back through the private web APIs. Getting there took its own fixes. The backend could not reach the website until the internal address, the signing key and the private routes agreed. The shared package then had to be published so both apps imported the same generator. The publish pipeline failed on credentials, on the container build, and on import paths, and each of those had to be cleared before either side could ship. The backend then saves the document, the PNG and the thumbnail as the user’s file. A later source, image model or retry is a change to this one function, rather than a patch on every entry point.",
         ],
       },
       {
         title: "What improved",
         paragraphs: [
-          "Web, backend and automation flows produced the same shape of result and used the same persistence semantics. New entry points could focus on source acquisition rather than reimplementing AI orchestration. Failures became easier to locate because normalisation, generation and persistence had clear boundaries.",
+          "The website, the backend and automation produce the same tree, the same markdown and the same PNG. An automation can ask for that map when nobody has Mapify open. A new entry point collects the source. It does not rebuild summarisation, the hierarchy or the save step. One picture at a time keeps the server inside its memory, and a failure sits in the source step, the generation step, or the save step.",
         ],
         evidence: [
           {
@@ -1475,14 +1344,14 @@ export const articles: Article[] = [
       {
         title: "What I learned",
         paragraphs: [
-          "An AI feature becomes a product platform when its contract is broader than the model call. Input normalisation, resource limits, hierarchy rules and persistence deserve the same architectural attention as prompts.",
+          "One mind-map engine is the source, the generator and the save step, shared by the page and by every caller that has no page. The empty stand-ins for the viewer, the window fit and the local database are the small part. The month is the extraction that must not change the website’s maps, the picture that has to be measured for real, the memory limit of painting it, and the publishing and cleanup that let both apps share one build.",
         ],
       },
     ],
     takeaways: [
-      "Normalise inputs before asking the model to reason about them.",
-      "Share the generation contract across product surfaces.",
-      "Treat memory and concurrency limits as architecture, not incidental tuning.",
+      "Turn every source into one text, language and user before generation.",
+      "Keep the website and the backend on that same function.",
+      "Measure and paint one map at a time when there is no browser canvas.",
     ],
   },
   {

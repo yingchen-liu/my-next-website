@@ -275,10 +275,9 @@ export default function Resume() {
                 <b>5M+ users</b>.
               </li>
               <li>
-                Led development of <Link href="https://hihenri.ai/">Henri</Link> from
-                architecture to production across personalised learning and
-                real-time AI, owning delivery from frontend and backend through
-                AWS, PostgreSQL, testing and TestFlight.
+                Led development of <Link href="https://hihenri.ai/">Henri</Link>, an
+                AI product built using AI, from architecture through testing,
+                TestFlight and production release.
               </li>
             </Experience>
 

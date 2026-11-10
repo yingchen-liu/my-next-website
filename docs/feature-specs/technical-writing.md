@@ -214,11 +214,14 @@ or technologies he has used.
     Account verification codes use `hi.mapify.so`.
   - Mapify affiliates: 1 December 2025, `mapify-backend` `d83eb6de`, refund
     and downgrade adjustments on partner settlement.
-  - Mapify generation without the browser: 17 January 2025, `mapify-web`
-    `88e85bef77`, private APIs so the extracted generator can run for a caller
-    that has no page open.
-  - Mapify summarisation: 27 January 2025, `mapify-web` `919beb989f`,
-    extraction of the shared summarisation calculation.
+  - Mapify summarisation: 13 February 2025, `mapify-backend` `07dc79ae`,
+    one generation at a time after drawing two maps ran the server out of
+    memory. The same article includes the 27 January 2025 extraction,
+    `mapify-web` `919beb989f`. “Running Mapify mind-map generation without
+    the browser” is not published. The article MUST describe the page
+    extraction, the server picture, memory, private model and file APIs,
+    package publishing, and the cleanup. It MUST NOT name snowfish,
+    snowmonster, viewer-kit, or other internal library names.
 - The Aimi source repository is not available. Its byline date MUST stay at
   month precision, `May 2024`, matching the verified end of that work, and
   MUST NOT be shown as a specific commit day.
@@ -268,17 +271,16 @@ or technologies he has used.
   answer?”. The search groups are “Where does a map live during the
   move?” and “What does the person see?”. The email groups are “Which sending
   domain should carry this?” and “Who receives which version?”. The affiliate
-  groups are “What was agreed with the partner?” and “What is the partner
-  owed?”. The headless-generation groups are “What did the browser own?” and
-  “What does the backend supply instead?”. The
-  summarisation groups are “What comes in?” and “What comes out?”. The Mapify
+  groups are “What did the spreadsheet have to answer?” and “What does
+  automatic settlement do?”. The summarisation groups are “What comes in?” and “What comes out?”. The Mapify
   performance article keeps its before/after comparison. The Aimi article keeps
   its measured outcome snapshot.
 - A screenshot MUST appear inside the section whose point it illustrates. It
   MUST NOT be gathered into a later gallery. A section MUST NOT end with arrow
   lines that repeat its paragraphs. The page MUST NOT display a screenshot
-  wider than that image’s   pixel width. The two affiliate graphics are 640×480 and stay on the affiliate
-  article at that width. The Henri article uses the diagram and has no
+  wider than that image’s pixel width. The affiliate data model is a
+  2466×744 drawing of Partner, Agreement, Paid invoice and Status history,
+  shown in “The data model”. The Henri article uses the diagram and has no
   screenshot. The email article uses the diagram and has no screenshot.
 - The AxIT QA article MUST show an AxLib success comparison and the recorded
   baseline-versus-candidate metric review inside “Phase 1: make scarce domain
@@ -383,12 +385,12 @@ or technologies he has used.
 
 ## Acceptance checks
 
-- All ten articles render from static routes and appear on the Writing index.
+- All nine articles render from static routes and appear on the Writing index.
   The article “Evolving a mature BLE product without platform drift” is not
   published. “Building Mapify’s multilingual email and affiliate platform”
   is not published.
-- Mapify lists six relevant articles, AxIT two, Henri one and Aimi one.
-- All ten Writing cards have article-specific visual content; no two sibling
+- Mapify lists five relevant articles, AxIT two, Henri one and Aimi one.
+- All nine Writing cards have article-specific visual content; no two sibling
   project cards repeat the same product screenshot.
 - Every article visibly answers what the problem was, why the approach was
   chosen, how it was implemented, what improved and what was learned.
@@ -396,7 +398,7 @@ or technologies he has used.
   recorded work date. The QA article reads 3 November 2026 and does not show
   October–November 2026 in the header. Aimi reads May 2024 without a day.
   Structured data uses that same date as `datePublished`.
-- All ten articles open the body with that article’s own introduction title.
+- All nine articles open the body with that article’s own introduction title.
   Its first paragraph states what the app does in plain language, and the
   introduction does not show labelled term cards. Each AxIT introduction
   shows the practitioner-and-client Stomp-IT jump
@@ -487,6 +489,23 @@ or technologies he has used.
 
 ## Iteration history
 
+- 2026-11-10: The affiliate article is a requirements, system-design and data
+  model piece. Settlement was a manual Excel sheet. The system stores a
+  partner, an agreement, each paid invoice and a status history, and an
+  automatic job settles a pending invoice after seven days unless staff have
+  changed it. The diagram groups are “What did the spreadsheet have to
+  answer?” and “What does automatic settlement do?”.
+- 2026-11-10: Merged “Running Mapify mind-map generation without the browser”
+  into “One summarisation engine across web, backend and automation”. The
+  headless path, the month of extraction and cleanup, and the shared input
+  and output contract are one article. The Writing index lists nine articles.
+  Mapify lists five.
+- 2026-11-10: The mind-map generation article covers more than a month of work,
+  January–February 2025, including the extraction, the server picture, the
+  one-at-a-time memory limit, private APIs, package publishing, and cleanup.
+  The byline is 13 February 2025. Internal library names are removed. The
+  diagram groups are “What made this more than a move?” and “What does a
+  server have to do without a window?”.
 - 2026-11-10: Added “Running Mapify mind-map generation without the browser”.
   The browser generator stays in mapify-common and receives its page
   dependencies as arguments. The backend supplies an in-memory document,

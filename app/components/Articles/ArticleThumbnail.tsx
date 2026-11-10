@@ -38,7 +38,6 @@ const flowVariants: Record<string, 0 | 1 | 2> = {
   "mapify-search-postgresql-migration": 2,
   "mapify-email-sending-platform": 1,
   "mapify-affiliate-settlement": 2,
-  "mindmap-generation-without-the-browser": 0,
   "one-summarisation-engine-across-mapify": 0,
 };
 

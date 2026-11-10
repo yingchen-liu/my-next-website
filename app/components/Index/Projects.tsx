@@ -299,10 +299,9 @@ function Projects() {
         ]}
         description={
           <>
-            Led development of a personal AI tutor that turns any topic into a
-            tailored syllabus with conversational lessons, active recall and
-            adaptive quizzes, coordinating product, infrastructure, testing and
-            release from architecture to production.
+            Led Henri, an AI product built using AI. A learner names a topic
+            and the app builds a syllabus of conversational lessons, active
+            recall and adaptive quizzes, from architecture to production.
           </>
         }
         highlights={[
