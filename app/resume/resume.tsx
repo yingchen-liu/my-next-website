@@ -218,7 +218,7 @@ export default function Resume() {
               {yearsOfExperience}+ years
               <div className="inline-block px-2">•</div>
               {title === "full-stack"
-                ? "AI Products, Web, Backend, Cloud, iOS & Android"
+                ? "System Design, AI Products, Web, Backend, Cloud, iOS & Android"
                 : title === "back-end"
                 ? "Web Frontend, Backend, Cloud, iOS & Android"
                 : title === "mobile"
@@ -245,6 +245,13 @@ export default function Resume() {
                 </>
               )}
             </div>
+            <p className="mt-3 max-w-[72rem] text-[0.9rem] leading-relaxed">
+              System-design-led engineer who turns vague product requirements
+              into clear architecture, explicit trade-offs and reliable delivery
+              plans across web, mobile, backend and cloud. Practising
+              AI-assisted engineering since late 2025, from Cursor and Claude
+              Code to Codex agent teams.
+            </p>
           </div>
 
           <div>
@@ -260,13 +267,16 @@ export default function Resume() {
             >
               <li>
                 Led development of <Link href="https://mapify.so/">Mapify</Link>,
-                including full-text mind-map search and migrating its index from{" "}
-                <b>S3 to PostgreSQL</b> with fallback behaviour and a
-                user-transparent rollout.
+                turning product requirements into system boundaries across
+                search, summarisation, data migration, growth and release;
+                matured vibe coding with Cursor and Claude Code into
+                implementation inside documented architecture, review and
+                release guardrails.
               </li>
               <li>
-                Made Mapify&apos;s speech-to-text pipeline more resilient through
-                orchestration, retries, media simulation and provider fallbacks.
+                Designed full-text search and balanced migration speed against
+                release risk with an <b>S3-to-PostgreSQL</b> index rollout,
+                fallback behaviour and no hard cut-over.
               </li>
               <li>
                 Built Mapify&apos;s multilingual email and affiliate-settlement
@@ -275,9 +285,11 @@ export default function Resume() {
                 <b>5M+ users</b>.
               </li>
               <li>
-                Led development of <Link href="https://hihenri.ai/">Henri</Link>, an
-                AI product built using AI, from architecture through testing,
-                TestFlight and production release.
+                Led development of <Link href="https://hihenri.ai/">Henri</Link>,
+                turning the open-ended promise of teaching any topic into an AI
+                product built using AI and a proving ground for engineered vibe
+                coding, from behavioural specs and design rules through testing,
+                TestFlight and production.
               </li>
             </Experience>
 
@@ -291,7 +303,7 @@ export default function Resume() {
               {title === "full-stack" && (
                 <>
                   <li>
-                    Led a portable <b>C++ generative-music engine</b> and
+                    Led the system design and delivery of a portable <b>C++ generative-music engine</b> and
                     cross-platform SDK used by Aimi Player and Aimi Studio,
                     spanning <b>TypeScript</b>, <b>Node.js</b>, Android and iOS
                     while{" "}
@@ -362,8 +374,9 @@ export default function Resume() {
             >
               <li>
                 <b><Link href="https://optus.com.au">Optus:</Link></b> led
-                discovery, architecture, stakeholders, budget and an Agile team
-                of three to deliver a secure GCP/Kubernetes platform.
+                discovery across ambiguous stakeholder needs, security, budget
+                and risk, then turned the constraints into a secure
+                GCP/Kubernetes architecture and delivery plan.
               </li>
               <li>
                 <b><Link href="https://airtasker.com/au">Airtasker:</Link></b>{" "}
@@ -411,10 +424,11 @@ export default function Resume() {
                 title === "back-end" ||
                 stack === "javascript") && (
                 <li>
-                  <b>Metric review &amp; QA:</b> introduced de-identified trace
-                  exploration and SBN Testing&apos;s exact-build workflows for
-                  metric-algorithm review, test-case verification and
-                  streamlined internal testing with auditable evidence.
+                  <b>AI-assisted metric review &amp; QA:</b> apply engineered vibe
+                  coding through Codex agent teams and isolated worktrees to
+                  evolve de-identified trace exploration and SBN Testing&apos;s
+                  exact-build workflows for algorithm review and app-behaviour
+                  testing with auditable evidence.
                 </li>
               )}
             </Experience>
@@ -525,9 +539,14 @@ export default function Resume() {
           </h2>
           <ul className="list-disc ml-5 mt-1 text-[0.9rem]">
             <li>
-              <b>Core strengths:</b> AI product architecture, search and data
-              systems, streaming pipelines, connected-device mobile platforms,
-              reliability and observability, cloud and release engineering
+              <b>Core strengths:</b> system design, problem framing, architectural
+              trade-offs, cross-platform architecture, search and data systems,
+              connected-device platforms and evidence-led delivery
+            </li>
+            <li>
+              <b>AI-assisted engineering:</b> Cursor, Claude Code and Codex agent
+              teams; project instructions, behavioural specifications, reusable
+              skills, isolated worktrees and verification gates
             </li>
             <li>
               <b>Languages:</b>{" "}

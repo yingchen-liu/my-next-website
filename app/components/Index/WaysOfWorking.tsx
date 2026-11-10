@@ -4,28 +4,49 @@ import { Section } from "./Section";
 
 const operatingPrinciples = [
   {
-    title: "Make decisions explicit",
+    title: "Frame the real problem",
     detail:
-      "Turn requirements, edge cases and acceptance boundaries into specifications, state models and reviewable plans.",
+      "Turn incomplete requirements into outcomes, constraints, unknowns and acceptance boundaries the whole team can challenge.",
   },
   {
-    title: "Make evidence shareable",
+    title: "Design the trade-offs",
     detail:
-      "Give engineering, QA and release owners one durable record instead of screenshots and context scattered across chats.",
+      "Choose boundaries, ownership and failure behaviour deliberately—and document why one option won over another.",
   },
   {
-    title: "Make delivery repeatable",
+    title: "Build the delivery system",
     detail:
-      "Move checks earlier, automate routine work and leave a path the next person can run without tribal knowledge.",
+      "Connect specifications, evidence and repeatable checks so the system and the team can evolve without relying on tribal knowledge.",
+  },
+];
+
+const aiProgression = [
+  {
+    tool: "Cursor",
+    stage: "Pair programming",
+    detail:
+      "Used assistant coding to explore and implement Mapify changes faster while keeping system boundaries and review decisions explicit.",
+  },
+  {
+    tool: "Claude Code",
+    stage: "Engineered guardrails",
+    detail:
+      "Added project instructions, behavioural specifications, plans, design rules, reusable skills and verification around Mapify and Henri.",
+  },
+  {
+    tool: "Codex agent teams",
+    stage: "Parallel delivery",
+    detail:
+      "Now coordinate isolated agents and worktrees across AxIT research, implementation and testing without blurring evidence or acceptance.",
   },
 ];
 
 const examples = [
   {
     context: "AxLib + SBN Testing · Engineering ↔ QA",
-    title: "One review path from algorithm to release",
+    title: "Separate algorithm confidence from app acceptance",
     description:
-      "I connected de-identified AxLib trace exploration with SBN Testing’s exact-build plans, shared evidence, preserved history and discussions. Engineers can explain a calculation, testers can verify observable behaviour, and release owners can see what remains unproven—without treating one green check as every kind of approval.",
+      "Domain experts have limited time, while app testers should not have to recompute formulas. I designed two review phases: de-identified AxLib comparisons focus expert attention on algorithm differences; SBN Testing then lets the wider team verify observable behaviour against the exact build.",
     outcome: "Less context loss · clearer ownership · auditable decisions",
     articleSlugs: [
       "reviewable-metrics-from-algorithm-to-exact-build-qa",
@@ -34,18 +55,18 @@ const examples = [
   },
   {
     context: "Mapify · Delivery system",
-    title: "A release path that finds problems before production",
+    title: "Make speed and release confidence reinforce each other",
     description:
       "I reduced CI builds from more than an hour to about 20 minutes, introduced a production-like pre-release environment, and added deployment requests, release templates, checks and confirmations. Parallel uploads and deployments made the path faster without making it less deliberate.",
     outcome: "Faster feedback · fewer late surprises · safer releases",
     articleSlugs: [],
   },
   {
-    context: "Mapify + Henri · Team enablement",
-    title: "Shared context instead of private knowledge",
+    context: "Mapify + Henri + AxIT · AI-assisted engineering",
+    title: "Use AI as an engineering team—not a shortcut",
     description:
-      "I established dedicated technical discussions, documented architecture and release decisions, worked with QA on model-call testing, helped onboard engineers, shared AI-assisted development practices, and coordinated product, infrastructure and security work from requirements through release.",
-    outcome: "Clearer hand-offs · faster onboarding · decisions that last",
+      "I treat AI assistants like capable junior engineers: give them context, constraints and reviewable plans; let them accelerate implementation; then apply senior judgement to architecture, security, performance, technical debt and acceptance. I also document and share the practice so the team can reuse it.",
+    outcome: "Faster iteration · durable context · human judgement stays in charge",
     articleSlugs: [],
   },
 ];
@@ -63,16 +84,54 @@ const examplesWithArticles = examples.map((example) => ({
 
 export default function WaysOfWorking() {
   return (
-    <Section id="ways-of-working" title="How I Improve the Work">
+    <Section id="ways-of-working" title="From Ambiguity to Architecture">
+      <article className="mb-10 overflow-hidden rounded-2xl border border-blue-200/20 bg-gradient-to-br from-blue-400/[0.11] via-indigo-400/[0.07] to-transparent p-5 md:mb-14 md:p-7">
+        <div className="grid gap-7">
+          <div className="max-w-3xl">
+            <p className="font-sfmono text-xs uppercase tracking-[0.14em] text-cyan-100/70">
+              AI-assisted engineering · since late 2025
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold leading-snug text-white md:text-3xl">
+              From coding assistant to an engineered AI team.
+            </h3>
+            <p className="mt-4 text-[15px] leading-7 text-blue-100/72">
+              This is engineered vibe coding: my workflow evolved from asking
+              AI for code to designing the context, guardrails and verification
+              that let several assistants work safely on real products.
+            </p>
+          </div>
+
+          <ol className="grid gap-3 md:grid-cols-3">
+            {aiProgression.map((step, index) => (
+              <li
+                key={step.tool}
+                className="rounded-xl border border-white/10 bg-gray-950/20 p-4"
+              >
+                <span className="font-sfmono text-xs text-blue-200/45">
+                  0{index + 1}
+                </span>
+                <h4 className="mt-3 font-semibold text-white">{step.tool}</h4>
+                <p className="mt-1 font-sfmono text-xs text-cyan-100/65">
+                  {step.stage}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-blue-100/65">
+                  {step.detail}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </article>
+
       <div className="grid w-full gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
         <div>
           <p className="max-w-xl text-2xl font-semibold leading-snug text-white md:text-3xl">
-            Good software is only part of the outcome.
+            AI accelerates implementation. Judgement still shapes the system.
           </p>
           <p className="mt-5 max-w-xl text-[17px] leading-8 text-blue-100/78">
-            I also improve how a team turns an idea into a trusted release:
-            how decisions are made, how evidence moves between people and how
-            the next change becomes easier than the last.
+            I make the difficult parts concrete before they become expensive:
+            what success means, where the boundaries belong, which trade-offs
+            are acceptable and how the team will know the result works.
           </p>
 
           <ol className="mt-8 grid gap-3">

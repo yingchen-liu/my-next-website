@@ -106,6 +106,8 @@ export interface Article {
   title: string;
   summary: string;
   project: ArticleProject;
+  projectLabel?: string;
+  relatedProjects?: ArticleProject[];
   workPeriod: string;
   sortDate: string;
   publishedOn: string;
@@ -123,6 +125,219 @@ export interface Article {
 }
 
 export const articles: Article[] = [
+  {
+    slug: "engineering-vibe-coding-with-guardrails",
+    title: "Engineering vibe coding: AI inside guardrails",
+    summary:
+      "How I moved from Cursor pairing to Claude Code and Codex agent teams by treating AI as a capable engineering team member: explicit behaviour, architecture, design rules, reusable workflows and evidence—not prompts alone.",
+    project: "Henri",
+    projectLabel: "Mapify · Henri · AxIT",
+    relatedProjects: ["Mapify", "AxIT"],
+    workPeriod: "December 2025–November 2026",
+    sortDate: "2026-11-08",
+    publishedOn: "2026-11-08",
+    readingTime: "18 min read",
+    image: "/images/henri.png",
+    imageAlt: "Henri personal AI tutor artwork",
+    tags: ["AI-assisted engineering", "System design", "Engineering workflow"],
+    projectHref: "/#project-henri",
+    primer: {
+      title: "What I mean by engineered vibe coding",
+      paragraphs: [
+        "Vibe coding is the feeling of moving from an idea to working software at extraordinary speed with an AI coding assistant. Engineered vibe coding keeps that speed, but places it inside a system that makes the product maintainable, reviewable and safe to change.",
+        "I developed this approach across Mapify, Henri and AxIT. Henri was the main proving ground: I was validating a personal AI tutor and, at the same time, validating whether AI could help build a serious production product rather than only a demo. Mapify extended the method across a mature web and backend estate. AxIT later added Codex agent teams, isolated worktrees and stricter evidence boundaries for mobile, shared calculations and release work.",
+        "The principle is simple: I do not ask an agent to replace engineering judgement. I use it to amplify that judgement. I remain responsible for understanding the vague requirement, exposing the trade-offs, choosing the architecture, defining what evidence is sufficient and deciding when the result is ready.",
+      ],
+    },
+    decisions: [
+      {
+        title: "Keep problem framing and architecture human-owned",
+        detail:
+          "The assistant can explore options and challenge a design, but I own the requirement, system boundaries, trade-offs, failure modes and acceptance level. Speed is useful only after the team is solving the right problem.",
+      },
+      {
+        title: "Specify behaviour before asking for implementation",
+        detail:
+          "A vague request becomes a behavioural specification, state matrix, edge-case list, state machine, flow and data model. Product and engineering can review those artefacts before code makes an assumption expensive.",
+      },
+      {
+        title: "Give every repository durable operating instructions",
+        detail:
+          "Project rules, architecture references, design tokens and critical constraints live with the code. The agent reads the same source of truth on every task instead of depending on a long prompt or my memory.",
+      },
+      {
+        title: "Make uncertainty visible",
+        detail:
+          "The working agreement tells the assistant to ask when the evidence is missing rather than inventing a requirement, fallback or default. An explicit question is cheaper than a plausible but incorrect implementation.",
+      },
+      {
+        title: "Separate implementation from proof",
+        detail:
+          "Code generation, tests, replay evidence, simulator behaviour, physical-device checks and release acceptance answer different questions. Agent output is a candidate change; it is never its own proof of correctness.",
+      },
+    ],
+    visual: {
+      type: "flow",
+      title: "The operating system around the coding agent",
+      caption:
+        "The engineer leads the problem and the evidence. The agent accelerates the work inside explicit product, architecture and delivery guardrails.",
+      phases: [
+        {
+          label: "Human judgement",
+          title: "What does the engineer decide?",
+          detail:
+            "Turn an ambiguous request into a reviewable solution before optimising for implementation speed.",
+          nodes: [
+            {
+              title: "Frame the real problem",
+              detail:
+                "Clarify the user outcome, current system, stakeholders, constraints and what is still unknown.",
+            },
+            {
+              title: "Choose the boundaries",
+              detail:
+                "Compare architecture, security, performance, compatibility and technical-debt trade-offs.",
+            },
+            {
+              title: "Define acceptable evidence",
+              detail:
+                "State which tests, environments and human decisions can prove each part of the change.",
+            },
+          ],
+        },
+        {
+          label: "AI-assisted execution",
+          title: "How does AI execute safely?",
+          detail:
+            "Give the agent durable context, a bounded plan, reusable workflows and a verification loop.",
+          nodes: [
+            {
+              title: "Read the project rules",
+              detail:
+                "Load the behaviour spec, architecture, design system, critical rules and current status.",
+            },
+            {
+              title: "Plan, build and ask",
+              detail:
+                "Propose the approach, implement within scope and stop to ask instead of silently guessing.",
+            },
+            {
+              title: "Test, audit and record",
+              detail:
+                "Run the right checks, review the complete diff, preserve evidence and update the shared state.",
+            },
+          ],
+        },
+      ],
+    },
+    sections: [
+      {
+        title: "The problem",
+        paragraphs: [
+          "The attraction of vibe coding is real: follow the idea, describe the next move and watch working software appear at a speed that used to feel impossible. The uncomfortable questions are equally real. Can another engineer maintain it? How is quality protected? Is the speed creating a backlog of hidden assumptions and technical debt?",
+          "The old answer treated speed and quality as opposites. Move quickly for a demo, or slow down for serious engineering. Better models changed the size of that trade-off, but they did not remove engineering responsibility. An assistant can understand a large codebase, learn conventions and write strong code; it can also confidently optimise the wrong requirement, repeat an old mistake or hide uncertainty behind a convenient fallback.",
+          "The useful question therefore became: how can I use AI for high-quality product development, not merely fast code generation? My answer was to let AI ‘vibe’ inside guardrails. The freedom remains inside the task; the product behaviour, architectural boundaries, review points and evidence stay explicit.",
+        ],
+      },
+      {
+        title: "A progression, not a tool switch",
+        paragraphs: [
+          "I started with Cursor as a close coding assistant: useful for exploring a code path, drafting a change and shortening the distance between a question and a working implementation. That improved code-level throughput, but the quality of the result still depended heavily on how much project context I could fit into the conversation.",
+          "Claude Code changed the unit of collaboration from a code fragment to a repository. The first retained Henri commit containing its project instructions is from 5 December 2025; by January 2026 I had reorganised the supporting documentation and expanded the rules and reusable skills. The assistant could now start by reading how the product was supposed to behave, how the UI was designed, how the system was structured and how work should be verified.",
+          "Codex agent teams extended the same operating model. On AxIT, isolated agents and worktrees can research, implement or verify different parts of a problem in parallel. That only works because ownership is explicit: each agent has a bounded task, repositories hold durable specifications, unrelated work is preserved and evidence is reported at the level it actually proves.",
+        ],
+      },
+      {
+        title: "Treat the assistant like a capable junior engineer",
+        paragraphs: [
+          "My most useful mental model is not autocomplete and not an autonomous replacement for a team. It is a highly capable junior engineer: fast, broadly knowledgeable, able to learn, and strong at implementation, but still short of the product history, organisational context and judgement that experienced engineers build by living with consequences.",
+          "That changes how I communicate. I act as the lead and architect. I explain the goal and constraints, review the proposed approach, make the hard trade-offs and give feedback on recurring mistakes. I expect the assistant to participate in requirements discussions and technical design, not to receive an ambiguous ticket and quietly decide what the company meant.",
+          "The comparison also explains why communication cost does not disappear. Faster implementation can reduce development cost dramatically, but alignment still matters. A product manager, domain expert and engineer still need to agree on behaviour. The difference is that AI can turn those conversations into precise, reviewable artefacts much faster.",
+        ],
+      },
+      {
+        title: "Teach the project before asking for code",
+        paragraphs: [
+          "Each repository needs a compact entry point—originally CLAUDE.md, and later agent guidance that works across tools. That file does not try to contain the whole project. It routes the assistant to the sources that own behaviour, architecture, design, release procedure and verification.",
+          "The rules cover ordinary code quality, but also the things a generic model cannot infer safely. On Henri that included Apple Human Interface Guidelines, a design system with spacing, radius, typography and colour tokens, and a hierarchy of base and application components. A new screen could therefore reuse a coherent visual language even when no final design file existed.",
+          "The system made detailed decisions reusable as well: semantic typography rather than one-off font sizes, consistent spacing and radius scales, explicit timestamp formats, multilingual search behaviour, theme colours and component states. Those are small decisions individually; together they stop an AI-generated interface from looking and behaving like unrelated screens.",
+          "I also keep ‘critical rules’: concise records of mistakes that must not recur. During Henri's pre-release MVP, one rule rejected backwards-compatibility scaffolding that no real user needed; after launch, the production rule changed to preserve live data and behaviour. If a fallback once hid a configuration error, another rule can require failure to stay visible instead of inventing a default. If a component bypassed the spacing scale, the rule can point back to the token. This turns feedback from one task into training for every later task, while still allowing the rule to evolve with the product stage.",
+        ],
+      },
+      {
+        title: "Turn requirements into behaviour the team can review",
+        paragraphs: [
+          "A requirements document—often exported from a product workspace—is an input, not an implementation plan. I ask the assistant to rewrite it as a behavioural specification: what a person can do, what the system shows, which state changes, and what must happen when an operation fails.",
+          "For combinatorial behaviour, the assistant drafts truth tables or state matrices so every meaningful combination has an explicit result. For workflows, it drafts state machines and flow diagrams. It enumerates edge cases, proposes the data model and lists deployment constraints that could make a locally correct design fail in production.",
+          "The assistant does the writing and analysis; the product and engineering owners do the confirmation. That distinction matters. A junior engineer can propose a table structure, but the lead must confirm ownership, lifecycle, migration and privacy. A model can enumerate states, but the team must decide which transitions are valid. The artefact makes the disagreement visible before code buries it.",
+        ],
+        bullets: [
+          "Truth tables expose what should happen for every meaningful combination of flags, roles or states.",
+          "State machines make lifecycle and transition rules reviewable before UI logic spreads them across screens.",
+          "Flow diagrams reveal service boundaries, retries and failure paths to non-specialist reviewers.",
+          "Data models force an early decision about ownership, identity, retention and migration.",
+          "Deployment constraints keep a design honest about production infrastructure, configuration and platform limits.",
+        ],
+      },
+      {
+        title: "Plan mode is the technical design review",
+        paragraphs: [
+          "Before a substantial change, I ask for a plan that identifies the current implementation, proposed boundaries, files that own the behaviour, alternatives, risks and verification. That makes the assistant show its reasoning at the level I need to review without requiring me to supervise every generated line.",
+          "I can then challenge the approach: Should this rule live in the shared domain layer or the iOS app? Is a database migration reversible? Does a retry preserve idempotency? Which compatibility constraint is real, and which is only habit? Once those decisions are settled, implementation becomes faster because the agent is not discovering the architecture by accident.",
+          "This is where experienced judgement has the highest leverage. I do not need to control every line of code. I need to control the solution, the interfaces, the failure behaviour and the feedback loop.",
+        ],
+      },
+      {
+        title: "Package the way of working into reusable skills",
+        paragraphs: [
+          "Repository skills turn repeated procedures into executable team knowledge. Instead of reminding an assistant how to investigate a bug, prepare a release or audit a feature every time, the project routes that task to a maintained workflow with the relevant checks and evidence requirements.",
+          "The debugging workflows teach the assistant to collect the right signal: logs for runtime sequence, view hierarchy for UI ownership and performance exports for measured bottlenecks. The core instruction is to ask when the evidence is missing rather than make a plausible guess.",
+          "Other workflows preserve coordination. An issue tracker records discoveries that do not belong in the current scope. A status document records what is complete, what is blocked and what remains. Audit skills remind the assistant to review the full change, not only the file it just edited. Research tasks can require reading multiple current sources, comparing them and writing a report before a recommendation changes the project.",
+          "This is training and memory for an AI-enabled team. It reduces repeated explanation, keeps important steps from being forgotten and lets a new agent enter the project with the same working agreement as the previous one.",
+        ],
+      },
+      {
+        title: "How the method changed across three products",
+        paragraphs: [
+          "On Mapify, AI assistance accelerated work across TypeScript, backend services, data migration and operations, but system design still determined the result. Search needed a user-transparent S3-to-PostgreSQL migration, speech-to-text needed explicit retry and provider boundaries, and summarisation needed one contract across browser, workers and backend. The agent could help implement and investigate; I still had to define the cut-over, fallback, observability and production evidence.",
+          "Henri was the deliberate proving ground. The product itself used AI to create knowledge trees, lessons, quizzes and images, while Claude Code helped build the product inside behavioural specifications, design tokens, component rules, plans and tests. That pairing was important: I was not only validating whether Henri could teach; I was validating whether an AI-assisted engineering process could carry a native app and cloud system to production without losing coherence.",
+          "AxIT made the workflow more distributed. Codex agents can compare iOS, Android, web and backend behaviour, work in isolated checkouts and run targeted verification in parallel. The surrounding rules preserve the distinction between code evidence, replay evidence, simulator behaviour, physical hardware, generated reports and release approval. Parallelism increases speed; the evidence model prevents that speed from becoming overconfidence.",
+        ],
+      },
+      {
+        title: "The decision",
+        paragraphs: [
+          "I chose to make AI part of the engineering system rather than an optional editor feature. The repository carries product knowledge, the task begins with problem framing, substantial work begins with a reviewable plan, and repeated procedures become skills. Agents are expected to ask questions, preserve state and report exactly what they verified.",
+          "This also defines the human role more clearly. I spend less time typing routine implementation and more time on requirements, system boundaries, cross-platform architecture, security, performance, technical debt and the way teams coordinate. AI expands the amount of work I can examine and execute; it does not outsource accountability.",
+        ],
+      },
+      {
+        title: "What improved",
+        paragraphs: [
+          "The immediate benefit is iteration speed, but the more valuable change is repeatability. The next task begins with the same project rules, design language and verification expectations. A solution does not depend on whether I remembered to paste the right paragraph into a new chat.",
+          "Documentation becomes an active part of delivery rather than a report written afterwards. Behavioural specifications help product review; plans help technical review; skills help execution; status and issue records help coordination; audits help handover. The artefacts are useful to people and agents at the same time.",
+          "The quality is good enough for serious production work because the workflow does not confuse generated code with a finished product. Tests, measurements, domain review, device checks and release decisions remain separate gates. The result is lower implementation cost without pretending that communication, judgement or evidence are free.",
+        ],
+      },
+      {
+        title: "What I learned",
+        paragraphs: [
+          "AI is an amplifier. It amplifies clear thinking, strong architecture and disciplined verification; it can also amplify weak assumptions, accidental complexity and false confidence. The difference between an engineer using vibe coding and a non-engineer using the same tool is not typing speed. It is sensitivity to security, performance, failure modes, maintainability and technical debt.",
+          "The highest-leverage control point is the overall approach, not every line. When the behaviour, boundaries, interfaces and evidence are right, the assistant has room to work quickly. When those are vague, detailed code review arrives too late to rescue the design cheaply.",
+          "Communication remains essential. AI changes the format: more decisions become specifications, matrices, plans and reusable workflows. That documentation is not bureaucracy added to fast coding; it is what makes fast coding safe enough to repeat across a team.",
+          "Finally, the engineer’s role shifts rather than shrinks. I write less routine code by hand, but I do more system design, product clarification, review, training and coordination. The goal is not to make the AI imitate one developer. It is to make AI a dependable participant in how the whole team builds software.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Treat AI as a capable team member, with context, feedback and review—not as an authority.",
+      "Convert vague requirements into behavioural specifications before implementation.",
+      "Keep project rules, architecture and design decisions close to the code.",
+      "Package repeated debugging, delivery and audit practices into reusable skills.",
+      "Let agents accelerate execution while humans own trade-offs and acceptance.",
+      "Control the solution and evidence loop rather than supervising every generated line.",
+    ],
+  },
   {
     slug: "reviewable-metrics-from-algorithm-to-exact-build-qa",
     title: "Two-phase QA for metric algorithms and app behaviour",
@@ -516,6 +731,237 @@ export const articles: Article[] = [
     ],
   },
 
+  {
+    slug: "ai-debugging-from-plausible-patches-to-reproducible-evidence",
+    title: "AI debugging: from plausible patches to reproducible evidence",
+    summary:
+      "How I evolved AI-assisted debugging from code inspection and likely fixes into a reproducible workflow: exact bug data, real product paths, layered observability, regression tests, computer-use verification and physical-device evidence where the boundary requires it.",
+    project: "AxIT",
+    projectLabel: "Mapify · Henri · AxIT",
+    relatedProjects: ["Mapify", "Henri"],
+    workPeriod: "January–September 2026",
+    sortDate: "2026-09-16",
+    publishedOn: "2026-09-16",
+    readingTime: "17 min read",
+    image: "/images/articles/axit/sbn-testing-dependency-map.png",
+    imageAlt:
+      "An exact-build testing dependency map connecting configurations and test cases",
+    tags: ["AI debugging", "Real-device testing", "Evidence architecture"],
+    projectHref: "/#project-axit",
+    primer: {
+      title: "What AI-assisted debugging means in practice",
+      paragraphs: [
+        "AI-assisted debugging is not asking a model to read an error and guess a patch. It is using an agent to accelerate a controlled investigation: preserve the reported case, reproduce it through the real product, observe the failing layer, fix the root cause and rerun the same case with evidence appropriate to that boundary.",
+        "I developed this workflow across Mapify, Henri and AxIT. Mapify established disciplined source, database and migration investigation. Henri added bug categorisation, captured device and backend logs, screenshots, isolated test stacks, database verification and audit skills. AxIT made the evidence contract explicit across browser, simulator, physical device, Bluetooth hardware, shared calculations and human release acceptance.",
+        "The aim is not to make every bug slow. It is to spend effort where uncertainty lives. A pure function may need a focused unit test. A layout regression needs the same screen, data and viewport before and after. A Bluetooth lifecycle bug needs the real app and hardware. The agent should know which claim each kind of evidence can—and cannot—support.",
+      ],
+    },
+    decisions: [
+      {
+        title: "Write the reproduction contract before the fix",
+        detail:
+          "Record the source data, visible values, inferred values, route, selected state, build, environment, device or viewport and capture method. The after check must be able to rerun that contract instead of inventing a friendlier case.",
+      },
+      {
+        title: "Observe the layer that owns the symptom",
+        detail:
+          "Use screenshots and hierarchy for layout, logs and state for lifecycle, network and backend logs for API behaviour, database reads for persistence, stack traces for crashes and Instruments traces for performance. Source inspection alone is not runtime evidence.",
+      },
+      {
+        title: "Exercise the product; do not recreate the screenshot",
+        detail:
+          "Computer use navigates and inspects the real browser or app flow. A preview, generated page or screenshot-only view may explain a hypothesis, but it cannot prove that the shipped workflow works.",
+      },
+      {
+        title: "Keep the device boundary honest",
+        detail:
+          "Simulator and emulator matrices provide repeatable UI and lifecycle coverage. Physical devices prove device-only behaviour such as Bluetooth, real performance or installation. One must never be reported as the other.",
+      },
+      {
+        title: "Classify a failing test before changing it",
+        detail:
+          "A deterministic product failure, stale assertion, flaky shared state, overloaded simulator and unavailable backend need different responses. Patching the assertion before classification can turn a useful alarm into a false green build.",
+      },
+    ],
+    visual: {
+      type: "flow",
+      title: "From a likely fix to a reproducible debugging loop",
+      caption:
+        "The earlier loop optimised for reaching a patch. The evolved loop preserves the exact case and makes each verification claim traceable to the evidence that supports it.",
+      phases: [
+        {
+          label: "Before",
+          title: "Why could a plausible patch still be wrong?",
+          detail:
+            "The agent could move quickly while missing the product state, failing layer or environment that produced the symptom.",
+          nodes: [
+            {
+              title: "Read the description",
+              detail:
+                "Start from a screenshot, error message or short report without preserving its exact data and state.",
+            },
+            {
+              title: "Inspect likely code",
+              detail:
+                "Search for the visible text or stack and form a hypothesis from the first plausible owner.",
+            },
+            {
+              title: "Patch and run tests",
+              detail:
+                "A build or nearby test passes, but the original product path may never have been exercised.",
+            },
+          ],
+        },
+        {
+          label: "After",
+          title: "What makes the fix reproducible?",
+          detail:
+            "The investigation protects the failing case, tests the hypothesis at the right layer and closes the loop through the same product path.",
+          nodes: [
+            {
+              title: "Capture the exact case",
+              detail:
+                "Save ticket or replay evidence, values, route, state, build, environment and before behaviour.",
+            },
+            {
+              title: "Observe before guessing",
+              detail:
+                "Use the relevant logs, hierarchy, request, database row, trace or device state to locate the owner.",
+            },
+            {
+              title: "Fix the root and regress it",
+              detail:
+                "Change the smallest complete boundary and add automation that fails for the original cause.",
+            },
+            {
+              title: "Rerun the same real path",
+              detail:
+                "Use the same data, screen and viewport, then capture the evidence level the claim requires.",
+            },
+          ],
+        },
+      ],
+    },
+    sections: [
+      {
+        title: "The problem",
+        paragraphs: [
+          "AI is extremely good at producing a coherent explanation for incomplete evidence. Give it a screenshot and a repository and it can often find a relevant view, identify a suspicious conditional and propose a patch within minutes. The danger is that coherence feels like causality. The visible screen may be downstream of stale state, an API contract, a database migration, a feature flag, a device capability or a race that never appears in the file the screenshot resembles.",
+          "A green build creates a second trap. Compilation proves that the code can be assembled. A unit test proves the behaviour represented by that test. Neither proves that the app launches, that the user can reach the screen, that the backend returns the expected record, that the layout works on another device class or that Bluetooth reconnects after the app returns from the background.",
+          "The debugging process therefore needed its own architecture. It had to make the agent collect ground truth before editing, choose observations by failure type, preserve the original case, and distinguish automated, simulated, physical-device and human acceptance evidence instead of compressing them into one word: tested.",
+        ],
+      },
+      {
+        title: "The early approach: useful evidence, a loose loop",
+        paragraphs: [
+          "On Mapify, the strongest early debugging tools were close to the system: inspect the PostgreSQL schema, query records, count migration states, read migration errors, check missing search vectors and compare backend logs with the code that wrote the data. That was already much better than editing from a symptom alone. Read operations were safe by default; any database write required a preview of affected records and explicit approval.",
+          "The limitation was not the quality of those checks. It was that the loop was still mostly task-specific. A database investigation could be excellent without a reusable contract for the exact browser state, account, input file, feature flag and visible before/after behaviour. The next debugging session depended on remembering which evidence had mattered last time.",
+          "That experience shaped the later system: keep the direct access to source, logs and data, but wrap it in a workflow that can be repeated by another agent and audited by another engineer.",
+        ],
+      },
+      {
+        title: "Henri: categorise before hypothesising",
+        paragraphs: [
+          "Henri's debugging skill begins by classifying the failure. A UI or layout problem starts with a device screenshot and view hierarchy. A data or state problem starts with captured logs, state and read-only database queries. An API problem adds network and backend logs. A crash starts with the stack trace. The category does not solve the bug; it selects the observations that can disprove the first theory.",
+          "The workflow reuses captured artefacts before asking for another reproduction: iOS logs, backend logs, the current device screenshot and saved test results. If that evidence is insufficient, the agent instruments the suspected boundary and runs the case again. It is explicitly told not to guess. For visual ambiguity, temporary coloured borders can reveal which container owns unexpected spacing; for data ambiguity, a read-only query can show whether the wrong value was stored or merely rendered incorrectly.",
+          "The fix also has to respect the surrounding system. A layout correction checks the shared component and design tokens before patching one screen. A schema or persisted-contract regression audits older onboarding, resume, library, dashboard and reset paths that read the same state. After implementation, the agent self-reviews for duplicated components, inconsistent neighbouring states and new constants that belong in the shared design system.",
+        ],
+      },
+      {
+        title: "Build an observation stack, not one giant log",
+        paragraphs: [
+          "Different evidence answers different questions. The visible screenshot says what the person saw. The view hierarchy says which element owned the geometry. Runtime logs show ordering and state transitions. A network trace separates a client timeout from a server error. A backend log follows the request beyond the mobile boundary. A database read shows what persisted. A crash stack locates the failing path. An Instruments trace aligns hangs, hitches, CPU work, signposts and application logs on one timeline.",
+          "The agent's job is to connect those signals without treating them as interchangeable. If the database row is correct but the screen is wrong, changing the write path is noise. If a request fails before reaching the server, backend retry logic is not the first owner. If an Instruments trace shows the stall before a named log event, the investigation can focus on the preceding work rather than broadly ‘optimising SwiftUI’.",
+          "This layered approach also produces better handovers. The root-cause explanation can point from observed symptom to state transition, request, record or hot path. Another engineer can challenge that chain instead of reviewing a patch whose only justification is that it appeared to work once.",
+        ],
+      },
+      {
+        title: "Preserve the exact bug before touching the code",
+        paragraphs: [
+          "For reported bugs, I now create a reproduction data contract before implementation: where the evidence came from, the exact visible values, any values inferred from them, the route and selected tab, the app build and backend, feature flags, locale, device or viewport, and how the evidence was captured.",
+          "Original attachments or replay data are preferable to screenshots of a ticket page. Concrete values in a report should become the fixture or controlled test data; easier placeholder numbers can hide the calculation, formatting or threshold that caused the problem. If the report implies a value rather than stating it, the inference is recorded instead of silently becoming fact.",
+          "This contract is what makes before and after meaningful. The pair is only comparable when it uses the same data, real screen, relevant state and viewport. If that exact rerun is impossible, the report says so and keeps the original ticket evidence separate instead of presenting mismatched pictures as proof.",
+        ],
+      },
+      {
+        title: "Use computer use to exercise the product, not fabricate proof",
+        paragraphs: [
+          "Computer use is valuable because the agent can operate the product as a person would: open the app or browser, navigate through the normal route, select the reported state, reproduce the interaction, inspect the visible result and repeat the path after the fix. It turns visual verification from ‘please check this manually later’ into part of the engineering loop.",
+          "The boundary is important. A desktop screenshot of a Simulator window includes computer chrome and may hide or scale device pixels. A generated SwiftUI capture screen, preview wrapper, Storybook page or reconstructed HTML can resemble the product while bypassing navigation, state, native payload construction or backend behaviour. Those views are useful diagnostics; they are not authoritative evidence that the product path works.",
+          "For final mobile evidence, the workflow captures the complete simulator or emulator framebuffer directly—`simctl` on iOS or the Android equivalent—then checks orientation and readability. Computer use drives the journey and inspects the result; the device capture records what the mobile runtime actually rendered. For browser products, the real browser route and loaded state remain the authoritative surface.",
+        ],
+      },
+      {
+        title: "Test in layers—and stop at the first hard failure",
+        paragraphs: [
+          "Henri's full test workflow makes the order explicit. First comes a compile gate. Launch-sensitive changes then require a launch smoke test because an app can compile and still crash while creating its first model or predicate. Unit tests run next because they are fast and isolate logic. Targeted UI tests verify the changed journey fresh. Full UI coverage can then run in isolated parallel shards, followed by a single-stack database verification pass when aggregate persisted state matters.",
+          "Each UI-test stack owns its backend, PostgreSQL database, Redis, object storage, simulator and build output. Isolation matters because a green parallel run is meaningless if shards silently share a backend URL or skip database-backed cases. The runner checks enumerated tests against executed tests and cleans leaked containers and simulators after interrupted runs.",
+          "A failure is classified before anything is edited. A deterministic failure that repeats in isolation may be a product defect or stale expectation. A failure that passes on retry may expose shared state or ordering. A multi-minute test may indicate an overloaded simulator or hung backend; its results are not trusted. A backend that never started is an environment failure, not evidence that the application regressed. The aim is to repair the right system, not simply return the dashboard to green.",
+        ],
+      },
+      {
+        title: "Simulators create repeatability; real devices prove the boundary",
+        paragraphs: [
+          "AxIT uses a managed simulator matrix rather than whichever device happens to be open: a small phone, a large phone and a representative iPad, with additional tablet coverage when the layout or resizable window requires it. The real app is installed, the affected screen is reached through normal navigation, and complete before/after framebuffers are inspected for clipping, safe areas, keyboard behaviour, Dynamic Type and readable hierarchy.",
+          "That matrix is intentionally the default even when physical devices are nearby. Simulators are reproducible, resettable and suitable for parallel automated coverage. They do not prove Bluetooth discovery, connection ownership, sensor sampling, physical-device performance or an install on the target hardware.",
+          "When the boundary is hardware-only, the claim stays pending until the exact signed build is installed and exercised on a paired device. The physical-device workflow records the model, bundle, marketing version and build, source revision, dirty state, installation path and launch result. Performance profiling also respects the boundary: some SwiftUI Instruments data is available only from a real device, while Simulator runs use the profiler lanes they can actually populate.",
+        ],
+      },
+      {
+        title: "The decision",
+        paragraphs: [
+          "I turned debugging into a repository-owned workflow rather than a conversational habit. Skills define intake, reproduction, observation, implementation, regression, same-path verification and cleanup. Feature specifications preserve corrected behaviour. Investigation and release records preserve the case, evidence and remaining risk. Shared test plans preserve human results instead of overwriting them on the next build.",
+          "The workflow uses an evidence ladder. Source inspection and tests can prove code contracts. Real-app simulator or emulator runs can prove reachable UI and controlled lifecycle behaviour. Physical devices can prove hardware boundaries. Domain experts approve scientific or business meaning. Testers and release owners accept the exact build. The agent reports the highest rung actually reached; it never promotes one rung into the next.",
+        ],
+      },
+      {
+        title: "Close the loop with the same case",
+        paragraphs: [
+          "After the root-cause change and regression test, the agent reruns the original steps through the same real product path. It uses the saved data or fixture, account, environment, feature flags, selected state and viewport whenever possible. A multi-state bug repeats the same state matrix; a multi-step workflow captures every meaningful stage and the final persisted result.",
+          "The resulting record separates what is visible from what proves the transition. A screenshot can show the corrected loaded state. A test or log can prove an invisible lifecycle event. A physical-device observation can prove Bluetooth behaviour. A human test result can approve the build. Keeping those claims separate makes the report more useful, not less confident.",
+          "On AxIT, SBN Testing extends that loop across the team. Exact-build plans, dependency maps, shared evidence, live progress and questions let testers contribute in small windows while developers respond to failures before the whole pass ends. Existing results and private evidence are preserved when a plan changes; a new automated run never rewrites a person's acceptance history.",
+        ],
+        evidence: [
+          {
+            src: "/images/articles/axit/sbn-testing-live-results-focus.png",
+            alt: "An exact-build testing view showing live case results and shared progress",
+            label: "Shared verification record",
+            caption:
+              "Exact-build progress and evidence stay visible while testing continues. This coordinates the team; it does not replace simulator, physical-device, domain-expert or release evidence.",
+            fit: "contain",
+            width: 1264,
+            height: 312,
+          },
+        ],
+      },
+      {
+        title: "What improved",
+        paragraphs: [
+          "The largest improvement is not that the agent finds every bug immediately. It is that a wrong hypothesis becomes cheaper to reject. The case is preserved, the next observation is deliberate and the fix is measured against the original symptom rather than a convenient nearby test.",
+          "The workflow reduces repeated explanation across sessions. A new agent can read the reproduction contract, owning specification, investigation, test result and remaining boundary. Parallel work becomes safer because each participant knows which artefacts it owns and which claims remain unverified.",
+          "It also improves communication with non-engineers. A product owner can review corrected behaviour, a domain expert can focus on changed results, a tester can follow the exact build and a release owner can see what still requires hardware or human acceptance. Technical evidence becomes a coordination tool instead of an opaque collection of logs.",
+        ],
+      },
+      {
+        title: "What I learned",
+        paragraphs: [
+          "AI is strongest at breadth: searching multiple repositories, correlating logs and code, generating hypotheses, adding instrumentation and building a regression quickly. It is weakest where the ground truth is implicit. The workflow must force state, environment and evidence into the open before confidence rises.",
+          "The most important debugging artefact is often not the patch. It is the reproducible case. A preserved case can reject regressions, compare platforms, expose a future architectural change and teach the next agent why the original solution exists.",
+          "No single test surface is ‘real enough’ for every question. A database query, unit test, browser flow, simulator screenshot, physical-device run and human approval are complementary instruments. Mature debugging means choosing the cheapest instrument that can prove the claim—and explicitly stopping when the next boundary has not been crossed.",
+          "Finally, good AI debugging is a team design problem. The agent becomes much more useful when the repository teaches it how to observe, when to ask, what not to destroy, how to preserve evidence and where human judgement enters the loop.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Preserve the exact failing case before editing implementation code.",
+      "Choose screenshots, logs, requests, database reads and traces by failure type.",
+      "Use computer use to drive the real workflow; capture final mobile evidence from the device framebuffer.",
+      "Run targeted automation first, then broader isolated coverage and persistence checks.",
+      "Treat Simulator and physical-device evidence as different acceptance levels.",
+      "Rerun the same data, screen, state and viewport after the fix.",
+      "Report the highest evidence level reached—and leave the next boundary pending.",
+    ],
+  },
   {
     slug: "how-henri-calls-a-model",
     title: "How Henri calls a model",
@@ -1462,11 +1908,19 @@ export const articlesByProject = articles.reduce<
   Record<ArticleProject, Article[]>
 >(
   (grouped, article) => {
-    grouped[article.project].push(article);
+    const projects = [article.project, ...(article.relatedProjects ?? [])];
+    for (const project of projects) grouped[project].push(article);
     return grouped;
   },
   { AxIT: [], Henri: [], Mapify: [], Aimi: [] },
 );
+
+export function articleProjectLabel(article: Article) {
+  return (
+    article.projectLabel ??
+    [article.project, ...(article.relatedProjects ?? [])].join(" · ")
+  );
+}
 
 export function getArticle(slug: string) {
   return articles.find((article) => article.slug === slug);

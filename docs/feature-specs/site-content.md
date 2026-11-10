@@ -26,6 +26,20 @@ image, contact copy, metadata, structured data, and social previews.
   deployment requests and release checks, defining model-call testing with QA,
   documenting architecture and releases, establishing technical discussion
   channels, onboarding engineers and sharing AI-assisted development practices.
+- Public AI-assisted-engineering copy MUST use `since late 2025` as the
+  conservative start point. Repository history adds a `CLAUDE.md` on 19
+  November 2025, the November work record documents Claude Code productivity
+  learning, surviving local Cursor and Claude Code workspace data begins on 13
+  January 2026, and the earliest retained Codex session is a Henri iOS session
+  from 28 January 2026. Exact first-use dates MUST NOT be invented from those
+  minimum-evidence dates.
+- The public progression MUST describe Cursor for assistant pair programming,
+  Claude Code for project instructions, behavioural specifications, plans,
+  design rules and reusable skills, and Codex agent teams with isolated
+  worktrees for parallel research, implementation and verification. `Vibe
+  coding` MUST be qualified as `engineered vibe coding`: AI works inside
+  guardrails while Yingchen remains accountable for architecture, security,
+  performance, technical debt, review evidence and acceptance boundaries.
 - Current contractor content MUST distinguish the connected contributions by
   outcome: AxIT iOS brings connected assessment workflows to iPhone and iPad;
   `Cross-platform metrics` uses AxLib to share models, capability rules,
@@ -66,27 +80,26 @@ image, contact copy, metadata, structured data, and social previews.
   resume, login and error messages, metadata, structured data, and social
   previews. Code identifiers, library APIs, product names, and quoted external
   text MUST remain unchanged when spelling carries technical or source meaning.
-- The hero MUST lead with Yingchen as a senior full-stack engineer who builds
-  products end to end and across platforms. It MUST connect product UI,
-  backend, cloud and shared-engine ownership, using AxIT's Kotlin Multiplatform
-  calculation contract and Aimi's portable C++ music engine as concrete proof.
-  It MUST also present architecture, delivery, quality and collaboration as
-  connected strengths rather than reducing his profile to a technology list.
-  The first paragraph below the headline MUST state his strengths before naming
-  individual projects: deep technical expertise, broad cross-platform
-  experience, full-stack architecture across web, mobile, backend and cloud,
-  and the ability to identify workflow and team-coordination gaps and turn them
-  into practical delivery improvements. A second, visually subordinate
-  paragraph MUST substantiate those strengths with products used by 5M+ people,
-  Mapify CI reduced from more than one hour to about 20 minutes, AxIT's shared
-  calculation contract, Aimi's portable C++ engine, founding an Android team
-  and automating work previously handled by 30 staff.
+- The hero MUST lead with Yingchen as a senior full-stack engineer who turns
+  ambiguous product requirements into clear system designs. The first paragraph
+  MUST foreground problem framing, explicit trade-offs, system boundaries and
+  one reliable delivery path across web, mobile, backend and cloud. Technology
+  names are supporting evidence, not the primary identity. A second, visually
+  subordinate paragraph MUST substantiate that judgement and the AI-assisted
+  practice with Mapify&apos;s 5M+ users, AxIT metrics shared across four runtimes,
+  Aimi&apos;s 52% startup improvement and automation of work previously handled by
+  30 staff. The linked proof cards and project sections retain the supporting
+  Mapify CI, Kotlin Multiplatform, C++ engine and Android-team detail.
 - The hero MUST use a stable headline rather than a typewriter or deleting-text
   animation. It MUST surface four verified proof points that balance product,
   technical and workflow impact: Mapify's 5M+ users, Mapify CI reduced from more
   than one hour to about 20 minutes, Aimi's 52% startup improvement, and the
   Lendlease workflow that replaced manual classification previously handled by
   30 staff.
+- The hero&apos;s supporting proof MUST also state that Yingchen has practised
+  AI-assisted engineering since late 2025 and name the progression from Cursor
+  and Claude Code to Codex agent teams. This context MUST support, not displace,
+  the primary story of system-design judgement.
 - The main page container and fixed header MUST share the same responsive
   horizontal inset: 24 pixels on narrow mobile screens, 32 pixels from the
   small breakpoint, and 40 pixels from the medium breakpoint. The hero headline
@@ -96,12 +109,22 @@ image, contact copy, metadata, structured data, and social previews.
   as an in-page link to its supporting evidence: Mapify user scale to
   `#project-mapify`, Mapify CI to `#ways-of-working`, Aimi startup improvement
   to `#project-aimi`, and Lendlease workflow automation to `#experiences`.
-- Home-page sections MUST appear in this order: hero and proof points; How I
-  Improve the Work; Selected Work; experience; About; contact.
-- `How I Improve the Work` MUST present three operating principles: make
-  decisions explicit, make evidence shareable and make delivery repeatable. It
+  Long values and labels MUST wrap within the two-column mobile grid and MUST
+  NOT widen the page or clip the hero copy at 390 pixels.
+- Home-page sections MUST appear in this order: hero and proof points; From
+  Ambiguity to Architecture; Selected Work; experience; About; contact.
+- `From Ambiguity to Architecture` MUST present three operating principles:
+  frame the real problem, design the trade-offs and build the delivery system. It
   MUST include concise, source-backed examples for AxLib with SBN Testing,
   Mapify delivery improvements, and Mapify/Henri team enablement.
+- Before the operating-principle grid, the section MUST show a compact
+  three-stage AI workflow: Cursor pair programming, Claude Code guardrails and
+  Codex agent teams. The stages MUST explain how the working method matured
+  rather than presenting a decorative tool list.
+- The section MUST acknowledge that AI can accelerate implementation while
+  positioning human judgement—problem framing, boundaries, trade-offs and
+  acceptance—as the durable senior-engineering value. It MUST NOT dismiss
+  implementation quality or make unsupported claims about the labour market.
 - The AxLib and SBN Testing example MUST explain the cross-role workflow, not
   merely list tools: de-identified trace exploration makes algorithms
   explainable; exact-build plans make observable behaviour testable; shared
@@ -115,6 +138,10 @@ image, contact copy, metadata, structured data, and social previews.
   QA collaboration, onboarding, AI-assisted development training and
   coordination with product, infrastructure and security. It MUST describe the
   working practice rather than imply sole ownership of team outcomes.
+- The AI-assisted-engineering example MUST name Mapify, Henri and AxIT and
+  explain that assistants receive context, constraints and reviewable plans;
+  Yingchen retains judgement over architecture, security, performance,
+  technical debt and acceptance.
 - An example MUST link only to case studies that explain that example. Links
   stay in the same tab, use the article title, and appear under `Read more`.
   The AxLib and SBN Testing example MUST link to the two-phase QA article and
@@ -123,10 +150,11 @@ image, contact copy, metadata, structured data, and social previews.
   that describes those workflows, so they MUST NOT link to an unrelated
   Mapify or Henri article.
 - About MUST complement rather than repeat Selected Work. It MUST lead with
-  Yingchen's working style: building across product and platform boundaries,
-  improving architecture and team workflows, and reducing unclear decisions,
-  hand-offs and repeated work. It MUST NOT use a company-by-company project
-  recap.
+  Yingchen's working style: clarifying success, surfacing constraints, choosing
+  trade-offs and giving a team a shared model for what to build and how to prove
+  it. It MUST say that he still loves coding while explaining that system design
+  keeps AI-accelerated implementation pointed in the right direction. It MUST
+  NOT use a company-by-company project recap.
 - About MUST retain the personal story: coding since the 2005 school website
   and football-playing and racing robots, plus the current chapter travelling
   Australia in a caravan. These details MUST be presented through a concise
@@ -173,6 +201,10 @@ image, contact copy, metadata, structured data, and social previews.
 - The Xmind experience MUST contain no more than four bullets. Current contract
   work and Aimi MUST contain no more than three bullets; older entries MUST
   contain no more than three, favouring quantified outcomes.
+- The Xmind experience and resume MUST connect Mapify to Cursor/Claude Code
+  delivery guardrails and Henri to engineered vibe coding. The current AxIT
+  contractor entry MUST connect Codex agent teams and isolated worktrees to
+  metric review and exact-build QA without adding a fourth bullet.
 - Concise Xmind and Mapify summaries MUST NOT merge unrelated systems merely to
   satisfy the bullet limit. Search and its S3-to-PostgreSQL index migration MAY
   share one claim; the speech-to-text pipeline and production monitoring MUST
@@ -219,8 +251,9 @@ image, contact copy, metadata, structured data, and social previews.
   reach full opacity as its leading edge enters the viewport; its progress MUST
   NOT depend on the section's total height or remain partially faded after its
   heading has reached the fixed-header offset.
-- Metadata and social-preview copy MUST describe Yingchen as a senior
-  full-stack, AI, and mobile product engineer.
+- Metadata and social-preview copy MUST describe Yingchen as a senior full-stack
+  engineer and system designer who turns ambiguous requirements into scalable
+  products across web, mobile, backend, cloud and AI.
 - Every indexable route MUST provide its own concise title, human-readable meta
   description, canonical URL, Open Graph URL and Twitter card. Route-specific
   metadata MUST NOT inherit the homepage canonical URL or homepage-only social
@@ -236,8 +269,12 @@ image, contact copy, metadata, structured data, and social previews.
   addition to the legacy favicon so search results, browsers, and installed
   shortcuts are not limited to the 32-pixel source.
 - Hero phrases, social-preview chips, and the resume skill summary MUST lead
-  with transferable senior capabilities rather than routine implementation
-  details or individual provider integrations.
+  with system design, problem framing, architectural trade-offs and
+  cross-platform delivery rather than routine implementation details or
+  individual provider integrations.
+- Metadata, social-preview chips, the technical-writing index and the resume
+  skills list MUST include AI-assisted engineering while preserving
+  system-design and cross-platform positioning as the primary identity.
 - The hero, About section, Xmind experience, resume, metadata, and social
   preview MUST identify Mapify as a product trusted by 5M+ users; the scale
   claim MUST be refreshed or removed if the official Mapify homepage changes.
@@ -304,15 +341,18 @@ image, contact copy, metadata, structured data, and social previews.
 - Each hero proof point includes its product or client name, is
   keyboard-focusable, and resolves to the matching project, workflow or
   experience evidence without being obscured by the fixed header.
-- The home page renders How I Improve the Work before Selected Work and
+- The home page renders From Ambiguity to Architecture before Selected Work and
   experience, followed by the three-paragraph About section and the contact
   callout.
-- How I Improve the Work visibly presents the three operating principles and
+- From Ambiguity to Architecture visibly presents the three operating principles and
   the AxLib/SBN Testing, Mapify delivery and team-enablement examples. The copy
   explains who can do what more effectively rather than listing technologies.
 - The AxLib/SBN Testing example lists and opens the two-phase QA article and
   the metric-contract article in the same tab. The Mapify delivery and
   team-enablement examples show no article links.
+- The same section visibly presents the Cursor → Claude Code → Codex agent-team
+  progression, identifies it as AI-assisted engineering since late 2025 and
+  explains the guardrails at each stage.
 - The AxLib/SBN Testing example distinguishes calculation explanation,
   observable product QA and release visibility; it does not imply that one
   result proves every acceptance level.
@@ -402,6 +442,17 @@ image, contact copy, metadata, structured data, and social previews.
 
 ## Iteration history
 
+- 2026-11-10: Added the evidence-backed AI-assisted-engineering timeline: since
+  late 2025, evolving from Cursor pair programming through Claude Code project
+  guardrails to Codex agent teams and isolated worktrees. Mapify, Henri and
+  AxIT now show how AI accelerated delivery while system design, review and
+  acceptance remained human responsibilities; the resume and SEO match.
+- 2026-11-10: Repositioned the whole public site around system-design judgement:
+  turning vague requirements into clear boundaries, making trade-offs explicit,
+  aligning cross-platform delivery and improving how teams decide and verify.
+  AI-assisted implementation is context; judgement and architecture remain the
+  primary story across the hero, workflow, projects, experience, About, résumé,
+  technical-writing index, metadata and social preview.
 - 2026-11-10: The About photo card uses a 4:3 crop of the stone-window
   photograph so the person fills the window. The caravan chapter stays. The
   LinkedIn portrait remains the profile image for structured data and articles.

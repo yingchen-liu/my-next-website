@@ -5,13 +5,13 @@ import { Section } from "./Section";
 const qualities = [
   {
     number: "01",
-    label: "Across boundaries",
-    detail: "Web, mobile, backend & cloud",
+    label: "Ambiguity → clarity",
+    detail: "Outcomes, constraints, unknowns & acceptance",
   },
   {
     number: "02",
-    label: "Beyond the ticket",
-    detail: "Architecture, workflows & team coordination",
+    label: "AI-assisted since 2025",
+    detail: "Cursor → Claude Code → Codex agent teams",
   },
   {
     number: "03",
@@ -35,13 +35,16 @@ function AboutMe() {
               Engineer · systems thinker · team enabler
             </p>
             <h3 className="mt-5 max-w-3xl text-balance text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
-              I build the product—and improve how the team builds it.
+              I turn messy problems into systems people can reason about.
             </h3>
             <p className="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-blue-100/75 sm:text-xl">
-              I&apos;m happiest at the messy intersection of product,
-              architecture and people: turning an ambitious idea into a
-              reliable system, then fixing the unclear decisions, hand-offs and
-              repeated work that slow everyone down.
+              I still love coding, but the highest-leverage work starts before
+              the code: clarifying what success means, surfacing constraints,
+              choosing trade-offs and giving the team a shared model for what
+              to build and how to prove it. Since late 2025, I&apos;ve brought that
+              approach to AI-assisted development: assistants can accelerate
+              implementation, while sound system design keeps the speed pointed
+              in the right direction.
             </p>
 
             <ul className="mt-9 grid gap-3 sm:grid-cols-3">

@@ -10,11 +10,11 @@ export const contentType = "image/png";
 export const alt = socialImageAlt;
 
 const chips = [
-  "AI Product Architecture",
-  "Delivery Systems",
-  "Quality & Evidence",
+  "System Design",
+  "Problem Framing",
+  "Architectural Trade-offs",
   "Cross-Platform Systems",
-  "Team Enablement",
+  "AI-Assisted Engineering",
 ];
 
 export function generateSocialImage() {
@@ -66,7 +66,7 @@ export function generateSocialImage() {
                 lineHeight: 1,
               }}
             >
-              Senior Full-Stack &amp; AI Engineer
+              Senior Full-Stack Engineer
             </div>
             <div
               style={{

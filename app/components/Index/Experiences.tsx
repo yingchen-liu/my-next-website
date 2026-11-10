@@ -68,12 +68,15 @@ const XmindExperience = () => (
     <ul className="list-disc ml-5">
       <li>
         Led development of <Link href="https://mapify.so/">Mapify</Link>,
-        including its full-text mind-map search and S3-to-PostgreSQL index
-        migration with fallback behaviour and a user-transparent rollout
+        turning product requirements into system boundaries across search,
+        summarisation, data migration, growth and release operations; matured
+        vibe coding with Cursor and Claude Code into implementation inside
+        documented architecture, review and release guardrails
       </li>
       <li>
-        Made Mapify&apos;s speech-to-text pipeline more resilient through
-        orchestration, retries, media simulation and provider fallbacks
+        Designed full-text search and balanced migration speed against release
+        risk with an S3-to-PostgreSQL index rollout, fallback behaviour and no
+        hard cut-over
       </li>
       <li>
         Built its multilingual email and affiliate-settlement systems, and cut
@@ -81,9 +84,10 @@ const XmindExperience = () => (
         trusted by 5M+ users
       </li>
       <li>
-        Led development of <Link href="https://hihenri.ai/">Henri</Link>, an AI
-        product built using AI, from architecture through testing, TestFlight
-        and production release
+        Led development of <Link href="https://hihenri.ai/">Henri</Link>, turning
+        the open-ended promise of teaching any topic into an AI product built
+        using AI and a proving ground for engineered vibe coding, from
+        behavioural specs and design rules through testing and production
       </li>
     </ul>
   </Experience>
@@ -104,14 +108,14 @@ const CurrentContractExperience = () => (
       </li>
       <li>
         <b>Cross-platform metrics:</b> contribute AxLib&apos;s shared calculation
-        contract—models, test catalogues, device capabilities, sampling rules
-        and metrics—across iOS, Android, Connect web and backend services
+        contract across iOS, Android, Connect web and backend services while
+        keeping UI, Bluetooth and performance decisions platform-specific
       </li>
       <li>
-        <b>Metric review &amp; QA:</b> introduced de-identified trace exploration
-        and SBN Testing&apos;s exact-build workflows for reviewing metric algorithms,
-        verifying test cases and streamlining internal testing with shared
-        evidence and auditable results
+        <b>AI-assisted metric review &amp; QA:</b> apply engineered vibe coding
+        through Codex agent teams and isolated worktrees to evolve de-identified
+        trace exploration and SBN Testing&apos;s exact-build workflows, separating
+        algorithm review from app-behaviour testing with auditable evidence
       </li>
     </ul>
   </Experience>
@@ -147,8 +151,8 @@ const AimiExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Led a portable C++ generative-music engine and cross-platform SDK,
-        reducing startup time by 52%
+        Led the system design and delivery of a portable C++ generative-music
+        engine and cross-platform SDK, reducing startup time by 52%
       </li>
       <li>
         Founded the Android team and built Aimi Player with Kotlin, Jetpack
@@ -172,8 +176,9 @@ const OptusExperience = () => (
   >
     <ul className="list-disc ml-5">
       <li>
-        Led discovery, architecture, delivery, budget and risk with Optus
-        stakeholders and an Agile team of three
+        Turned ambiguous stakeholder needs, security constraints, budget and
+        risk into a clear architecture and delivery plan with an Agile team of
+        three
       </li>
       <li>
         Designed and built a secure, highly available solution with Kotlin,

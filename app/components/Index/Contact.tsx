@@ -41,11 +41,12 @@ function Contact() {
     <Section id="contact" title="Let's Build Something Useful">
       <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-blue-950 to-gray-800 px-6 py-12 text-center shadow-2xl shadow-black/10 md:px-16">
         <h2 className="text-3xl font-semibold text-white md:text-5xl">
-          Complex product, clear outcome. <span aria-hidden="true">✨</span>
+          Vague problem, clear system. <span aria-hidden="true">✨</span>
         </h2>
         <Paragraph className="mx-auto mb-8 mt-5 max-w-2xl text-lg">
-          Building an ambitious AI, web or connected product? Let&apos;s turn the
-          difficult parts into something people can trust.
+          Building an ambitious AI, web or connected product? Let&apos;s make the
+          constraints, trade-offs and delivery path clear—then build something
+          people can trust.
         </Paragraph>
         <div className="flex flex-wrap justify-center gap-3">
           <Button href={`mailto:${EMAIL_ADDRESS}`}>Email me</Button>

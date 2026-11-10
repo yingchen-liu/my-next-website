@@ -19,7 +19,7 @@ import {
 } from "@/lib/seo/site";
 
 export const metadata = createPageMetadata({
-  title: "Senior Full-Stack & AI Engineer in Melbourne",
+  title: "Senior Full-Stack Engineer & System Designer",
   description: homeDescription,
   path: "/",
   type: "profile",
@@ -55,7 +55,7 @@ export default function HomePage() {
         url: siteUrl,
         image: { "@id": profileImageId },
         email: "mailto:info@yingchenliu.com",
-        jobTitle: "Senior Full-Stack and AI Engineer",
+        jobTitle: "Senior Full-Stack Engineer and System Designer",
         description: siteDescription,
         sameAs: [linkedInUrl],
         address: {
@@ -77,6 +77,9 @@ export default function HomePage() {
           "AWS",
           "Google Cloud",
           "AI product engineering",
+          "System design",
+          "Requirements analysis",
+          "Architectural trade-offs",
           "PostgreSQL",
           "Product architecture",
           "Cross-platform architecture",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
-import type { Article } from "@/lib/articles";
+import { articleProjectLabel, type Article } from "@/lib/articles";
 import ArticleThumbnail from "./ArticleThumbnail";
 
 export default function ArticleCard({ article }: { article: Article }) {
@@ -17,7 +17,7 @@ export default function ArticleCard({ article }: { article: Article }) {
       </Link>
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sfmono text-xs text-blue-200/65">
-          <span>{article.project}</span>
+          <span>{articleProjectLabel(article)}</span>
           <span aria-hidden="true">·</span>
           <span>{article.workPeriod}</span>
         </div>

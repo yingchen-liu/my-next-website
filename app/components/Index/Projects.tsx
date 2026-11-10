@@ -192,8 +192,8 @@ const earlierWork = [
     href: "https://www.aimi.fm/",
     imgSrc: "/images/aimi-player.png",
     outcome:
-      "Led a portable C++ generative-music engine and cross-platform SDK, founded the Android team and reduced startup time by 52%.",
-    skills: "TypeScript · C++ · Kotlin · Media3",
+      "Defined and led a portable C++ generative-music engine and cross-platform SDK, founded the Android team and reduced startup time by 52%.",
+    skills: "Engine architecture · C++ · Cross-platform delivery",
     articles: articlesByProject.Aimi,
   },
   {
@@ -202,8 +202,8 @@ const earlierWork = [
     href: "https://www.optus.com.au/",
     imgSrc: "/images/optusafe.png",
     outcome:
-      "Led discovery and delivery of a secure, highly available identity platform on GCP and Kubernetes.",
-    skills: "Architecture · Spring · React · GCP",
+      "Turned stakeholder, security, budget and availability constraints into a clear identity-platform architecture and delivery plan.",
+    skills: "Product discovery · System design · GCP",
     articles: [],
   },
   {
@@ -212,8 +212,8 @@ const earlierWork = [
     href: "https://www.airtasker.com/au/",
     imgSrc: "/images/airtasker.png",
     outcome:
-      "Built backend and Android workflows that cut loading by more than 50% and improved retention by 17%.",
-    skills: "Kotlin · Spring · Compose · AWS",
+      "Redesigned backend and Android workflow boundaries, cutting loading by more than 50% and improving retention by 17%.",
+    skills: "Service design · Mobile systems · Performance",
     articles: [],
   },
 ];
@@ -228,40 +228,45 @@ function Projects() {
         eyebrow="🧠 15M+ mind maps generated"
         imgSrc="/images/mapify.png"
         skills={[
-          "AI Product Architecture",
+          "System & Product Design",
           "Search & Data Systems",
-          "Growth & Revenue Platforms",
-          "Delivery & Reliability",
+          "Architectural Trade-offs",
+          "AI-assisted Delivery",
         ]}
         description={
           <>
             Led development of Xmind&apos;s AI knowledge platform, used by 5M+
-            people to turn documents, media and web pages into clear visual maps,
-            while improving how the team built, tested and released it.
+            people to turn documents, media and web pages into clear visual maps.
+            I translated product requirements into system boundaries across
+            ingestion, summarisation, search, growth and release operations.
+            This moved vibe coding into an engineered practice: Cursor and
+            Claude Code accelerated implementation and review inside documented
+            architecture and release guardrails.
           </>
         }
         highlights={[
           {
-            title: "Search built for scale",
+            title: "Search migration without a hard cut-over",
             description: (
               <>
-                Designed full-text mind-map search and a user-transparent
-                S3-to-PostgreSQL index migration with fallback behaviour.
+                Designed full-text mind-map search, then balanced migration
+                speed against release risk with a user-transparent
+                S3-to-PostgreSQL rollout and fallback behaviour.
               </>
             ),
           },
           {
-            title: "One summarisation engine, every surface",
+            title: "One contract for every summarisation surface",
             description: (
               <>
                 Re-architected AI summarisation, mind-map generation and
-                persistence into a shared package so web, backend and Zapier
-                produced consistent results.
+                persistence behind a shared package so web, backend and Zapier
+                could evolve without producing different results.
               </>
             ),
           },
           {
-            title: "A multilingual growth engine",
+            title: "Growth infrastructure without template drift",
             description: (
               <>
                 Architected generated TypeScript email templates, dynamic
@@ -271,7 +276,7 @@ function Projects() {
             ),
           },
           {
-            title: "Revenue and speed, end to end",
+            title: "Revenue features without sacrificing speed",
             description: (
               <>
                 Built affiliate contracts, one-step Stripe coupons, tiered
@@ -292,21 +297,25 @@ function Projects() {
         imgSrc="/images/henri.png"
         side="right"
         skills={[
-          "AI Product Architecture",
+          "Problem Framing",
+          "AI System Design",
           "LLM Orchestration",
-          "Learning Experience",
-          "Product Delivery",
+          "Engineered Vibe Coding",
         ]}
         description={
           <>
-            Led Henri, an AI product built using AI. A learner names a topic
-            and the app builds a syllabus of conversational lessons, active
-            recall and adaptive quizzes, from architecture to production.
+            Led Henri, an AI product built using AI, from an open-ended
+            promise—teach any topic—to a production learning system. I defined
+            the knowledge model, orchestration boundaries and release path
+            behind its conversational lessons, active recall and adaptive
+            quizzes. It also became my proving ground for engineered vibe
+            coding: Claude Code worked inside project rules, behavioural specs,
+            design tokens, plans and tests—not instead of them.
           </>
         }
         highlights={[
           {
-            title: "From idea to learning system",
+            title: "Turn any topic into a coherent learning path",
             description: (
               <>
                 Designed knowledge trees, personalised syllabus generation,
@@ -316,7 +325,7 @@ function Projects() {
             ),
           },
           {
-            title: "Real-time AI that holds together",
+            title: "Real-time AI with explicit failure boundaries",
             description: (
               <>
                 Stabilised streamed LLM responses and generated-image pipelines
@@ -325,7 +334,7 @@ function Projects() {
             ),
           },
           {
-            title: "Architecture to production",
+            title: "One path from model call to App Store",
             description: (
               <>
                 Delivered the production path across AWS, S3, PostgreSQL,
@@ -351,21 +360,25 @@ function Projects() {
         eyebrow="📱 Connected strength assessment"
         imgSrc="/images/axit-results.jpeg"
         skills={[
+          "Domain & System Modelling",
           "Kotlin Multiplatform",
-          "iOS · Android · Web",
-          "Connected Device Systems",
-          "Evidence & QA Workflows",
+          "Cross-platform Trade-offs",
+          "AI-agent Delivery",
         ]}
         description={
           <>
-            Strength By Numbers&apos; connected assessment platform, turning
-            Push-IT, Pull-IT and Stomp-IT data into live feedback, trends and
-            reports.
+            Turned domain-heavy strength science into connected product
+            architecture: Push-IT, Pull-IT and Stomp-IT traces become live
+            feedback, comparable metrics and reports across mobile, web and
+            backend systems. I now apply engineered vibe coding through Codex
+            agent teams and isolated worktrees, researching, implementing and
+            verifying changes in parallel while keeping evidence and release
+            acceptance distinct.
           </>
         }
         highlights={[
           {
-            title: "A platform supporting 700+ centres",
+            title: "A domain-heavy product, usable at 700+ centres",
             description: (
               <>
                 Built the original Android and Bluetooth foundation plus
@@ -374,17 +387,18 @@ function Projects() {
             ),
           },
           {
-            title: "One KMP calculation contract across every surface",
+            title: "Share the calculation contract—not every app",
             description: (
               <>
-                Contribute AxLib&apos;s models, capability rules, sampling and
-                metrics once in Kotlin Multiplatform, then deliver the shared
-                meaning across iOS, Android, Connect web and backend services.
+                Chose Kotlin Multiplatform for AxLib&apos;s models, capability
+                rules, sampling and metrics while keeping platform-specific UI,
+                Bluetooth and performance decisions in iOS, Android, Connect
+                web and backend services.
               </>
             ),
           },
           {
-            title: "One shared workflow for evidence and release",
+            title: "Separate algorithm review from app QA",
             description: (
               <>
                 Connected de-identified AxLib trace exploration to SBN

@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/seo/site";
 export const metadata = createPageMetadata({
   title: "Technical Writing",
   description:
-    "Engineering case studies by Yingchen Liu covering AI systems, cross-platform architecture, data migrations, performance and release quality.",
+    "System-design case studies by Yingchen Liu on problem framing, architectural trade-offs, AI-assisted engineering, cross-platform systems, data migrations and release quality.",
   path: "/articles",
 });
 
@@ -20,17 +20,19 @@ export default function ArticlesPage() {
           Decisions, trade-offs and lessons from shipped products.
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-blue-100/75 md:text-xl">
-          Clear, evidence-led case studies from Mapify, Henri, AxIT and Aimi—what
-          went wrong, why I chose a particular architecture, what changed in
+          Clear, evidence-led case studies from Mapify, Henri, AxIT and Aimi—how
+          a vague requirement became a concrete problem, which trade-offs shaped
+          the architecture, where AI accelerated the work, what changed in
           production and what I would carry into the next system.
         </p>
         <div className="mt-8 flex flex-wrap gap-2" aria-label="Topics covered">
           {[
-            "AI systems",
-            "iOS & Android",
-            "Data architecture",
-            "Performance",
-            "Release quality",
+            "System design",
+            "Problem framing",
+            "Architectural trade-offs",
+            "AI-assisted engineering",
+            "Cross-platform systems",
+            "Evidence-led delivery",
           ].map((topic) => (
             <span
               key={topic}

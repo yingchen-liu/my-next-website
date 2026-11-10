@@ -12,7 +12,12 @@ import ArticleInlineText from "@/app/components/Articles/ArticleInlineText";
 import ArticleMediaGallery from "@/app/components/Articles/ArticleMediaGallery";
 import ArticlePrimer from "@/app/components/Articles/ArticlePrimer";
 import ArticleVisual from "@/app/components/Articles/ArticleVisual";
-import { articles, getArticle, type ArticleSection } from "@/lib/articles";
+import {
+  articleProjectLabel,
+  articles,
+  getArticle,
+  type ArticleSection,
+} from "@/lib/articles";
 import {
   absoluteUrl,
   contentLastModified,
@@ -351,7 +356,7 @@ export default async function ArticlePage({
     dateModified: contentLastModified,
     inLanguage: siteLanguage,
     temporalCoverage: article.workPeriod,
-    about: article.project,
+    about: [article.project, ...(article.relatedProjects ?? [])],
     keywords: article.tags.join(", "),
     author: {
       "@type": "Person",
@@ -384,7 +389,7 @@ export default async function ArticlePage({
       <article className="mt-10">
         <header>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-sfmono text-xs uppercase tracking-[0.14em] text-blue-200/65">
-            <span>{article.project}</span>
+            <span>{articleProjectLabel(article)}</span>
             <span aria-hidden="true">·</span>
             <span>{article.readingTime}</span>
           </div>
@@ -533,10 +538,10 @@ export default async function ArticlePage({
             className="rounded-xl border border-white/10 bg-white/[0.025] p-5 transition hover:border-blue-200/35 hover:bg-white/[0.045]"
           >
             <span className="font-sfmono text-xs text-blue-200/55">
-              Back to project
+              {article.relatedProjects ? "Back to featured work" : "Back to project"}
             </span>
             <span className="mt-2 block font-semibold text-white">
-              {article.project}
+              {articleProjectLabel(article)}
             </span>
           </Link>
           <Link

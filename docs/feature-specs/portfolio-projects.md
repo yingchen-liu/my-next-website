@@ -21,13 +21,19 @@ Yingchen's concrete contribution without reading like a task log.
   ownership headline, followed by one concise evidence sentence. Highlights
   MUST prioritise scale, system ownership, production impact, user value and
   verified performance outcomes over task-list wording.
+- Each featured project introduction MUST explain the design problem before the
+  technology: the ambiguous product intent or domain constraint, the system
+  boundary Yingchen defined and the trade-off that made the solution safe to
+  evolve. Technologies remain evidence for the decision rather than the point
+  of the story.
 - Each earlier-work card contains one outcome sentence and one compact skill
   line; it MUST NOT repeat long role descriptions from the experience section.
   It MUST also show the locally stored product image above the text, using a
   consistent 16:9 crop across Aimi Player, OptuSafe, and Airtasker.
 - Core-skill chips MUST communicate transferable senior-level capability, such
   as architecture, orchestration, streaming, reliability, observability,
-  connected-device systems, performance, or technical leadership.
+  connected-device systems, performance, AI-assisted engineering, or technical
+  leadership.
 - Core-skill chips MUST NOT promote routine feature work or a single provider
   integration as a headline skill. Authentication-provider integrations may
   appear in supporting contribution copy when relevant, but not as a core-skill
@@ -37,6 +43,16 @@ Yingchen's concrete contribution without reading like a task log.
 - Mapify and Henri project copy MUST state that Yingchen led their development;
   this ownership language MUST remain consistent with About, experience, and
   resume summaries.
+- Mapify, Henri and AxIT MUST each explain how AI-assisted engineering supported
+  the project. Mapify uses Cursor and Claude Code inside documented
+  architecture, review and release guardrails; Henri is the proving ground for
+  engineered vibe coding with project rules, behavioural specifications,
+  design tokens, plans and tests; AxIT uses Codex agent teams and isolated
+  worktrees for parallel research, implementation and verification while
+  keeping evidence and release acceptance distinct.
+- The Mapify and AxIT descriptions MUST also name their practice as engineered
+  vibe coding so the term is visible for all three featured projects, while the
+  supporting sentences make the safeguards concrete.
 - Mapify copy MUST lead with its verified 5M+ user and 15M+ generated-map scale
   and cover search/data architecture, summarisation architecture, resilient speech-to-text,
   production monitoring, measurable web performance, the multilingual
@@ -152,8 +168,13 @@ Yingchen's concrete contribution without reading like a task log.
   state that the platform supports more than 700 centres.
 - Every featured project shows capability-led skill chips; no chip uses a
   routine feature such as Apple/Google sign-in as the headline value.
+- Each featured project shows one AI-delivery capability chip and its
+  introduction explains the project-specific practice rather than repeating a
+  generic claim that AI made development faster.
 - All ten contribution cards render a distinct outcome-led headline before
   their supporting evidence; none opens with an unlabelled implementation list.
+- Mapify, Henri and AxIT each make at least one system boundary or architectural
+  trade-off explicit in plain language a hiring reader can understand.
 - Mapify visibly states `5M+ users` and `15M+ mind maps generated`, the newsletter/email template engine,
   affiliate settlement responsibilities, and both verified web-performance
   before/after pairs.
@@ -163,6 +184,12 @@ Yingchen's concrete contribution without reading like a task log.
 
 ## Iteration history
 
+- 2026-11-10: Added the AI-assisted delivery progression to all three featured
+  projects: Cursor/Claude Code guardrails on Mapify, engineered vibe coding on
+  Henri, and Codex agent teams with isolated worktrees on AxIT.
+- 2026-11-10: Reframed featured and earlier work around system boundaries,
+  architectural trade-offs and the path from ambiguous requirements to a
+  reliable product; stack names now support rather than lead the story.
 - 2026-11-10: The Henri introduction identifies it as an AI product built using
   AI, matching the Xmind experience and résumé.
 - 2026-11-09: Standardised the shared Kotlin Multiplatform library name as

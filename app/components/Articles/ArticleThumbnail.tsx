@@ -1,4 +1,4 @@
-import type { Article } from "@/lib/articles";
+import { articleProjectLabel, type Article } from "@/lib/articles";
 
 const projectThemes = {
   AxIT: {
@@ -188,7 +188,7 @@ export default function ArticleThumbnail({ article }: { article: Article }) {
       <div className="relative flex items-start justify-between gap-4">
         <div>
           <p className={`font-sfmono text-[10px] uppercase tracking-[0.18em] ${theme.accent}`}>
-            {article.project} · {visualLabel}
+            {articleProjectLabel(article)} · {visualLabel}
           </p>
           <p className="mt-2 line-clamp-2 max-w-md text-sm font-semibold leading-snug text-white/90">
             {article.visual.title}

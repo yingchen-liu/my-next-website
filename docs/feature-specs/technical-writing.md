@@ -10,12 +10,47 @@ or technologies he has used.
 
 - Writing MUST cover the strongest repository-supported work from current AxIT
   contributions back through Henri, Mapify and Aimi.
+- The writing index MUST position the articles as system-design case studies:
+  how an initially vague requirement became a concrete problem, which boundaries
+  and trade-offs shaped the design, what changed in production and what was
+  learned. Its topic labels MUST lead with problem framing, system design,
+  architectural trade-offs, AI-assisted engineering, cross-platform systems
+  and evidence-led delivery. The introduction MUST say that articles identify
+  where AI accelerated the work without replacing system-design judgement or
+  evidence.
 - Every article MUST use the same order: introduce the app, then the problem,
   then the discussion of the approach, then the decision, then how well it
   worked, then what was learned. Headings and “On this page” labels MUST use
   that article’s own titles. They MUST NOT be replaced with the fixed labels
   “Intro of the app”, “Problem”, “Discussion”, “Decision”, “How well it
   worked”, or “My learning”.
+- The cross-project engineered-vibe-coding article MUST open by defining the
+  method in plain language, then explain how it evolved across Mapify, Henri
+  and AxIT. This method definition replaces the single-product introduction
+  for that article. It MUST appear in all three project cards. Its public date is
+  8 November 2026, supported by the AxIT agent-guidance and verification commit
+  `c28656a92`; its history MUST also identify Henri's first retained
+  `CLAUDE.md` commit on 5 December 2025 and the January 2026 documentation and
+  reusable-skill work. It MUST describe the presentation's complete operating
+  model: AI as a capable junior team member, the engineer as lead and architect,
+  project and UI rules, Apple HIG, design tokens, reusable components, critical
+  rules, behavioural specifications, truth tables, state machines, flows, data
+  models, deployment constraints, plan review, reusable skills, debugging
+  evidence, issue/status tracking, research, audits, outcomes and lessons. It
+  MUST NOT claim that generated implementation is its own evidence.
+- The cross-project AI-debugging article MUST explain the evolution from
+  Mapify's source/database investigation, through Henri's categorised bug and
+  isolated-test workflows, to AxIT's same-case evidence contract, managed
+  simulator matrix, computer-use verification, physical-device boundary and
+  exact-build team QA. Its method definition replaces the single-product
+  introduction, and it MUST appear in the Mapify, Henri and AxIT project cards.
+  Its public date is 16 September 2026, supported by the AxIT simulator
+  layout-verification commit `7c230df4c`. It MUST define computer use as the
+  means of navigating and inspecting the real product flow, while final mobile
+  visual evidence comes from the complete simulator/emulator framebuffer. It
+  MUST NOT claim that a desktop screenshot, preview, generated capture screen,
+  simulator pass, source inspection or automated test proves a physical-device,
+  hardware, domain-expert, human-QA or release boundary.
 - The product introduction MUST open the article body, before the problem,
   the discussion and the decision. Its first paragraph MUST say, in one or two
   plain sentences, what the app does for its user. That opening MUST come
@@ -194,6 +229,12 @@ or technologies he has used.
   such as `3 November 2026`. `datePublished` uses the same value. `dateModified`
   remains the portfolio content date.
 - Dated evidence:
+  - Engineered vibe coding: 8 November 2026, `axit-ios` `c28656a92`, the
+    streamlined agent-guidance and verification contract. The historical
+    starting point is the 5 December 2025 Henri commit `1060c7ec1`, which
+    includes the first retained `CLAUDE.md`.
+  - AI debugging: 16 September 2026, `axit-ios` `7c230df4c`, the standardised
+    cross-device simulator layout-verification workflow.
   - AxIT QA: 3 November 2026, `axit-trace-review` `cd331da`, AxLib comparison
     evidence.
   - Metric contract: 24 July 2025, `axit-models-kmp` `7170ec0`, the shared
@@ -272,7 +313,11 @@ or technologies he has used.
   move?” and “What does the person see?”. The email groups are “Which sending
   domain should carry this?” and “Who receives which version?”. The affiliate
   groups are “What did the spreadsheet have to answer?” and “What does
-  automatic settlement do?”. The summarisation groups are “What comes in?” and “What comes out?”. The Mapify
+  automatic settlement do?”. The summarisation groups are “What comes in?” and
+  “What comes out?”. The engineered-vibe-coding groups are “What does the
+  engineer decide?” and “How does AI execute safely?”. The AI-debugging groups
+  are “Why could a plausible patch still be wrong?” and “What makes the fix
+  reproducible?”. The Mapify
   performance article keeps its before/after comparison. The Aimi article keeps
   its measured outcome snapshot.
 - A screenshot MUST appear inside the section whose point it illustrates. It
@@ -313,6 +358,10 @@ or technologies he has used.
   source repository or additional verified public product evidence is
   available. It MUST retain its existing public project image and code-native
   outcome visual rather than inventing evidence.
+- The engineered-vibe-coding article is also exempt from the extra-screenshot
+  requirement. Its source presentation contains internal or Chinese-labelled
+  working views that MUST NOT be published; the English two-phase operating
+  model diagram carries the explanation instead.
 - Each card on `/articles` MUST use a thumbnail derived from that article's own
   explanatory visual. Sibling articles MUST NOT repeat their shared project
   hero image as the card thumbnail. Flow, comparison and metric thumbnails MUST
@@ -489,6 +538,9 @@ or technologies he has used.
 
 ## Iteration history
 
+- 2026-11-10: Added AI-assisted engineering as a first-class Writing topic and
+  required the index to distinguish implementation acceleration from the human
+  judgement and evidence behind each decision.
 - 2026-11-10: The affiliate article is a requirements, system-design and data
   model piece. Settlement was a manual Excel sheet. The system stores a
   partner, an agreement, each paid invoice and a status history, and an

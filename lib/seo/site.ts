@@ -2,22 +2,23 @@ import type { Metadata } from "next";
 
 export const siteUrl = "https://yingchenliu.com";
 export const siteName = "Yingchen Liu";
-export const siteTitle = "Yingchen Liu | Senior Full-Stack & AI Engineer";
+export const siteTitle =
+  "Yingchen Liu | Senior Full-Stack Engineer & System Designer";
 export const siteLocale = "en_AU";
 export const siteLanguage = "en-AU";
 export const linkedInUrl = "https://www.linkedin.com/in/yingchen-liu/";
-export const contentLastModified = "2026-11-09";
+export const contentLastModified = "2026-11-10";
 export const socialImageAlt =
-  "Yingchen Liu - Senior Full-Stack and AI Engineer";
+  "Yingchen Liu - Senior Full-Stack Engineer and System Designer";
 
 export const siteDescription =
-  "Yingchen Liu is a Melbourne-based senior full-stack and AI engineer who architects end-to-end, cross-platform products and improves the workflows and coordination that help teams deliver them.";
+  "Yingchen Liu is a senior full-stack engineer who combines system-design judgement with AI-assisted engineering to turn ambiguous requirements into scalable products across web, mobile, backend and cloud.";
 
 export const homeDescription =
-  "Senior full-stack and AI engineer combining broad cross-platform architecture with practical workflow and team-coordination improvements across web, mobile, backend and cloud.";
+  "Senior full-stack engineer specialising in system design, architectural trade-offs and AI-assisted delivery across web, mobile, backend and cloud.";
 
 export const resumeDescription =
-  "Résumé of Yingchen Liu, a Melbourne-based senior full-stack, AI and mobile engineer experienced in React, TypeScript, Swift, Kotlin, AWS and GCP.";
+  "Résumé of Yingchen Liu, a senior full-stack engineer specialising in system design, AI-assisted engineering and cross-platform delivery across web, mobile, backend and cloud.";
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
